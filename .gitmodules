@@ -1,4 +1,0 @@
-[submodule "volttron"]
-	path = volttron
-	url = https://github.com/volttron/volttron
-	branch = main
