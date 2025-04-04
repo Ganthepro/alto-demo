@@ -8,7 +8,7 @@ import logging
 import sys
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
-from volttron.platform.scheduling import periodic, cron
+from volttron.platform.scheduling import periodic
 
 # import time
 

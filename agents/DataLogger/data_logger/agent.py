@@ -141,13 +141,11 @@ class DataLogger(Agent):
             online_status=body["online_status"],
             sensitivity=body["sensitivity"],
             datetime=body["datetime"],
-            presence_state=body["presence_state"]
+            presence_state=body["presence_state"],
+            device_id=body["id"]
         )
         self.session.add(payload)
         self.session.commit()
-        data = self.session.query(LifeBeingsRawData).all()[-1]
-        data_dict = data.to_dict()
-        _log.info("Query: {}".format(data_dict))
 
     def insert_iaq(self, body):
         datetime_str = body['datetime']
@@ -243,13 +241,10 @@ class LifeBeingsRawData(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     online_status = Column(String())
-    sensitivity = Column(Integer(), nullable=False)
+    sensitivity = Column(String(), nullable=False)
     datetime = Column(String(), nullable=False)
     presence_state = Column(String())
-
-    __table_args__ = (
-        CheckConstraint('sensitivity >= 0 AND sensitivity <= 100', name='sensitivity_range'),
-    )
+    device_id = Column(String())
 
     def to_dict(self):
         """Convert the model instance to a dictionary with custom formatting."""

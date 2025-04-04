@@ -8,6 +8,7 @@ import logging
 import sys
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
+from volttron.platform.scheduling import periodic
 
 _log = logging.getLogger(__name__)
 utils.setup_logging()
@@ -32,10 +33,11 @@ def lifebeing(config_path, **kwargs):
     if not config:
         _log.info("Using Agent defaults for starting configuration.")
 
-    setting1 = int(config.get('setting1', 1))
-    setting2 = config.get('setting2', "some/random/topic")
+    time = int(config.get('time', 5))
+    topic = config.get('topic', "iaq/data")
+    data = config.get('data', [])
 
-    return Lifebeing(setting1, setting2, **kwargs)
+    return Lifebeing(time, topic, data, **kwargs)
 
 
 class Lifebeing(Agent):
@@ -43,15 +45,17 @@ class Lifebeing(Agent):
     Document agent constructor here.
     """
 
-    def __init__(self, setting1=1, setting2="some/random/topic", **kwargs):
+    def __init__(self, time=5, topic="lifebeing/data", data=[], **kwargs):
         super(Lifebeing, self).__init__(**kwargs)
         _log.debug("vip_identity: " + self.core.identity)
 
-        self.setting1 = setting1
-        self.setting2 = setting2
+        self.time = time
+        self.topic = topic
+        self.data = data
 
-        self.default_config = {"setting1": setting1,
-                               "setting2": setting2}
+        self.default_config = {"time": time,
+                               "topic": topic,
+                               "data": data}
 
         # Set a default configuration to ensure that self.configure is called immediately to setup
         # the agent.
@@ -72,16 +76,18 @@ class Lifebeing(Agent):
         _log.debug("Configuring Agent")
 
         try:
-            setting1 = int(config["setting1"])
-            setting2 = str(config["setting2"])
+            time = int(config["time"])
+            topic = str(config["topic"])
+            data = list(config["data"])
         except ValueError as e:
             _log.error("ERROR PROCESSING CONFIGURATION: {}".format(e))
             return
 
-        self.setting1 = setting1
-        self.setting2 = setting2
+        self.time = time
+        self.topic = topic
+        self.data = data
 
-        self._create_subscriptions(self.setting2)
+        self._create_subscriptions(self.topic)
 
     def _create_subscriptions(self, topic):
         """
@@ -100,6 +106,29 @@ class Lifebeing(Agent):
         """
         pass
 
+    def _read_csv(self, config_name):
+        try:
+            data: list[dict] = self.vip.config.get(config_name)
+                
+            _log.info(f"Successfully read {len(data)} rows from {config_name}")
+            return config_name, data
+            
+        except Exception as e:
+            _log.error(f"Error reading CSV file: {str(e)}")
+            return None, None
+        
+    def _boardcast(self, config_name, data):
+        # for data in data:
+        payload = {
+            "online_status": data["online_status"],
+            "sensitivity": data["sensitivity"],
+            "datetime": data["datetime"],
+            "presence_state": data["presence_state"],
+            "id": config_name
+        }
+        self.vip.pubsub.publish('pubsub', self.topic, message=payload)
+        # _log.info(f"Broadcasting data: {payload}, to topic: {self.topic}")
+
     @Core.receiver("onstart")
     def onstart(self, sender, **kwargs):
         """
@@ -113,9 +142,12 @@ class Lifebeing(Agent):
         # Example publish to pubsub
         self.vip.pubsub.publish('pubsub', "some/random/topic", message="HI!")
 
+        for config_name in self.data:
+            config, data = self._read_csv(config_name)
+            self.core.schedule(periodic(self.time), self._boardcast, config, data[0])
+
         # Example RPC call
         # self.vip.rpc.call("some_agent", "some_method", arg1, arg2)
-        pass
 
     @Core.receiver("onstop")
     def onstop(self, sender, **kwargs):
