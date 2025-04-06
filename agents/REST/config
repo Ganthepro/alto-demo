@@ -1,0 +1,7 @@
+{
+    "agents": ["iaq", "lifebeing"],
+    "username": "postgres",
+    "host": "localhost",
+    "database": "postgres",
+    "password": "P@ssw0rd!"
+}

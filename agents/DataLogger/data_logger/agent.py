@@ -6,6 +6,7 @@ __docformat__ = 'reStructuredText'
 
 import logging
 import sys
+import json
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
 from sqlalchemy import create_engine
@@ -16,11 +17,11 @@ import pytz
 from sqlalchemy import Column, Integer, String, TIMESTAMP, UUID, CheckConstraint
 import uuid
 
+Base = declarative_base()
+
 _log = logging.getLogger(__name__)
 utils.setup_logging()
 __version__ = "0.1"
-
-Base = declarative_base()
 
 def data_logger(config_path, **kwargs):
     """
@@ -62,7 +63,7 @@ def data_logger(config_path, **kwargs):
 
 
 class DataLogger(Agent):
-    def __init__(self, session, username, host, database, password, topic, **kwargs):
+    def __init__(self, session: sessionmaker, username, host, database, password, topic, **kwargs):
         super(DataLogger, self).__init__(**kwargs)
         _log.debug("vip_identity: " + self.core.identity)
 
@@ -177,9 +178,6 @@ class DataLogger(Agent):
         self.session.add(humidity)
         self.session.add(co2)
         self.session.commit()
-        # data = self.session.query(IaqRawData).all()[-1]
-        # data_dict = data.to_dict()
-        # _log.info("Query: {}".format(data_dict))
 
     @Core.receiver("onstart")
     def onstart(self, sender, **kwargs):
@@ -207,16 +205,30 @@ class DataLogger(Agent):
         pass
 
     @RPC.export
-    def rpc_method(self, arg1, arg2, kwarg1=None, kwarg2=None):
+    def query_iaq(self):
         """
         RPC method
 
         May be called from another agent via self.core.rpc.call
         """
-        return self.setting1 + arg1 - arg2
+        query = self.session.query(IaqRawData).all()[-1]
+        _log.info(f"IAQ query: {query.to_dict()}")
+        return json.dumps(query.to_dict())
+        # return self.session.query(IaqRawData).all()
+    
+    @RPC.export
+    def query_life_beings(self):
+        """
+        RPC method
 
+        May be called from another agent via self.core.rpc.call
+        """
+        query = self.session.query(LifeBeingsRawData).all()[-1]
+        _log.info(f"Life beings query: {query.to_dict()}")
+        return json.dumps(query.to_dict())
+    
 class IaqRawData(Base):
-    __tablename__ = 'iaq_raw_data'
+    __tablename__ = 'iaq'
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     device_id = Column(String())
@@ -228,7 +240,7 @@ class IaqRawData(Base):
     def to_dict(self):
         """Convert the model instance to a dictionary with custom formatting."""
         return {
-            'id': self.id,
+            'id': str(self.id),
             'timestamp': str(self.timestamp),  
             'datetime': str(self.datetime),
             'datapoint': self.datapoint,
@@ -237,7 +249,7 @@ class IaqRawData(Base):
         }
     
 class LifeBeingsRawData(Base):
-    __tablename__ = 'life_beings_raw_data'
+    __tablename__ = 'lifebeing'
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     online_status = Column(String())
@@ -249,7 +261,7 @@ class LifeBeingsRawData(Base):
     def to_dict(self):
         """Convert the model instance to a dictionary with custom formatting."""
         return {
-            'id': self.id,
+            'id': str(self.id),
             'online_status': self.online_status,
             'sensitivity': self.sensitivity,
             'datetime': self.datetime,
