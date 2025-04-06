@@ -52,6 +52,8 @@ class Ac(Agent):
 
         self.default_config = {"setting1": setting1,
                                "setting2": setting2}
+        
+        self._state = False
 
         # Set a default configuration to ensure that self.configure is called immediately to setup
         # the agent.
@@ -126,13 +128,9 @@ class Ac(Agent):
         pass
 
     @RPC.export
-    def rpc_method(self, arg1, arg2, kwarg1=None, kwarg2=None):
-        """
-        RPC method
-
-        May be called from another agent via self.core.rpc.call
-        """
-        return self.setting1 + arg1 - arg2
+    def switch_ac(self):
+        self._state = not self._state
+        return self._state
 
 
 def main():

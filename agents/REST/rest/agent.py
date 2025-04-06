@@ -114,6 +114,10 @@ class Rest(Agent):
         """
         pass
 
+    def _handle_query_ac(self, env, data):
+        response = self.vip.rpc.call("ac", "switch_ac").get()
+        return response
+
     @Core.receiver("onstart")
     def onstart(self, sender, **kwargs):
         """
@@ -129,8 +133,10 @@ class Rest(Agent):
 
         self.vip.web.register_endpoint("/iaq", self._handle_query_iaq)
         self.vip.web.register_endpoint("/lifebeing", self._handle_query_life_beings)
+        self.vip.web.register_endpoint("/ac", self._handle_query_ac)
         self.vip.web.register_websocket(endpoint="/ws/iaq")
         self.vip.web.register_websocket(endpoint="/ws/lifebeing")
+        self.vip.web.register_websocket(endpoint="/ws/ac")
 
         self.core.schedule(periodic(5), self._send_websocket_message)
 
