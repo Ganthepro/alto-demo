@@ -214,10 +214,9 @@ class DataLogger(Agent):
         query = self.session.query(IaqRawData).all()[-1]
         _log.info(f"IAQ query: {query.to_dict()}")
         return json.dumps(query.to_dict())
-        # return self.session.query(IaqRawData).all()
     
     @RPC.export
-    def query_life_beings(self):
+    def query_lifebeing(self):
         """
         RPC method
 

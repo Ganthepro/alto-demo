@@ -8,22 +8,21 @@ import logging
 import sys
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
-from volttron.platform.scheduling import periodic
-import json
 
 _log = logging.getLogger(__name__)
 utils.setup_logging()
 __version__ = "0.1"
 
-def rest(config_path, **kwargs):
+
+def ac(config_path, **kwargs):
     """
     Parses the Agent configuration and returns an instance of
     the agent created using that configuration.
 
     :param config_path: Path to a configuration file.
     :type config_path: str
-    :returns: Rest
-    :rtype: Rest
+    :returns: Ac
+    :rtype: Ac
     """
     try:
         config = utils.load_config(config_path)
@@ -33,45 +32,32 @@ def rest(config_path, **kwargs):
     if not config:
         _log.info("Using Agent defaults for starting configuration.")
 
-    agents = config.get('agents', [])
+    setting1 = int(config.get('setting1', 1))
+    setting2 = config.get('setting2', "some/random/topic")
 
-    return Rest(agents, **kwargs)
+    return Ac(setting1, setting2, **kwargs)
 
 
-class Rest(Agent):
+class Ac(Agent):
     """
     Document agent constructor here.
     """
 
-    def __init__(self, agents, **kwargs):
-        super(Rest, self).__init__(enable_web=True, **kwargs)
+    def __init__(self, setting1=1, setting2="some/random/topic", **kwargs):
+        super(Ac, self).__init__(**kwargs)
         _log.debug("vip_identity: " + self.core.identity)
 
-        self.default_config = {"agents": agents}
+        self.setting1 = setting1
+        self.setting2 = setting2
+
+        self.default_config = {"setting1": setting1,
+                               "setting2": setting2}
 
         # Set a default configuration to ensure that self.configure is called immediately to setup
         # the agent.
         self.vip.config.set_default("config", self.default_config)
         # Hook self.configure up to changes to the configuration file "config".
         self.vip.config.subscribe(self.configure, actions=["NEW", "UPDATE"], pattern="config")
-
-    def _handle_query_iaq(self, env, data):
-        response = self.vip.rpc.call("data_logger", "query_iaq").get()
-        return response
-    
-    def _handle_query_life_beings(self, env, data):
-        response = self.vip.rpc.call("data_logger", "query_lifebeing").get()
-        return response
-    
-    def _send_websocket_message(self):
-        iaq = self.vip.rpc.call("data_logger", "query_iaq").get()
-        lifebeing = self.vip.rpc.call("data_logger", "query_lifebeing").get()
-        self.vip.web.send("/ws/iaq", iaq)
-        self.vip.web.send("/ws/lifebeing", lifebeing)
-
-    def _send_websocket_message_lifebeing(self):
-        response = self.vip.rpc.call("data_logger", "query_lifebeing").get()
-        self.vip.web.send("/ws/lifebeing", response)
 
     def configure(self, config_name, action, contents):
         """
@@ -127,13 +113,6 @@ class Rest(Agent):
         # Example publish to pubsub
         self.vip.pubsub.publish('pubsub', "some/random/topic", message="HI!")
 
-        self.vip.web.register_endpoint("/iaq", self._handle_query_iaq)
-        self.vip.web.register_endpoint("/lifebeing", self._handle_query_life_beings)
-        self.vip.web.register_websocket(endpoint="/ws/iaq")
-        self.vip.web.register_websocket(endpoint="/ws/lifebeing")
-
-        self.core.schedule(periodic(5), self._send_websocket_message)
-
         # Example RPC call
         # self.vip.rpc.call("some_agent", "some_method", arg1, arg2)
         pass
@@ -158,7 +137,7 @@ class Rest(Agent):
 
 def main():
     """Main method called to start the agent."""
-    utils.vip_main(rest, 
+    utils.vip_main(ac, 
                    version=__version__)
 
 
