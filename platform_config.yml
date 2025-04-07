@@ -20,15 +20,15 @@ agents:
     config: $CONFIG/ac.config
     tag: ac
 
-  rest:
-    source: $VOLTTRON_ROOT/agents/REST
-    config: $CONFIG/rest.config
-    tag: rest
-
   data_logger:
     source: $VOLTTRON_ROOT/agents/DataLogger
     config: $CONFIG/data_logger.config
     tag: data_logger
+
+  rest:
+    source: $VOLTTRON_ROOT/agents/REST
+    config: $CONFIG/rest.config
+    tag: rest
 
   lifebeing:
     source: $VOLTTRON_ROOT/agents/Lifebeing

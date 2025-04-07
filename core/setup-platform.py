@@ -85,6 +85,16 @@ def _install_web_deps(bind_web_address):
         print(f"Installing packages for web platform: {web_plt_pack}")
         subprocess.check_call(install_cmd)
 
+def _install_postgres():
+    print("Installing packages for postgres")
+    from requirements import extras_require as extras
+
+    postgres_pack = extras.get("postgres", None)
+    install_cmd = ["pip3", "install"]
+    install_cmd.extend(postgres_pack)
+    if install_cmd is not None:
+        print(f"Installing packages for postgres: {postgres_pack}")
+        subprocess.check_call(install_cmd)
 
 def _create_platform_config_file(platform_cfg, cfg_path):
     if not os.path.exists(cfg_path) and len(platform_cfg) > 0:
@@ -199,7 +209,7 @@ def _setup_rmq(platform_cfg):
 def configure_platform(platform_cfg, config):
     # install required dependencies (this is temporary due to setup.py of volttron)
     _install_required_deps()
-
+    _install_postgres()
     # install web dependencies if web-enabled
     bind_web_address = platform_cfg.get("bind-web-address", None)
     if bind_web_address is not None:

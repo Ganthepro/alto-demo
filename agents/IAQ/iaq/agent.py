@@ -118,10 +118,10 @@ class Iaq(Agent):
     def onstart(self, sender, **kwargs):
         self.vip.pubsub.publish('pubsub', "some/random/topic", message="HI!")        
         for config_name in self.data:
-            config, data = self._read_csv(config_name)
-            self.core.schedule(periodic(self.time), self._boardcast, config, data[0])
+            # config, data = self._read_csv(config_name)
+            self.core.schedule(periodic(self.time), self._boardcast, config_name)
 
-    def _boardcast(self, config_name, data):
+    def _boardcast(self, config_name):
         payload = {
             "datetime": dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"),
             "temperature": "20",

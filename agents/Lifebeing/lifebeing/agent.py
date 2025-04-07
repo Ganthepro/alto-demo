@@ -108,7 +108,7 @@ class Lifebeing(Agent):
             _log.error(f"Error reading CSV file: {str(e)}")
             return None, None
         
-    def _boardcast(self, config_name, data):
+    def _boardcast(self, config_name):
         payload = {
             "online_status": "online",
             "sensitivity": "100",
@@ -123,8 +123,8 @@ class Lifebeing(Agent):
         self.vip.pubsub.publish('pubsub', "some/random/topic", message="HI!")
 
         for config_name in self.data:
-            config, data = self._read_csv(config_name)
-            self.core.schedule(periodic(self.time), self._boardcast, config, data[0])
+            # config, data = self._read_csv(config_name)
+            self.core.schedule(periodic(self.time), self._boardcast, config_name)
 
     @Core.receiver("onstop")
     def onstop(self, sender, **kwargs):

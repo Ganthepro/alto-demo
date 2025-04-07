@@ -19,14 +19,12 @@ then
     echo "Container already initialized, skipping setup-platform.py"
 else
     echo "Initializing container. Running setup-platform.py to setup the Volttron platform for the first and only time for this container..."
-
     python3 /startup/setup-platform.py
     setup_return=$?
     if [[ $setup_return -ne 0 ]]; then
 	    echo "error running setup-platform.py"
 	    exit $setup_return
     fi
-    pip install -r /startup/requirements.txt
     echo "Setup of Volttron platform is complete."
 
 fi
