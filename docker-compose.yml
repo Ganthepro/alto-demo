@@ -13,6 +13,7 @@ services:
       - ./platform_config.yml:/platform_config.yml
       - ./configs:/home/volttron/configs
       - volttron1-volume:/home/volttron/db
+      - ./agents:/code/volttron/agents
     environment:
       - CONFIG=/home/volttron/configs
       - LOCAL_USER_ID=1000

@@ -9,8 +9,7 @@ import sys
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
 from volttron.platform.scheduling import periodic
-
-# import time
+import datetime as dt
 
 _log = logging.getLogger(__name__)
 utils.setup_logging()
@@ -113,38 +112,24 @@ class Iaq(Agent):
                                   
 
     def _handle_publish(self, peer, sender, bus, topic, headers, message):
-        """
-        Callback triggered by the subscription setup using the topic from the agent's config file
-        """
         pass
 
     @Core.receiver("onstart")
     def onstart(self, sender, **kwargs):
-        """
-        This is method is called once the Agent has successfully connected to the platform.
-        This is a good place to setup subscriptions if they are not dynamic or
-        do any other startup activities that require a connection to the message bus.
-        Called after any configurations methods that are called at startup.
-
-        Usually not needed if using the configuration store.
-        """
-        # Example publish to pubsub
         self.vip.pubsub.publish('pubsub', "some/random/topic", message="HI!")        
         for config_name in self.data:
             config, data = self._read_csv(config_name)
             self.core.schedule(periodic(self.time), self._boardcast, config, data[0])
 
     def _boardcast(self, config_name, data):
-        # for data in data:
         payload = {
-            "datetime": data["datetime"],
-            "temperature": data["temperature"],
-            "humidity": data["humidity"],
-            "co2": data["co2"],
+            "datetime": dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"),
+            "temperature": "20",
+            "humidity": "50",
+            "co2": "400",
             "id": config_name
         }
         self.vip.pubsub.publish('pubsub', self.topic, message=payload)
-        # _log.info(f"Broadcasting data: {payload}, to topic: {self.topic}")
 
     @Core.receiver("onstop")
     def onstop(self, sender, **kwargs):

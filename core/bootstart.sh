@@ -12,7 +12,6 @@ printenv
 #Check if the config file is already there and don't run setup-platform.py
 # if it is. Otherwise, the startup errors out when setup-platform.py tries
 # to write new certificates.
-
 VOLTTRON_CONFIG=${VOLTTRON_HOME}"/config"
 
 if [[ -e $VOLTTRON_CONFIG ]]
@@ -27,7 +26,7 @@ else
 	    echo "error running setup-platform.py"
 	    exit $setup_return
     fi
-
+    pip install -r /startup/requirements.txt
     echo "Setup of Volttron platform is complete."
 
 fi

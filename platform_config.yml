@@ -15,56 +15,27 @@ config:
 # Agents dictionary to install. The key must be a valid
 # identity for the agent to be installed correctly.
 agents:
+  ac:
+    source: $VOLTTRON_ROOT/agents/AC
+    config: $CONFIG/ac.config
+    tag: ac
 
-  # Each agent identity.config file should be in the configs
-  # directory and will be used to install the agent.
-  listener:
-    source: $VOLTTRON_ROOT/examples/ListenerAgent
-    config: $CONFIG/listener.config
-    tag: listener
+  rest:
+    source: $VOLTTRON_ROOT/agents/REST
+    config: $CONFIG/rest.config
+    tag: rest
 
-  platform.driver:
-    source: $VOLTTRON_ROOT/services/core/PlatformDriverAgent
-    config_store:
-      fake.csv:
-        file: $VOLTTRON_ROOT/examples/configurations/drivers/fake.csv
-        type: --csv
-      devices/fake-campus/fake-building/fake-device:
-        file: $VOLTTRON_ROOT/examples/configurations/drivers/fake.config
-    tag: driver
+  data_logger:
+    source: $VOLTTRON_ROOT/agents/DataLogger
+    config: $CONFIG/data_logger.config
+    tag: data_logger
 
-  # TLDR: If you want to install a Volttron Central Platform agent, you must first install the
-  # Platform Driver before installing VCP agent
-  # Additional: VolttronCentralPlatform requires Bacpypes, which gets installed only when Platform Driver is installed.
-  # This is an unfortunate and not ideal setup, however, this issue will be addresed in a later PR so that VCP Agent
-  # can be installed on its own without having to install Platform Driver first.
-  platform.agent:
-    source: $VOLTTRON_ROOT/services/core/VolttronCentralPlatform
-    config: $CONFIG/vcp.config
-    tag: vcp
+  lifebeing:
+    source: $VOLTTRON_ROOT/agents/Lifebeing
+    config: $CONFIG/lifebeing.config
+    tag: lifebeing
 
-  platform.actuator:
-    source: $VOLTTRON_ROOT/services/core/ActuatorAgent
-    tag: actuator
-
-  platform.historian:
-    source: $VOLTTRON_ROOT/services/core/SQLHistorian
-    config: $CONFIG/historian.config
-    tag: historian
-
-  volttron.central:
-    source: $VOLTTRON_ROOT/services/core/VolttronCentral
-    config: $CONFIG/vc.config
-    tag: vc
-
-#  weather:
-#    source: $VOLTTRON_ROOT/examples/DataPublisher
-#    config: $CONFIG/weather.config
-
-#  price:
-#    source: $VOLTTRON_ROOT/examples/DataPublisher
-#    config: $CONFIG/price.config
-
-#  platform.bacnet_proxy:
-#    source: $VOLTTRON_ROOT/services/core/BACnetProxy
-#    config: $CONFIG/bacnet-proxy.json
+  iaq:
+    source: $VOLTTRON_ROOT/agents/IAQ
+    config: $CONFIG/iaq.config
+    tag: iaq

@@ -6,6 +6,7 @@ __docformat__ = 'reStructuredText'
 
 import logging
 import sys
+import datetime as dt
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
 from volttron.platform.scheduling import periodic
@@ -14,17 +15,7 @@ _log = logging.getLogger(__name__)
 utils.setup_logging()
 __version__ = "0.1"
 
-
 def lifebeing(config_path, **kwargs):
-    """
-    Parses the Agent configuration and returns an instance of
-    the agent created using that configuration.
-
-    :param config_path: Path to a configuration file.
-    :type config_path: str
-    :returns: Lifebeing
-    :rtype: Lifebeing
-    """
     try:
         config = utils.load_config(config_path)
     except Exception:
@@ -118,36 +109,22 @@ class Lifebeing(Agent):
             return None, None
         
     def _boardcast(self, config_name, data):
-        # for data in data:
         payload = {
-            "online_status": data["online_status"],
-            "sensitivity": data["sensitivity"],
-            "datetime": data["datetime"],
-            "presence_state": data["presence_state"],
+            "online_status": "online",
+            "sensitivity": "100",
+            "datetime": dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"),
+            "presence_state": "unoccupied",
             "id": config_name
         }
         self.vip.pubsub.publish('pubsub', self.topic, message=payload)
-        # _log.info(f"Broadcasting data: {payload}, to topic: {self.topic}")
 
     @Core.receiver("onstart")
     def onstart(self, sender, **kwargs):
-        """
-        This is method is called once the Agent has successfully connected to the platform.
-        This is a good place to setup subscriptions if they are not dynamic or
-        do any other startup activities that require a connection to the message bus.
-        Called after any configurations methods that are called at startup.
-
-        Usually not needed if using the configuration store.
-        """
-        # Example publish to pubsub
         self.vip.pubsub.publish('pubsub', "some/random/topic", message="HI!")
 
         for config_name in self.data:
             config, data = self._read_csv(config_name)
             self.core.schedule(periodic(self.time), self._boardcast, config, data[0])
-
-        # Example RPC call
-        # self.vip.rpc.call("some_agent", "some_method", arg1, arg2)
 
     @Core.receiver("onstop")
     def onstop(self, sender, **kwargs):

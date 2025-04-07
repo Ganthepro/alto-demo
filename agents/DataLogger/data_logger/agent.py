@@ -9,15 +9,10 @@ import sys
 import json
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
-from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
-from sqlalchemy.engine import URL
 from datetime import datetime as dt
 import pytz
-from sqlalchemy import Column, Integer, String, TIMESTAMP, UUID, CheckConstraint
 import uuid
-
-Base = declarative_base()
+import psycopg2
 
 _log = logging.getLogger(__name__)
 utils.setup_logging()
@@ -47,35 +42,30 @@ def data_logger(config_path, **kwargs):
     password = config.get('password', "")
     topic = config.get('topic', [])
 
-    url = URL.create(
-        drivername="postgresql",
-        username=username,
+    conn = psycopg2.connect(
         host=host,
         database=database,
+        user=username,
         password=password
     )
-    engine = create_engine(url)
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    cur = conn.cursor()
 
-    return DataLogger(session, username, host, database, password, topic, **kwargs)
-
+    return DataLogger(conn, cur, username, host, database, password, topic, **kwargs)
 
 class DataLogger(Agent):
-    def __init__(self, session: sessionmaker, username, host, database, password, topic, **kwargs):
+    def __init__(self, conn: psycopg2.extensions.connection, cur: psycopg2.extensions.cursor, username, host, database, password, topic, **kwargs):
         super(DataLogger, self).__init__(**kwargs)
         _log.debug("vip_identity: " + self.core.identity)
 
-        self.session = session
+        self.conn = conn
+        self.cur = cur
         self.username = username
         self.host = host
         self.database = database
         self.password = password
         self.topic = topic    
 
-        self.default_config = {"session": session,
-                               "username": username,
+        self.default_config = {"username": username,
                                "host": host,
                                "database": database,
                                "password": password,
@@ -134,75 +124,61 @@ class DataLogger(Agent):
             self.insert_life_beings(message)
         elif topic == "iaq/data":
             self.insert_iaq(message)
-        # self.insert(message)
-
 
     def insert_life_beings(self, body):
-        payload = LifeBeingsRawData(
-            online_status=body["online_status"],
-            sensitivity=body["sensitivity"],
-            datetime=body["datetime"],
-            presence_state=body["presence_state"],
-            device_id=body["id"]
-        )
-        self.session.add(payload)
-        self.session.commit()
+        insert_life_beings_query = """
+            INSERT INTO lifebeing (id, device_id, online_status, sensitivity, datetime, presence_state)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """
+        self.cur.execute(insert_life_beings_query, (str(uuid.uuid4()), body["id"], body["online_status"], body["sensitivity"], body["datetime"], body["presence_state"]))
+        self.conn.commit()
 
     def insert_iaq(self, body):
         datetime_str = body['datetime']
         date_time = dt.strptime(datetime_str, "%Y-%m-%d %H:%M:%S.%f")
         timestamp = int(date_time.replace(tzinfo=pytz.UTC).timestamp())
         datetime_timestamptz = date_time.replace(tzinfo=pytz.UTC)
-        temperature = IaqRawData(
-            device_id=body["id"],
-            timestamp=timestamp,
-            datetime=datetime_timestamptz,
-            datapoint="temperature",
-            value=body["temperature"]
-        )
-        humidity = IaqRawData(
-            device_id=body["id"],
-            timestamp=timestamp,
-            datetime=datetime_timestamptz,
-            datapoint="humidity",
-            value=body["humidity"]
-        )
-        co2 = IaqRawData(
-            device_id=body["id"],
-            timestamp=timestamp,
-            datetime=datetime_timestamptz,
-            datapoint="co2",
-            value=body["co2"]
-        )
-        self.session.add(temperature)
-        self.session.add(humidity)
-        self.session.add(co2)
-        self.session.commit()
+        
+        insert_iaq_query = """
+            INSERT INTO public.iaq
+            (id, device_id, "timestamp", datetime, datapoint, value)
+            VALUES(%s, %s, %s, %s, %s, %s);
+        """
+        queries = [
+            (str(uuid.uuid4()), body["id"], timestamp, datetime_timestamptz, "temperature", body["temperature"]),
+            (str(uuid.uuid4()), body["id"], timestamp, datetime_timestamptz, "humidity", body["humidity"]),
+            (str(uuid.uuid4()), body["id"], timestamp, datetime_timestamptz, "co2", body["co2"])
+        ]
+        self.cur.executemany(insert_iaq_query, queries)
+        self.conn.commit()
 
     @Core.receiver("onstart")
     def onstart(self, sender, **kwargs):
-        """
-        This is method is called once the Agent has successfully connected to the platform.
-        This is a good place to setup subscriptions if they are not dynamic or
-        do any other startup activities that require a connection to the message bus.
-        Called after any configurations methods that are called at startup.
+        create_tables_query = """
+            CREATE TABLE IF NOT EXISTS iaq (
+                id UUID PRIMARY KEY,
+                device_id VARCHAR DEFAULT NULL,
+                timestamp INTEGER NOT NULL,
+                datetime TIMESTAMP NOT NULL,
+                datapoint VARCHAR NOT NULL DEFAULT '',
+                value VARCHAR NOT NULL DEFAULT ''
+            );
+            CREATE TABLE IF NOT EXISTS lifebeing (
+                id UUID PRIMARY KEY,
+                online_status VARCHAR DEFAULT NULL,
+                sensitivity VARCHAR NOT NULL DEFAULT '',
+                datetime VARCHAR NOT NULL DEFAULT '',
+                presence_state VARCHAR DEFAULT NULL,
+                device_id VARCHAR DEFAULT NULL
+            );"""
+        self.cur.execute(create_tables_query)
+        self.conn.commit()
 
-        Usually not needed if using the configuration store.
-        """
-        # Example publish to pubsub
-        self.vip.pubsub.publish('pubsub', "some/random/topic", message="HI!")
-
-        # Example RPC call
-        # self.vip.rpc.call("some_agent", "some_method", arg1, arg2)
-        pass
 
     @Core.receiver("onstop")
     def onstop(self, sender, **kwargs):
-        """
-        This method is called when the Agent is about to shutdown, but before it disconnects from
-        the message bus.
-        """
-        pass
+        self.cur.close()
+        self.conn.close()
 
     @RPC.export
     def query_iaq(self):
@@ -211,9 +187,12 @@ class DataLogger(Agent):
 
         May be called from another agent via self.core.rpc.call
         """
-        query = self.session.query(IaqRawData).all()[-1]
-        _log.info(f"IAQ query: {query.to_dict()}")
-        return json.dumps(query.to_dict())
+        self.cur.execute("SELECT * FROM iaq ORDER BY datetime DESC LIMIT 1")
+        query = self.cur.fetchone()
+        query = dict(zip([i[0] for i in self.cur.description], query))
+        query["datetime"] = query["datetime"].strftime("%Y-%m-%d %H:%M:%S.%f")
+        _log.info(f"IAQ query: {query}")
+        return json.dumps(query)
     
     @RPC.export
     def query_lifebeing(self):
@@ -222,50 +201,10 @@ class DataLogger(Agent):
 
         May be called from another agent via self.core.rpc.call
         """
-        query = self.session.query(LifeBeingsRawData).all()[-1]
-        _log.info(f"Life beings query: {query.to_dict()}")
-        return json.dumps(query.to_dict())
-    
-class IaqRawData(Base):
-    __tablename__ = 'iaq'
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    device_id = Column(String())
-    timestamp = Column(Integer(), nullable=False)
-    datetime = Column(TIMESTAMP, nullable=False)
-    datapoint = Column(String(), nullable=False)
-    value = Column(String(), nullable=False)
-
-    def to_dict(self):
-        """Convert the model instance to a dictionary with custom formatting."""
-        return {
-            'id': str(self.id),
-            'timestamp': str(self.timestamp),  
-            'datetime': str(self.datetime),
-            'datapoint': self.datapoint,
-            'value': self.value,
-            'device_id': self.device_id
-        }
-    
-class LifeBeingsRawData(Base):
-    __tablename__ = 'lifebeing'
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    online_status = Column(String())
-    sensitivity = Column(String(), nullable=False)
-    datetime = Column(String(), nullable=False)
-    presence_state = Column(String())
-    device_id = Column(String())
-
-    def to_dict(self):
-        """Convert the model instance to a dictionary with custom formatting."""
-        return {
-            'id': str(self.id),
-            'online_status': self.online_status,
-            'sensitivity': self.sensitivity,
-            'datetime': self.datetime,
-            'presence_state': self.presence_state
-        }
+        self.cur.execute("SELECT * FROM lifebeing ORDER BY datetime DESC LIMIT 1")
+        query = self.cur.fetchone()
+        _log.info(f"Life beings query: {query}")
+        return json.dumps(query)
 
 def main():
     """Main method called to start the agent."""
@@ -274,7 +213,6 @@ def main():
 
 
 if __name__ == '__main__':
-    # Entry point for script
     try:
         sys.exit(main())
     except KeyboardInterrupt:
