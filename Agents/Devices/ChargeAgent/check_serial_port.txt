@@ -1,0 +1,15 @@
+*list serial port
+https://stackoverflow.com/questions/2530096/how-to-find-all-serial-devices-ttys-ttyusb-on-linux-without-opening-them
+
+dmesg | grep tty
+
+
+*Cannot open /dev/ttyUSB0: Permission denied
+https://github.com/esp8266/source-code-examples/issues/26
+
+groups
+compgen -g
+
+# sudo usermod -a -G tty yourname
+sudo usermod -a -G tty alto
+sudo usermod -a -G dialout alto

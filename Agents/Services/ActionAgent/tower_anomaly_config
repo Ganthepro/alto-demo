@@ -1,0 +1,7504 @@
+
+{
+  "state_variables": {},
+  "agent_name": "automation",
+  "devid": "automation",
+  "rules": {
+    
+    "10": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "11": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "12": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "13": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "14": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "15": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "16": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "17": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "18": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "short_circuit_protection level is higher than limit",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "19": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "short_circuit_protection is back to normal",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "20": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone1 level is higher than limit",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "21": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone1 is back to normal",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "22": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone2 level is higher than limit",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "23": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone2 is back to normal",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "24": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone3 level is higher than limit",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "25": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            0
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone3 is back to normal",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot0",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "26": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "27": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "28": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "29": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "30": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "31": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "32": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "33": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "34": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "short_circuit_protection level is higher than limit",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "35": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "short_circuit_protection is back to normal",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "36": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone1 level is higher than limit",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "37": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone1 is back to normal",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "38": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone2 level is higher than limit",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "39": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone2 is back to normal",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "40": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone3 level is higher than limit",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "41": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone3 is back to normal",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot1",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "42": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "43": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "44": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "45": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "46": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "47": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "48": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "49": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "50": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "short_circuit_protection level is higher than limit",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "51": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "short_circuit_protection is back to normal",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "52": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone1 level is higher than limit",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "53": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone1 is back to normal",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "54": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone2 level is higher than limit",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "55": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone2 is back to normal",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "56": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone3 level is higher than limit",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "57": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            2
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone3 is back to normal",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot2",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "58": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "59": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "60": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "61": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "62": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "63": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "64": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "65": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "66": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "short_circuit_protection level is higher than limit",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "67": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "short_circuit_protection is back to normal",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "68": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone1 level is higher than limit",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "69": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone1 is back to normal",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "70": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone2 level is higher than limit",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "71": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone2 is back to normal",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "72": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone3 level is higher than limit",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "73": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            3
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone3 is back to normal",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot3",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "74": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "75": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "76": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "77": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "78": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "79": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "80": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "81": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "82": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "short_circuit_protection level is higher than limit",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "83": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "short_circuit_protection is back to normal",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "84": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone1 level is higher than limit",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "85": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone1 is back to normal",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "86": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone2 level is higher than limit",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "87": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone2 is back to normal",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "88": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone3 level is higher than limit",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "89": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            4
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone3 is back to normal",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot4",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "90": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "91": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "92": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "93": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "94": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "95": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "96": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "97": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "98": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "short_circuit_protection level is higher than limit",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "99": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "short_circuit_protection is back to normal",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "100": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone1 level is higher than limit",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "101": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone1 is back to normal",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "102": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone2 level is higher than limit",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "103": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone2 is back to normal",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "104": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone3 level is higher than limit",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "105": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            5
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone3 is back to normal",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot5",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "106": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "107": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "108": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "109": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "110": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "111": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "112": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "113": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "114": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "short_circuit_protection level is higher than limit",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "115": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "short_circuit_protection is back to normal",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "116": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone1 level is higher than limit",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "117": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone1 is back to normal",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "118": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone2 level is higher than limit",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "119": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone2 is back to normal",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "120": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone3 level is higher than limit",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "121": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            6
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone3 is back to normal",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot6",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "122": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "123": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "124": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "125": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "126": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "127": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "128": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "129": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "130": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "short_circuit_protection level is higher than limit",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "131": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "short_circuit_protection is back to normal",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "132": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone1 level is higher than limit",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "133": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone1 is back to normal",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "134": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone2 level is higher than limit",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "135": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone2 is back to normal",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "136": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone3 level is higher than limit",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "137": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            7
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone3 is back to normal",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot7",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "138": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "139": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "140": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "high_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "141": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::high_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "high_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::high_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::high_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "high_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "142": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_charge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "143": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_charge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_charge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_charge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_charge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_charge",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "144": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "low_temperature_protection_discharge level is higher than limit",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "145": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::low_temperature_protection_discharge",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "low_temperature_protection_discharge is back to normal",
+            "current_value": "__event__data::low_temperature_protection_discharge",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::low_temperature_protection_discharge",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "low_temperature_protection_discharge",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "146": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            true
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "short_circuit_protection level is higher than limit",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "147": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::short_circuit_protection",
+          [
+            "==",
+            false
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "short_circuit_protection is back to normal",
+            "current_value": "__event__data::short_circuit_protection",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::short_circuit_protection",
+            "threshold_max": "true",
+            "threshold_min": "false",
+            "sensor_type": "short_circuit_protection",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "148": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone1 level is higher than limit",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "149": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone1",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone1 is back to normal",
+            "current_value": "__event__data::temperature_zone1",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone1",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone1",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "150": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone2 level is higher than limit",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "151": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone2",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone2 is back to normal",
+            "current_value": "__event__data::temperature_zone2",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone2",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone2",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "152": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            ">",
+            42
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "temperature_zone3 level is higher than limit",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+,
+    "153": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "charger",
+          "beta_ev_tower_001",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature_zone3",
+          [
+            "<",
+            34
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            8
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "normal",
+            "notification_message": "temperature_zone3 is back to normal",
+            "current_value": "__event__data::temperature_zone3",
+            "notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            "notify_to": "admin",
+            "detect_value": "__event__data::temperature_zone3",
+            "threshold_max": "42",
+            "threshold_min": "34",
+            "sensor_type": "temperature_zone3",
+            "sensor_id": "ev_tower_001_slot8",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+
+  },
+  "topic": "",
+  "heartbeat_rate": 90,
+  "log_commands": false,
+  "location": [
+    "13.7500 N",
+    "100.5167 E"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "data_to_log": [
+    "event",
+    "sample",
+    "online",
+    "load"
+  ],
+  "logtype": [
+    "device",
+    "environment",
+    "location",
+    "electric",
+    "load",
+    "online",
+    "motor",
+    "relay",
+    "ac",
+    "rl_state",
+    "rl",
+    "rl_output_state",
+    "rl_output",
+    "camera",
+    "rl_global_output_state",
+    "general"
+  ],
+  "enable_firebase_local": false
+}

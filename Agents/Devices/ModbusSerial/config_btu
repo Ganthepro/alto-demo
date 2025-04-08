@@ -1,0 +1,44 @@
+{
+  "agent_name": "modbus_btu_meter",
+  "sampling_rate": 5,
+  "configured_devices": {
+    "/dev/ttyS3": [
+      {
+        "device_id": "S3050-002896",
+        "device_type": "btu_dataindustrial_3050",
+        "unit_id": 1,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "S3050-003465",
+        "device_type": "btu_dataindustrial_3050",
+        "unit_id": 2,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "S3050-002974",
+        "device_type": "btu_dataindustrial_3050",
+        "unit_id": 3,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "S3050-003466",
+        "device_type": "btu_dataindustrial_3050",
+        "unit_id": 4,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "S3050-003467",
+        "device_type": "btu_dataindustrial_3050",
+        "unit_id": 5,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "S3050-002646",
+        "device_type": "btu_dataindustrial_3050",
+        "unit_id": 6,
+        "number_subdevice": 1
+      }
+    ]
+  }
+}

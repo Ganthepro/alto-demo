@@ -1,0 +1,26 @@
+{
+  "named_devices": {},
+  "location_name": "depasmartcity",
+  "topic": "",
+  "heartbeat_rate": 90,
+  "track_events": {
+    "event": [
+      "",
+      []
+    ]
+  },
+  "parent_location": [],
+  "commands": {},
+  "device_prefix": "/iot_devices",
+  "children_locations": [],
+  "associated_devices": {
+      "sensor":{
+          "depa":[
+            "08d9b3ba-166c-49c2-8950-60d7df724510",
+            "08d9b3b9-de0e-4277-8e50-05c9114c53b8",
+            "08d9b3c9-3dfd-486b-8e48-7fa34cdadb08"
+          ]
+      }
+    },
+  "agent_name": "room_depa"
+}

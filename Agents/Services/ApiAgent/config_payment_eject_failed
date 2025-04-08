@@ -1,0 +1,37 @@
+{
+  "topic_to_rest": [
+    {
+      "api_type": "api_unit",
+      "api_id": "api_1",
+      "topic": "charger/charger/beta_ev_tower_001/load",
+      "rest_url_login": "https://altoiotbackend.azurewebsites.net/api/v2.0/login",
+      "rest_url": "https://altoiotbackend.azurewebsites.net/api/v2.0/payments",
+      "username": "betaadmin",
+      "password": "betaadmin",
+      "rpc_device_id": "beta_ev_tower_001",
+      "gateway_name": "beta_ev_tower_001"
+    },
+    {
+      "api_type": "api_eject",
+      "api_id": "api_2",
+      "topic": "charger/charger/beta_ev_tower_001/confirm_ejected",
+      "rest_url_login": "https://altoiotbackend.azurewebsites.net/api/v2.0/login",
+      "rest_url": "https://altoiotbackend.azurewebsites.net/api/v2.0/evtransactions",
+      "username": "betaadmin",
+      "password": "betaadmin",
+      "rpc_device_id": "beta_ev_tower_001",
+      "gateway_name": "beta_ev_tower_001"
+    },
+    {
+      "api_type": "api_eject",
+      "api_id": "api_3",
+      "topic": "charger/charger/beta_ev_tower_001/ejected_failed",
+      "rest_url_login": "https://altoiotbackend.azurewebsites.net/api/v2.0/login",
+      "rest_url": "https://altoiotbackend.azurewebsites.net/api/v2.0/evtransactions",
+      "username": "betaadmin",
+      "password": "betaadmin",
+      "rpc_device_id": "beta_ev_tower_001",
+      "gateway_name": "beta_ev_tower_001"
+    }
+  ]
+}

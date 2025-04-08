@@ -1,0 +1,15 @@
+{
+    "agent_name": "notifyapi",
+    "topic": "",
+    "sampling_rate": 60,
+    "devices": [
+        {
+            "notify_id": "linefire_001",
+            "type": "LineAndFirebaseNotify",
+            "rest_url_login": "https://altoiotbackend.azurewebsites.net/api/v2.0/login",
+            "rest_url": "https://altoiotbackend.azurewebsites.net/api/v2.0/notification",
+            "username": "betaadmin",
+            "password": "betaadmin"
+        }
+    ]
+}

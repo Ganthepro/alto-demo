@@ -4,7 +4,11 @@ services:
   volttron1:
     container_name: volttron1
     hostname: volttron1
-    image: eclipsevolttron/volttron:v3.0
+    user: root
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: volttroncommunity/volttron:v8.2-zmq
     ports:
       # host_port:container_port
       # http port for volttron central
@@ -13,8 +17,14 @@ services:
       - ./platform_config.yml:/platform_config.yml
       - ./configs:/home/volttron/configs
       - volttron1-volume:/home/volttron/db
-      - ./agents:/code/volttron/agents
+      - ./Agents:/code/volttron/agents
       - ./core:/startup
+      - ./ansible_prototype:/home/volttron/.volttron/ansible_prototype
+      - ./libraries:/home/volttron/.volttron/libraries
+      - ./scripts:/home/volttron/.volttron/scripts
+      - ./Tools:/home/volttron/.volttron/Tools
+      - ./examples:/home/volttron/.volttron/examples
+      - ./requirements.txt:/requirements.txt
     environment:
       - CONFIG=/home/volttron/configs
       - LOCAL_USER_ID=1000

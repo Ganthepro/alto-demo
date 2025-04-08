@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$1" != "" ]; then
+    DIR=$1
+else
+    DIR="/home/alto"
+fi
+
+cd $DIR/volttron
+source $DIR/volttron/env/bin/activate
+#$DIR/volttron/env/bin/volttron -vv -l $DIR/volttron.log
+#$DIR/volttron/env/bin/volttron -vv -L $DIR/volttron/examples/rotatinglog.py > $DIR/volttron.log 2>&1
+$DIR/volttron/env/bin/volttron -vv -L $DIR/alto_os/examples/rotatinglog.py
+# $DIR/env/bin/volttron -vv --bind-web-address http://192.168.111.75:8282 -L $DIR/alto_os/examples/rotatinglog.py

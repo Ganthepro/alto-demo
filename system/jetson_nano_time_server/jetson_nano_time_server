@@ -1,0 +1,6 @@
+#!/bin/bash
+DIR="/home/alto/volttron"
+cd $DIR
+source $DIR/env/bin/activate
+/home/alto/alto_run/jetson_nano_time_server.py
+

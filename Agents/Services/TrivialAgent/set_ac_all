@@ -1,0 +1,18 @@
+# handle_{mtype}_{schema}
+{
+    "command": {
+        "header": "command", # mtype
+        "topic": "hvac/bac0hvac/ac_DAIKINSOLPLAZA_FCU-1-00/set", # schema/agent_iden/device_id/func
+        "payload": {
+            "subdevice_idx": 0,
+            "temperature": 26,
+            "mode": "cool",
+            "fan": "auto",
+            "louver": "ver",
+            "filter": "inactive",
+            "lock": {
+                "all": false
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "agent_name": "blindmotor",
+    "topic": "",
+    "sampling_rate": 20,
+    "devices": {
+        "00660024a4e57c13f633": [
+            "tuya_blind_motor",
+            "cf24d74a4aa7b908"
+        ],
+        "00660024a4e57c95faf5": [
+            "tuya_blind_motor",
+            "b18e5ad592b8bfd3"
+        ]
+    }
+}

@@ -15,27 +15,37 @@ config:
 # Agents dictionary to install. The key must be a valid
 # identity for the agent to be installed correctly.
 agents:
-  ac:
-    source: $VOLTTRON_ROOT/agents/AC
-    config: $CONFIG/ac.config
-    tag: ac
+  # ac:
+  #   source: $VOLTTRON_ROOT/agents/AC
+  #   config: $CONFIG/ac.config
+  #   tag: ac
+  listener:
+    source: $VOLTTRON_ROOT/examples/ListenerAgent
+    config: $CONFIG/listener.config
+    tag: listener
 
-  data_logger:
-    source: $VOLTTRON_ROOT/agents/DataLogger
-    config: $CONFIG/data_logger.config
-    tag: data_logger
 
-  rest:
-    source: $VOLTTRON_ROOT/agents/REST
-    config: $CONFIG/rest.config
-    tag: rest
+  afdd:
+    source: $VOLTTRON_ROOT/agents/Applications/AFDD
+    config: $CONFIG/sample_config.yaml
+    tag: afdd
 
-  lifebeing:
-    source: $VOLTTRON_ROOT/agents/Lifebeing
-    config: $CONFIG/lifebeing.config
-    tag: lifebeing
+  # data_logger:
+  #   source: $VOLTTRON_ROOT/agents/DataLogger
+  #   config: $CONFIG/data_logger.config
+  #   tag: data_logger
 
-  iaq:
-    source: $VOLTTRON_ROOT/agents/IAQ
-    config: $CONFIG/iaq.config
-    tag: iaq
+  # rest:
+  #   source: $VOLTTRON_ROOT/agents/REST
+  #   config: $CONFIG/rest.config
+  #   tag: rest
+
+  # lifebeing:
+  #   source: $VOLTTRON_ROOT/agents/Lifebeing
+  #   config: $CONFIG/lifebeing.config
+  #   tag: lifebeing
+
+  # iaq:
+  #   source: $VOLTTRON_ROOT/agents/IAQ
+  #   config: $CONFIG/iaq.config
+  #   tag: iaq

@@ -1,0 +1,11 @@
+{
+  "credentials": {
+    "username": "csq",
+    "password": "P@ssword123"
+  },
+  "apis": {
+    "login": "http://localhost:8007/api/v3.0/login/",
+    "alert": "http://localhost:8007/api/v3.0/alert/",
+    "pm_tasks": "http://localhost:8007/api/v3.0/pm_tasks/"
+  }
+}

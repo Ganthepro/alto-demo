@@ -1,0 +1,78 @@
+---
+- name: Alto Agent Installations
+  hosts: test_ansible_1
+  become: false
+  vars:
+    remove_alto_config: true
+    agents_list:
+      # isforwarder:
+      #   config_path: /Users/oenlighteno/Documents/Alto2021/ansible/mintel/mintel_1_config/isforwarder_config
+      #   path_at_gateway: ~/alto_config/isforwarder_config
+      # memory_usage_monitor:
+      #   config_path: /Users/oenlighteno/Documents/Alto2021/ansible/mintel/mintel_1_config/memory_usage_monitor_config
+      #   path_at_gateway: ~/alto_config/memory_usage_monitor_config
+      # action_room:
+      #   config_path: /Users/oenlighteno/Documents/Alto2021/ansible/mintel/mintel_1_config/action_room_config
+      #   path_at_gateway: ~/alto_config/action_room_config
+      # modbus:
+      #   config_path: /Users/oenlighteno/Documents/Alto2021/ansible/mintel/mintel_1_config/modbus_config
+      #   path_at_gateway: ~/alto_config/modbus_config
+      # garden_wing:
+      #   config_path: /Users/oenlighteno/Documents/Alto2021/ansible/bgrimm/config/room_config
+      #   path_at_gateway: ~/alto_config/room_config
+      # rl_action:
+      #   config_path: /Users/oenlighteno/Documents/Alto2021/ansible/bgrimm/config/rl_action_config
+      #   path_at_gateway: ~/alto_config/rl_action_config
+      cratedb:
+        config_path: /Users/oenlighteno/Documents/Alto2021/ansible/bgrimm/config/cratedb_config
+        path_at_gateway: ~/alto_config/cratedb_config
+  tasks:
+    - name: Creates ~/alto_config directory
+      file:
+        path: ~/alto_config
+        state: directory
+      delay: 2
+      retries: 3
+    - name: Copy venv_exec
+      template: src=venv_exec.j2 dest=~/env_exec mode=755
+      delay: 2
+      retries: 3
+
+    - name: Copy configs
+      copy:
+        src: "{{ item.value.config_path }}"
+        dest: "{{ item.value.path_at_gateway }}"
+      with_dict: "{{ agents_list }}"
+      delay: 2
+      retries: 3
+
+    - name: Config agents
+      command: "~/env_exec vctl config store {{ item.key }} config {{ item.value.path_at_gateway }}"
+      with_dict: "{{ agents_list }}"
+      delay: 2
+      retries: 3
+    - name: Get configs
+      command: "~/env_exec vctl config get {{ item.key }} config"
+      register: res_log
+      with_dict: "{{ agents_list }}"
+      delay: 2
+      retries: 3
+    - debug: var=res_log
+    - name: Stop agents
+      command: "~/env_exec vctl stop --tag {{ item.key }}"
+      with_dict: "{{ agents_list }}"
+      delay: 2
+      retries: 3
+    - name: Start agents
+      command: "~/env_exec vctl start --tag {{ item.key }}"
+      with_dict: "{{ agents_list }}"
+      delay: 2
+      retries: 3
+
+    - name: Remove alto_config if exists
+      file:
+        path: ~/alto_config
+        state: absent
+      when: remove_alto_config|default(false)|bool
+      delay: 2
+      retries: 3

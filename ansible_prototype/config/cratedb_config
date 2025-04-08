@@ -1,0 +1,13 @@
+{
+  "heartbeat": 120,
+  "db_host": "127.0.0.1",
+  "db_port": 4200,
+  "topic": "",
+  "db_table": "bgrimm",
+  "data_to_log": [
+    "sample",
+    "relay",
+    "event"
+  ],
+  "agent_name": "cratelogger"
+}

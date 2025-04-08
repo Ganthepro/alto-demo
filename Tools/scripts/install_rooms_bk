@@ -1,0 +1,11 @@
+#!/bin/bash
+for floor in 6 ; do
+    for room in 01 02 03 04 05 ; do
+        echo $floor$room
+        /home/pi/alto_os/scripts/install-agent.py -s Agents/Room -i room_$floor
+        sleep 1
+        cat /home/alto/volttron/Commands/jan/room-add-com2 | sed "s/201/$floor$room/g" | sed "s/^M//g" > /tmp/tbd
+        vctl config store trivial config /tmp/tbd
+        sleep 1
+    done
+done

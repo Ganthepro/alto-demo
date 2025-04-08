@@ -1,0 +1,43 @@
+{
+  "topic": "",
+  "location": [
+    "13.7500 N",
+    "100.5167 E"
+  ],
+  "agent_name": "automation",
+  "heartbeat_rate": 90,
+  "devid": "automation",
+  "rules": {
+    "abc_trig": {
+      "trigger": {
+        "occurrence": "on",
+        "value": {
+          "time": {
+            "hour": 8,
+            "minute": 47
+          },
+          "day": 9,
+          "month": 7,
+          "year": 2021
+        }
+      },
+      "conditions": [],
+      "actions": [
+        [
+          [
+            "location",
+            "minttower_building",
+            "altolab",
+            "tplink_a6b1a7"
+          ],
+          {
+            "state": "on",
+            "subdevice_idx": 0
+          }
+        ]
+      ]
+    }
+  },
+  "log_commands": false,
+  "state_variables": {}
+}

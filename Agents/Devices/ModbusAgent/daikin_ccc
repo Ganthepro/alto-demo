@@ -1,0 +1,20 @@
+{
+  "agent_name": "modbus",
+  "sampling_rate": 60,
+  "configured_devices": {
+    "192.168.111.92": [
+      [
+        "enerium_30",
+        1,
+        502,
+        "9c:a5:25:ea:64:f1"
+      ],
+      [
+        "enerium_30",
+        2,
+        502,
+        "9c:a5:25:ea:64:f1"
+      ]
+    ]
+  }
+}

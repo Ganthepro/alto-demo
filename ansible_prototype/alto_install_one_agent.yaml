@@ -1,0 +1,55 @@
+---
+- name: Alto Install One Agent
+  hosts: test_ansible_1
+  become: false
+  vars:
+    remove_alto_agent: true
+    agent_tag: apiagent
+    agents_list:
+    agent_path: /Users/oenlighteno/Documents/Alto2021/ansible/bgrimm/alto_os/Agents/Services/CrateDB
+    path_at_gateway: ~/alto_agent/CrateDB
+  tasks:
+    - name: Creates ~/alto_agent directory
+      file:
+        path: ~/alto_agent
+        state: directory
+      delay: 2
+      retries: 3
+    - name: Copy venv_exec
+      template: src=venv_exec.j2 dest=~/env_exec mode=755
+      delay: 2
+      retries: 3
+
+    - name: Copy Agents
+      copy:
+        src: "{{ item.value.agent_path }}"
+        dest: ~/alto_agent
+      with_dict: "{{ agents_list }}"
+      delay: 2
+      retries: 3
+
+    - name: Stop Agents
+      command: "~/env_exec vctl stop --tag {{ item.key }}"
+      register: res_log
+      with_dict: "{{ agents_list }}"
+      delay: 2
+      retries: 3
+    - debug: var=res_log
+    - name: Remove Agents
+      command: "~/env_exec vctl remove --tag {{ item.key }}"
+      with_dict: "{{ agents_list }}"
+      delay: 2
+      retries: 3
+    - name: Install Agents
+      command: "~/env_exec chdir=~/volttron ~/volttron/env/bin/python scripts/install-agent.py -s {{ item.value.path_at_gateway }} -t {{ item.key }} -i {{ item.key }} --enable --start"
+      with_dict: "{{ agents_list }}"
+      delay: 2
+      retries: 3
+
+    - name: Remove alto_agent if exists
+      file:
+        path: ~/alto_agent
+        state: absent
+      when: remove_alto_agent|default(false)|bool
+      delay: 2
+      retries: 3

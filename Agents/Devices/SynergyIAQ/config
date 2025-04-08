@@ -1,0 +1,117 @@
+{
+  "topic": "",
+  "agent_id": "mqtt_iaq",
+  "heartbeat": 120,
+  "mqtt_topics": [
+    "stat/#",
+    "tele/#",
+    "syntech/iaq/#"
+  ],
+  "mqtt_server": "127.0.0.1",
+  "mqtt_port": 1883,
+  "mqtt_user": "",
+  "mqtt_password": "",
+  "mqtt_prefix": "",
+  "devices": {
+    "30:AE:A4:07:0D:64": {
+      "ip_address": "172.16.7.16",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:0E:65": {
+      "ip_address": "172.16.7.17",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:0F:66": {
+      "ip_address": "172.16.7.18",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:10:67": {
+      "ip_address": "172.16.7.19",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:11:68": {
+      "ip_address": "172.16.7.20",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:12:69": {
+      "ip_address": "172.16.7.21",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:13:70": {
+      "ip_address": "172.16.7.22",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:14:71": {
+      "ip_address": "172.16.7.23",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:15:72": {
+      "ip_address": "172.16.7.24",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:16:73": {
+      "ip_address": "172.16.7.25",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:17:74": {
+      "ip_address": "172.16.7.26",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:18:75": {
+      "ip_address": "172.16.7.27",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:19:76": {
+      "ip_address": "172.16.7.28",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:1A:77": {
+      "ip_address": "172.16.7.29",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:1B:78": {
+      "ip_address": "172.16.7.30",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:1C:79": {
+      "ip_address": "172.16.7.31",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:1D:80": {
+      "ip_address": "172.16.7.32",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:1E:81": {
+      "ip_address": "172.16.7.33",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:1F:82": {
+      "ip_address": "172.16.7.34",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:20:83": {
+      "ip_address": "172.16.7.35",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:21:84": {
+      "ip_address": "172.16.7.36",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:22:85": {
+      "ip_address": "172.16.7.37",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:23:86": {
+      "ip_address": "172.16.7.38",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:24:87": {
+      "ip_address": "172.16.7.39",
+      "number_subdevice": 1
+    },
+    "30:AE:A4:07:25:88": {
+      "ip_address": "172.16.7.40",
+      "number_subdevice": 1
+    }
+  }
+}

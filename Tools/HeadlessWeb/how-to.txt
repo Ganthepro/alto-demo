@@ -1,0 +1,20 @@
+https://patrikmojzis.medium.com/how-to-run-selenium-using-python-on-raspberry-pi-d3fe058f011
+https://www.youtube.com/watch?v=6LnJ1zW5464
+https://stackoverflow.com/questions/25027385/using-selenium-on-raspberry-pi-headless
+https://stackoverflow.com/questions/41721734/take-screenshot-of-full-page-with-selenium-python-with-chromedriver
+https://selenium-python.readthedocs.io/navigating.html
+
+sudo apt install chromium-browser chromium-codecs-ffmpeg
+
+chromium-browser --version
+
+https://ivanderevianko.com/2020/01/selenium-chromedriver-for-raspberrypi
+sudo apt-get install chromium-chromedriver
+
+pip install pyvirtualdisplay
+
+https://stackoverflow.com/questions/32173839/easyprocess-easyprocesscheckinstallederror-cmd-xvfb-help-oserror-errno/32173967
+sudo apt-get install xvfb
+
+pip install selenium
+

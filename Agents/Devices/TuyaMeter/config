@@ -1,0 +1,14 @@
+{
+    "agent_name": "tuyameter",
+    "topic": "",
+    "sampling_rate": 20,
+    "tuya_credential":{
+                        "client_id":"pddxg9hrax4gvxdj5r8i",
+                        "client_secret":"2b62d5b167eb4ff18624bda2895a09c0"
+                    },
+    "devices": {
+        "ebb4827a67761661106vwk": [
+            "tuya_single_phase"
+        ]
+    }
+}

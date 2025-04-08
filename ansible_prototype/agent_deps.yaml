@@ -1,0 +1,104 @@
+---
+- name: Bootstrap Volttron
+  hosts: test_ansible_1
+  vars:
+    volttron_env_path: "~/volttron/env"
+  tasks:
+    - name: Install firebase deps 1
+      pip:
+        name: firebase
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+        # extra_args: "--ignore-installed -r"
+      delay: 2
+      retries: 3
+    - name: Install firebase deps 2
+      pip:
+        name: python_jwt
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+    - name: Install firebase deps 3
+      pip:
+        name: gcloud
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+    - name: Install firebase deps 4
+      pip:
+        name: sseclient
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+    - name: Install firebase deps 5
+      pip:
+        name: pycrypto
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+    - name: Install firebase deps 6
+      pip:
+        name: requests_toolbelt
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+    - name: Install firebase deps 7
+      pip:
+        name: aiohttp
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+
+    - name: Install azure_iot_device deps 1
+      pip:
+        name: azure-iot-device
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+
+    - name: Install trivial_agent deps 1
+      pip:
+        name: flask
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+
+    - name: Install requests deps 1
+      pip:
+        name: requests
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+
+    - name: Install BAC0 deps 1
+      pip:
+        name: BAC0
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+
+    - name: Install pymodbus deps 1
+      pip:
+        name: pymodbus
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3
+
+    - name: Install getmac deps 1
+      pip:
+        name: getmac
+        virtualenv: "{{ volttron_env_path }}"
+        state: present
+      delay: 2
+      retries: 3

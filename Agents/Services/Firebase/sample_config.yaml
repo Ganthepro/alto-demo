@@ -1,0 +1,72 @@
+firebase_config:
+  apiKey: AIzaSyDjphOeX-zUJHvSAaoo3j1M5moba5ABSxE
+  authDomain: altobuildings.firebaseapp.com
+  databaseURL: https://alto-multi-property.asia-southeast1.firebasedatabase.app
+  projectId: altobuildings
+  storageBucket: altobuildings.appspot.com
+  messagingSenderId: 408699100314
+  appId: 1:408699100314:web:84514da10259310a3c9323
+  measurementId: G-EKFTZEJ61J
+firebase_path: site/qsncc
+firebase_object_type: chiller_plant_site
+custom_config:
+  condenser_water_loop:
+    device_id: condenser_water_loop
+  chilled_water_loop:
+    device_id: chilled_water_loop
+  outdoor_weather:
+    device_id: outdoor_weather_station
+  equipments: # Device_id to type mapping
+    chiller_1: chiller
+    chiller_2: chiller
+    chiller_3: chiller
+    chiller_4: chiller
+    chiller_5: chiller
+    chiller_6: chiller
+    chiller_7: chiller
+    chiller_8: chiller
+    chiller_9: chiller
+    chiller_10: chiller
+    chiller_11: chiller
+    chiller_12: chiller
+    chp_1: chp
+    chp_2: chp
+    chp_3: chp
+    chp_4: chp
+    chp_5: chp
+    chp_6: chp
+    chp_7: chp
+    chp_8: chp
+    chp_9: chp
+    chp_10: chp
+    chp_11: chp
+    chp_12: chp
+    cdp_1: cdp
+    cdp_2: cdp
+    cdp_3: cdp
+    cdp_4: cdp
+    cdp_5: cdp
+    cdp_6: cdp
+    cdp_7: cdp
+    cdp_8: cdp
+    cdp_9: cdp
+    cdp_10: cdp
+    cdp_11: cdp
+    cdp_12: cdp
+    ct_1: ct
+    ct_2: ct
+    ct_3: ct
+    ct_4: ct
+    ct_5: ct
+    ct_6: ct
+    ct_7: ct
+    ct_8: ct
+    ct_9: ct
+    ct_10: ct
+    ct_11: ct
+    ct_12: ct
+  equipment_params:  # machine parameter that want to show on website, can leave empty to disable it
+    chiller: ["efficiency_ref", "efficiency", "power", "running_capacity_percentage", "evap_water_flow_percentage", "cond_water_flow_percentage", "evap_leaving_water_temperature", "evap_entering_water_temperature", "cond_leaving_water_temperature", "cond_entering_water_temperature", "evap_approach_temperature", "cond_approach_temperature", "evap_sat_refrig_pressure", "cond_sat_refrig_pressure", "evap_sat_refrig_pressure_1", "evap_sat_refrig_pressure_2", "evap_sat_refrig_pressure_3", "cond_sat_refrig_pressure_1", "cond_sat_refrig_pressure_2", "cond_sat_refrig_pressure_3"]
+    chp: ["efficiency_ref", "efficiency", "power", "speed_read"]
+    cdp: ["efficiency_ref", "efficiency", "power", "speed_read"]
+    ct: ["efficiency_ref", "efficiency", "power", "speed_read", "ct_approach_temperature_ref", "ct_approach_temperature"]

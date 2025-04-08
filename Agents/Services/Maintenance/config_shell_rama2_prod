@@ -1,0 +1,1572 @@
+{
+    "cron_interval": "*/5 * * * *",
+    "databases": {
+        "shell_select": {
+            "host": "http://127.0.0.1",
+            "port": 4200,
+            "username": "",
+            "password": "",
+            "table": "shell_rama2"
+        }
+    },
+    "stage": "prod",
+    "devices": {
+        "Chiller 1": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Chiller 1: high temperature (20 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb6c6e422496f076f0jtwe",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 20,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 180,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Chiller 1: high temperature (10 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb6c6e422496f076f0jtwe",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 10,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {
+                "model": "path/to/.onnx",
+                "devices": [
+                    {
+                        "device_id": "eb6c6e422496f076f0jtwe",
+                        "subdevice_idx": 0,
+                        "data_type": "environment",
+                        "datapoint": [
+                            "temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "eb2f3bbc54cbb51c6e7ynq",
+                        "subdevice_idx": 0,
+                        "data_type": "electric",
+                        "datapoint": [
+                          "current",
+                          "energy",
+                          "power",
+                          "voltage"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                      },
+                      {
+                        "device_id": "ebdfc87e263725e132etvj",
+                        "subdevice_idx": 0,
+                        "data_type": "environment",
+                        "datapoint": [
+                          "humidity"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                      }
+                ]
+            }
+        },
+        "Chiller 2": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Chiller 2: high temperature (20 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebbd6a1f74fd8e71b5zrs0",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 20,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 180,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Chiller 2: high temperature (10 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebbd6a1f74fd8e71b5zrs0",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 10,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {
+                "model": "path/to/.onnx",
+                "devices": [
+                    {
+                        "device_id": "ebbd6a1f74fd8e71b5zrs0",
+                        "subdevice_idx": 0,
+                        "data_type": "environment",
+                        "datapoint": [
+                            "temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "eb6759566b2d57dceeuwoa",
+                        "subdevice_idx": 0,
+                        "data_type": "electric",
+                        "datapoint": [
+                          "current",
+                          "energy",
+                          "power",
+                          "voltage"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                      },
+                      {
+                        "device_id": "ebdfc87e263725e132etvj",
+                        "subdevice_idx": 0,
+                        "data_type": "environment",
+                        "datapoint": [
+                          "humidity"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                      }
+                ]
+            }
+        },
+        "Freezer 1": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Freezer 1: high temperature (-10 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebc2dd2a42e4e29f46a94q",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": -10,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Freezer 1: high temperature (0 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebc2dd2a42e4e29f46a94q",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 0,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 1800,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {
+                "model": "path/to/.onnx",
+                "devices": [
+                    {
+                        "device_id": "ebc2dd2a42e4e29f46a94q",
+                        "subdevice_idx": 0,
+                        "data_type": "environment",
+                        "datapoint": [
+                            "temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "eb66bdf1bfb93f348bwh0w",
+                        "subdevice_idx": 0,
+                        "data_type": "electric",
+                        "datapoint": [
+                          "current",
+                          "energy",
+                          "power",
+                          "voltage"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                      }
+                ]
+            }
+        },
+        "AC 1": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "AC 1: high diff temperature (8 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_1",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "set_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                },
+                                {
+                                    "device_id": "shell_rama2_ac_1",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "room_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "diff",
+                            "operation": ">=",
+                            "value": 8,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_1",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "mode",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": "==",
+                            "value": "cool",
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": "and"
+                },
+                {
+                    "condition_name": "AC 1: high diff temperature (9 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_1",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "set_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                },
+                                {
+                                    "device_id": "shell_rama2_ac_1",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "room_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "diff",
+                            "operation": ">=",
+                            "value": 9,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_1",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "mode",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": "==",
+                            "value": "cool",
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": "and"
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {
+                "model": "path/to/.onnx",
+                "devices": [
+                    {
+                        "device_id": "shell_rama2_ac_1",
+                        "subdevice_idx": 0,
+                        "data_type": "ac",
+                        "datapoint": [
+                            "room_temperature",
+                            "set_temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "eb522bb0f910a7b6156u5g",
+                        "subdevice_idx": 0,
+                        "data_type": "environment",
+                        "datapoint": [
+                            "temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "f4:70:0c:6b:87:f5:101",
+                        "subdevice_idx": 0,
+                        "data_type": "electric",
+                        "datapoint": [
+                            "power",
+                            "current",
+                            "voltage"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    }
+                ]
+            }
+        },
+        "AC 2": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "AC 2: high diff temperature (8 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_2",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "set_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                },
+                                {
+                                    "device_id": "shell_rama2_ac_2",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "room_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "diff",
+                            "operation": ">=",
+                            "value": 8,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_2",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "mode",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": "==",
+                            "value": "cool",
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": "and"
+                },
+                {
+                    "condition_name": "AC 2: high diff temperature (9 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_2",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "set_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                },
+                                {
+                                    "device_id": "shell_rama2_ac_2",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "room_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "diff",
+                            "operation": ">=",
+                            "value": 9,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_2",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "mode",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": "==",
+                            "value": "cool",
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": "and"
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {
+                "model": "path/to/.onnx",
+                "devices": [
+                    {
+                        "device_id": "shell_rama2_ac_2",
+                        "subdevice_idx": 0,
+                        "data_type": "ac",
+                        "datapoint": [
+                            "room_temperature",
+                            "set_temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "eb522bb0f910a7b6156u5g",
+                        "subdevice_idx": 0,
+                        "data_type": "environment",
+                        "datapoint": [
+                            "temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "f4:70:0c:6b:87:f5:102",
+                        "subdevice_idx": 0,
+                        "data_type": "electric",
+                        "datapoint": [
+                            "power",
+                            "current",
+                            "voltage"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    }
+                ]
+            }
+        },
+        "AC 3": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "AC 3: high diff temperature (8 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_3",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "set_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                },
+                                {
+                                    "device_id": "shell_rama2_ac_3",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "room_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "diff",
+                            "operation": ">=",
+                            "value": 8,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_3",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "mode",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": "==",
+                            "value": "cool",
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": "and"
+                },
+                {
+                    "condition_name": "AC 3: high diff temperature (9 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_3",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "set_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                },
+                                {
+                                    "device_id": "shell_rama2_ac_3",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "room_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "diff",
+                            "operation": ">=",
+                            "value": 9,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_3",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "mode",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": "==",
+                            "value": "cool",
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": "and"
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {
+                "model": "path/to/.onnx",
+                "devices": [
+                    {
+                        "device_id": "shell_rama2_ac_3",
+                        "subdevice_idx": 0,
+                        "data_type": "ac",
+                        "datapoint": [
+                            "room_temperature",
+                            "set_temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "eb522bb0f910a7b6156u5g",
+                        "subdevice_idx": 0,
+                        "data_type": "environment",
+                        "datapoint": [
+                            "temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "f4:70:0c:6b:87:f5:103",
+                        "subdevice_idx": 0,
+                        "data_type": "electric",
+                        "datapoint": [
+                            "power",
+                            "current",
+                            "voltage"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    }
+                ]
+            }
+        },
+        "AC 4": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "AC 4: high diff temperature (8 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_4",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "set_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                },
+                                {
+                                    "device_id": "shell_rama2_ac_4",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "room_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "diff",
+                            "operation": ">=",
+                            "value": 8,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_4",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "mode",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": "==",
+                            "value": "cool",
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 7200,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": "and"
+                },
+                {
+                    "condition_name": "AC 4: high diff temperature (9 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_4",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "set_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                },
+                                {
+                                    "device_id": "shell_rama2_ac_4",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "room_temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "diff",
+                            "operation": ">=",
+                            "value": 9,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "shell_rama2_ac_4",
+                                    "subdevice_idx": 0,
+                                    "data_type": "ac",
+                                    "datapoint": "mode",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": "==",
+                            "value": "cool",
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        0,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": "and"
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {
+                "model": "path/to/.onnx",
+                "devices": [
+                    {
+                        "device_id": "shell_rama2_ac_4",
+                        "subdevice_idx": 0,
+                        "data_type": "ac",
+                        "datapoint": [
+                            "room_temperature",
+                            "set_temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "eb522bb0f910a7b6156u5g",
+                        "subdevice_idx": 0,
+                        "data_type": "environment",
+                        "datapoint": [
+                            "temperature"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    },
+                    {
+                        "device_id": "f4:70:0c:6b:87:f5:104",
+                        "subdevice_idx": 0,
+                        "data_type": "electric",
+                        "datapoint": [
+                            "power",
+                            "current",
+                            "voltage"
+                        ],
+                        "location": "shell/shell_select/iot_devices"
+                    }
+                ]
+            }
+        },
+        "Tuya T&H 2": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Tuya T&H 2: high temperature (30 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebcfccc42dbf6aad48hnds",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 30,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Tuya T&H 2: high humidity (70 %RH)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebcfccc42dbf6aad48hnds",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "humidity",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 70,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {}
+        },
+        "Tuya T&H 3": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Tuya T&H 3: high temperature (30 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb522bb0f910a7b6156u5g",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 30,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Tuya T&H 3: high humidity (70 %RH)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb522bb0f910a7b6156u5g",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "humidity",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 70,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {}
+        },
+        "Tuya T&H 4": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Tuya T&H 4: high temperature (30 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb4df51be68b3d58b8b2z5",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 30,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Tuya T&H 4: high humidity (70 %RH)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb4df51be68b3d58b8b2z5",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "humidity",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 70,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {}
+        },
+        "Tuya T&H 5": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Tuya T&H 5: high temperature (30 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb5308767ad026fd70tcrj",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 30,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Tuya T&H 5: high humidity (70 %RH)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb5308767ad026fd70tcrj",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "humidity",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 70,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {}
+        },
+        "Tuya T&H 6": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Tuya T&H 6: high temperature (30 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb9f2e6400bba56ef7elle",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 30,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Tuya T&H 6: high humidity (70 %RH)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "eb9f2e6400bba56ef7elle",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "humidity",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 70,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {}
+        },
+        "Tuya T&H 7": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Tuya T&H 7: high temperature (30 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebd066be011c9f1319o1r5",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 30,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Tuya T&H 7: high humidity (70 %RH)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebd066be011c9f1319o1r5",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "humidity",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 70,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {}
+        },
+        "Tuya T&H 8": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Tuya T&H 8: high temperature (30 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebf82931461113cbaf1bni",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 30,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Tuya T&H 8: high humidity (70 %RH)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebf82931461113cbaf1bni",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "humidity",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 70,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {}
+        },
+        "Tuya CO2 1": {
+            "database": [
+                "shell_select"
+            ],
+            "condition_based": [
+                {
+                    "condition_name": "Tuya CO2 1: high CO2 (1000 ppm)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebdfc87e263725e132etvj",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "co2",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 1000,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 3600,
+                                    "between": [
+                                        6,
+                                        24
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Tuya CO2 1: high temperature (30 °C)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebdfc87e263725e132etvj",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "temperature",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">",
+                            "value": 30,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 600,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                },
+                {
+                    "condition_name": "Tuya CO2 1: high humidity (70 %RH)",
+                    "conditions": [
+                        {
+                            "datapoint": [
+                                {
+                                    "device_id": "ebdfc87e263725e132etvj",
+                                    "subdevice_idx": 0,
+                                    "data_type": "environment",
+                                    "datapoint": "humidity",
+                                    "location": "shell/shell_select/iot_devices"
+                                }
+                            ],
+                            "calculate_operation": "None",
+                            "operation": ">=",
+                            "value": 70,
+                            "time_condition": {
+                                "type": "period",
+                                "value": {
+                                    "period": 1800,
+                                    "between": [
+                                        6,
+                                        23
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "operation": ""
+                }
+            ],
+            "predictive": {},
+            "preventive": {},
+            "anomaly": {}
+        }
+    }
+}

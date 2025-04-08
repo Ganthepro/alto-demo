@@ -1,0 +1,9 @@
+
+{
+    "agent_name": "os_wifi",
+    "params": {
+        "ifname": "wlp0s20f3",
+        "wifi_name": "SYN-Office",
+        "os_password": "altotech"
+    }
+}

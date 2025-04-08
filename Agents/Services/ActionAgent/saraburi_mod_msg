@@ -1,0 +1,3981 @@
+
+{
+  "state_variables": {
+    "temperature0300000ab946": false
+,"humidity0300000ab946": false
+,"co20300000ab946": false
+,"temperature70ee503d19e8": false
+,"humidity70ee503d19e8": false
+,"co270ee503d19e8": false
+,"temperature0300000b0890": false
+,"humidity0300000b0890": false
+,"co20300000b0890": false
+,"temperature0300000ab73a": false
+,"humidity0300000ab73a": false
+,"co20300000ab73a": false
+,"temperature70ee503d149c": false
+,"humidity70ee503d149c": false
+,"co270ee503d149c": false
+,"temperature0300000ab970": false
+,"humidity0300000ab970": false
+,"co20300000ab970": false
+,"temperature0300000ab95e": false
+,"humidity0300000ab95e": false
+,"co20300000ab95e": false
+,"temperature70ee503d1dc0": false
+,"humidity70ee503d1dc0": false
+,"co270ee503d1dc0": false
+,"temperature0300000ab7e6": false
+,"humidity0300000ab7e6": false
+,"co20300000ab7e6": false
+,"temperature030000045542": false
+,"humidity030000045542": false
+,"co2030000045542": false
+
+    ,"var_name_msg1": ""
+    ,"__str__var_name_msg2": ""
+    ,"var_name_msg3": ""
+  },
+  "agent_name": "automation",
+  "devid": "automation",
+  "rules": {
+    
+    "10": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:46",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab946",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 1 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature0300000ab946": true
+          }
+        ]
+      ]
+    }
+,
+    "11": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:46",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab946",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature0300000ab946": false
+          }
+        ]
+      ]
+    }
+,
+    "12": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:46",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab946",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 1 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity0300000ab946": true
+          }
+        ]
+      ]
+    }
+,
+    "13": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:46",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab946",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity0300000ab946": false
+          }
+        ]
+      ]
+    }
+,
+    "14": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:46",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab946",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 1 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co20300000ab946": true
+          }
+        ]
+      ]
+    }
+,
+    "15": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:46",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab946",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co20300000ab946": false
+          }
+        ]
+      ]
+    }
+,
+    "16": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:19:e8",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature70ee503d19e8",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 2 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature70ee503d19e8": true
+          }
+        ]
+      ]
+    }
+,
+    "17": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:19:e8",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature70ee503d19e8",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature70ee503d19e8": false
+          }
+        ]
+      ]
+    }
+,
+    "18": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:19:e8",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity70ee503d19e8",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 2 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity70ee503d19e8": true
+          }
+        ]
+      ]
+    }
+,
+    "19": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:19:e8",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity70ee503d19e8",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity70ee503d19e8": false
+          }
+        ]
+      ]
+    }
+,
+    "20": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:19:e8",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co270ee503d19e8",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 2 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co270ee503d19e8": true
+          }
+        ]
+      ]
+    }
+,
+    "21": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:19:e8",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co270ee503d19e8",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co270ee503d19e8": false
+          }
+        ]
+      ]
+    }
+,
+    "22": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0b:08:90",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000b0890",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 3 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature0300000b0890": true
+          }
+        ]
+      ]
+    }
+,
+    "23": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0b:08:90",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000b0890",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature0300000b0890": false
+          }
+        ]
+      ]
+    }
+,
+    "24": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0b:08:90",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000b0890",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 3 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity0300000b0890": true
+          }
+        ]
+      ]
+    }
+,
+    "25": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0b:08:90",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000b0890",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity0300000b0890": false
+          }
+        ]
+      ]
+    }
+,
+    "26": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0b:08:90",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000b0890",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 3 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co20300000b0890": true
+          }
+        ]
+      ]
+    }
+,
+    "27": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0b:08:90",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000b0890",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co20300000b0890": false
+          }
+        ]
+      ]
+    }
+,
+    "28": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:3a",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab73a",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 4 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature0300000ab73a": true
+          }
+        ]
+      ]
+    }
+,
+    "29": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:3a",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab73a",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature0300000ab73a": false
+          }
+        ]
+      ]
+    }
+,
+    "30": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:3a",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab73a",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 4 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity0300000ab73a": true
+          }
+        ]
+      ]
+    }
+,
+    "31": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:3a",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab73a",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity0300000ab73a": false
+          }
+        ]
+      ]
+    }
+,
+    "32": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:3a",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab73a",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 4 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co20300000ab73a": true
+          }
+        ]
+      ]
+    }
+,
+    "33": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:3a",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab73a",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co20300000ab73a": false
+          }
+        ]
+      ]
+    }
+,
+    "34": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:14:9c",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature70ee503d149c",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 5 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature70ee503d149c": true
+          }
+        ]
+      ]
+    }
+,
+    "35": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:14:9c",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature70ee503d149c",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature70ee503d149c": false
+          }
+        ]
+      ]
+    }
+,
+    "36": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:14:9c",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity70ee503d149c",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 5 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity70ee503d149c": true
+          }
+        ]
+      ]
+    }
+,
+    "37": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:14:9c",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity70ee503d149c",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity70ee503d149c": false
+          }
+        ]
+      ]
+    }
+,
+    "38": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:14:9c",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co270ee503d149c",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 5 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co270ee503d149c": true
+          }
+        ]
+      ]
+    }
+,
+    "39": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:14:9c",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co270ee503d149c",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co270ee503d149c": false
+          }
+        ]
+      ]
+    }
+,
+    "40": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:70",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab970",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 10 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature0300000ab970": true
+          }
+        ]
+      ]
+    }
+,
+    "41": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:70",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab970",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature0300000ab970": false
+          }
+        ]
+      ]
+    }
+,
+    "42": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:70",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab970",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 10 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity0300000ab970": true
+          }
+        ]
+      ]
+    }
+,
+    "43": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:70",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab970",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity0300000ab970": false
+          }
+        ]
+      ]
+    }
+,
+    "44": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:70",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab970",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 10 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co20300000ab970": true
+          }
+        ]
+      ]
+    }
+,
+    "45": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:70",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab970",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co20300000ab970": false
+          }
+        ]
+      ]
+    }
+,
+    "46": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:5e",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab95e",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 9 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature0300000ab95e": true
+          }
+        ]
+      ]
+    }
+,
+    "47": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:5e",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab95e",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature0300000ab95e": false
+          }
+        ]
+      ]
+    }
+,
+    "48": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:5e",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab95e",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 9 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity0300000ab95e": true
+          }
+        ]
+      ]
+    }
+,
+    "49": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:5e",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab95e",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity0300000ab95e": false
+          }
+        ]
+      ]
+    }
+,
+    "50": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:5e",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab95e",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 9 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co20300000ab95e": true
+          }
+        ]
+      ]
+    }
+,
+    "51": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b9:5e",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab95e",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co20300000ab95e": false
+          }
+        ]
+      ]
+    }
+,
+    "52": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:1d:c0",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature70ee503d1dc0",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 8 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature70ee503d1dc0": true
+          }
+        ]
+      ]
+    }
+,
+    "53": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:1d:c0",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature70ee503d1dc0",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature70ee503d1dc0": false
+          }
+        ]
+      ]
+    }
+,
+    "54": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:1d:c0",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity70ee503d1dc0",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 8 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity70ee503d1dc0": true
+          }
+        ]
+      ]
+    }
+,
+    "55": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:1d:c0",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity70ee503d1dc0",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity70ee503d1dc0": false
+          }
+        ]
+      ]
+    }
+,
+    "56": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:1d:c0",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co270ee503d1dc0",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 8 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co270ee503d1dc0": true
+          }
+        ]
+      ]
+    }
+,
+    "57": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:3d:1d:c0",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co270ee503d1dc0",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co270ee503d1dc0": false
+          }
+        ]
+      ]
+    }
+,
+    "58": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:e6",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab7e6",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 7 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature0300000ab7e6": true
+          }
+        ]
+      ]
+    }
+,
+    "59": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:e6",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature0300000ab7e6",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature0300000ab7e6": false
+          }
+        ]
+      ]
+    }
+,
+    "60": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:e6",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab7e6",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 7 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity0300000ab7e6": true
+          }
+        ]
+      ]
+    }
+,
+    "61": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:e6",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity0300000ab7e6",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity0300000ab7e6": false
+          }
+        ]
+      ]
+    }
+,
+    "62": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:e6",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab7e6",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 7 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co20300000ab7e6": true
+          }
+        ]
+      ]
+    }
+,
+    "63": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:0a:b7:e6",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co20300000ab7e6",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co20300000ab7e6": false
+          }
+        ]
+      ]
+    }
+,
+    "64": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:04:55:42",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            ">",
+            30
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature030000045542",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "temperature level ",
+            "__str__var_name_msg2": "__event__data::temperature",
+            "var_name_msg3": " C in room 6 is higher than limit 30 C"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::temperature",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::temperature",
+            "threshold_max": "30",
+            "threshold_min": "29",
+            "sensor_type": "temperature",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "temperature030000045542": true
+          }
+        ]
+      ]
+    }
+,
+    "65": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:04:55:42",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::temperature",
+          [
+            "<",
+            29
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "temperature030000045542",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "temperature030000045542": false
+          }
+        ]
+      ]
+    }
+,
+    "66": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:04:55:42",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            ">",
+            75
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity030000045542",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "humidity level ",
+            "__str__var_name_msg2": "__event__data::humidity",
+            "var_name_msg3": " % in room 6 is higher than limit 75 %"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::humidity",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::humidity",
+            "threshold_max": "75",
+            "threshold_min": "73",
+            "sensor_type": "humidity",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "humidity030000045542": true
+          }
+        ]
+      ]
+    }
+,
+    "67": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:04:55:42",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::humidity",
+          [
+            "<",
+            73
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "humidity030000045542",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "humidity030000045542": false
+          }
+        ]
+      ]
+    }
+,
+    "68": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:04:55:42",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            ">",
+            1000
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co2030000045542",
+          [
+            "==",
+            false
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "var_name_msg1": "co2 level ",
+            "__str__var_name_msg2": "__event__data::co2",
+            "var_name_msg3": " ppm in room 6 is higher than limit 1000 ppm"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var____str__var_name_msg2"
+          }
+        ],
+        [
+          "variable_add",
+          {
+            "var_name_msg1": "__var__var_name_msg3"
+          }
+        ],
+        [
+          [
+            "notify",
+            "notifyapi",
+            "linefire_001",
+            "command"
+          ],
+          {
+            "status": "anomaly",
+            "notification_message": "__var__var_name_msg1",
+            "current_value": "__event__data::co2",
+            #"notification_image": "https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif",
+            #"notify_to": "admin",
+            "detect_value": "__event__data::co2",
+            "threshold_max": "1000",
+            "threshold_min": "998",
+            "sensor_type": "co2",
+            "sensor_id": "__topic__device",
+            "subdevice_idx": 0
+          }
+        ],
+        [
+          "variable_set",
+          {
+            "co2030000045542": true
+          }
+        ]
+      ]
+    }
+,
+    "69": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "03:00:00:04:55:42",
+          "sample"
+        ]
+      },
+      "conditions": [
+        [
+          "event",
+          "data::co2",
+          [
+            "<",
+            998
+          ]
+        ],
+        [
+          "event",
+          "subdevice_idx",
+          [
+            "==",
+            1
+          ]
+        ],
+        [
+          "variable",
+          "co2030000045542",
+          [
+            "==",
+            true
+          ]
+        ]
+      ],
+      "actions": [
+        [
+          "variable_set",
+          {
+            "co2030000045542": false
+          }
+        ]
+      ]
+    }
+
+  },
+  "topic": "",
+  "heartbeat_rate": 90,
+  "log_commands": false,
+  "location": [
+    "13.7500 N",
+    "100.5167 E"
+  ]
+}

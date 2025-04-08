@@ -1,0 +1,105 @@
+---
+- name: Alto CrateDB
+  hosts: test_ansible_1
+  become: false
+  vars:
+    remove_alto_cron: true
+    alto_user: alto
+    cratedb_listen_address: 127.0.0.1
+    cratedb_listen_port: 4200
+    crate_yml_src_path: /Users/oenlighteno/Documents/Alto2021/ansible/bgrimm/config/crate.yml.j2
+    crate_yml_dst_path: /etc/crate/crate.yml
+  tasks:
+    - name: "Add apt-key for crate"
+      become: true
+      become_method: sudo
+      apt_key:
+        url: "https://cdn.crate.io/downloads/deb/DEB-GPG-KEY-crate"
+        state: present
+      delay: 2
+      retries: 3
+
+    - name: Work out the distribution
+      command: lsb_release -cs
+      register: result
+
+    - name: "Add stable repo"
+      become: true
+      become_method: sudo
+      apt_repository:
+        repo: "deb https://cdn.crate.io/downloads/deb/stable/ {{ result.stdout }} main"
+        state: present
+      delay: 2
+      retries: 3
+
+    - name: Update OS
+      become: true
+      become_method: sudo
+      apt:
+        # upgrade: yes
+        update_cache: yes
+        force_apt_get: yes
+        cache_valid_time: 86400 #One day
+      # until: result|succeeded
+      delay: 2
+      retries: 3
+
+    - name: Install crate
+      become: true
+      become_method: sudo
+      apt:
+        name: crate
+        state: present
+      delay: 2
+      retries: 3
+
+    - name: "Start crate and enable at boot."
+      become: true
+      become_method: sudo
+      service:
+        name: crate
+        enabled: true
+        state: started
+      delay: 2
+      retries: 3
+
+    - name: "Sometimes need to force CrateDB to use IPv4 to get networking up and running, append if not exist"
+      become: true
+      become_method: sudo
+      shell: "grep -qxF 'CRATE_USE_IPV4=true' /etc/default/crate || printf 'CRATE_USE_IPV4=true' >> /etc/default/crate"
+      delay: 2
+      retries: 3
+
+    - name: Copy crate.yml template to dst
+      become: true
+      become_method: sudo
+      template:
+        src: "{{ crate_yml_src_path }}"
+        dest: "{{ crate_yml_dst_path }}"
+        force: true
+      delay: 2
+      retries: 3
+
+    - name: restart crate
+      become: true
+      become_method: sudo
+      service:
+        name: crate
+        state: restarted
+      delay: 2
+      retries: 3
+
+    - name: "Wait until up on listen address {{ cratedb_listen_address }}, port {{ cratedb_listen_port }}"
+      wait_for:
+        host: "{{ cratedb_listen_address }}"
+        port: "{{ cratedb_listen_port }}"
+        delay: 10
+
+    - name: Wget crate (Test)
+      command: "wget http://localhost:4200/"
+      register: res_log
+      delay: 2
+      retries: 3
+    - debug: var=res_log
+
+

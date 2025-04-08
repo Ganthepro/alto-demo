@@ -1,0 +1,7 @@
+{
+  # VOLTTRON config files are JSON with support for python style comments
+  "url": "http://localhost:8088/submit",
+  "urlcloudapi": "http://altoiotbackend.azurewebsites.net/api/v1.0/pushfirebase",
+  "Authorization": "Token b97826bedb0dcc2e1aab9b6f167e698776489fce",
+  "Content": "application/json; charset=utf-8"
+}

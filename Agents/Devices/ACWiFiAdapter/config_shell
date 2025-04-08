@@ -1,0 +1,23 @@
+{
+  "agent_name": "ac_wifi_adapter",
+  "topic": "",
+  "sampling_rate": 120,
+  "devices": {
+    "shell_rama2_ac_1": [
+      "daikin_wifi_adapter",
+      "192.168.1.201"
+    ],
+    "shell_rama2_ac_2": [
+      "daikin_wifi_adapter",
+      "192.168.1.180"
+    ],
+    "shell_rama2_ac_3": [
+      "daikin_wifi_adapter",
+      "192.168.1.140"
+    ],
+    "shell_rama2_ac_4": [
+      "daikin_wifi_adapter",
+      "192.168.1.186"
+    ]
+  }
+}

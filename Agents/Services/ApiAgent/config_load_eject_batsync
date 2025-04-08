@@ -1,0 +1,35 @@
+{
+  "alto_apis": [
+    {
+      "alto_api_id": "alto_api_1",
+      "base_url": "https://betaeviotbackend.azurewebsites.net",
+      "username": "betaadmin",
+      "password": "betaadmin"
+    }
+  ],
+  "v2apis": [
+    {
+      "api_type": "api_unit",
+      "api_id": "api_1",
+      "alto_api": "alto_api_1",
+      "topic": "charger/charger/beta_ev_tower_001/load",
+      "rpc_device_id": "beta_ev_tower_001",
+      "gateway_name": "beta_ev_tower_001"
+    },
+    {
+      "api_type": "api_eject",
+      "api_id": "api_2",
+      "alto_api": "alto_api_1",
+      "topic": "charger/charger/beta_ev_tower_001/confirm_ejected"
+    },
+    {
+      "api_type": "battery_updator",
+      "api_id": "api_3",
+      "alto_api": "alto_api_1",
+      "rpc_device_id": "beta_ev_tower_001",
+      "room_name": "beta_ev_tower_001",
+      "room_id": 80,
+      "gateway_id": 13
+    }
+  ]
+}

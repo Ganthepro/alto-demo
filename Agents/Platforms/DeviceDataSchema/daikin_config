@@ -1,0 +1,18 @@
+{
+  "agent_name": "device_data_schema",
+  "is_command_only": true,
+  "event_schemas": ["hvac", "sensor", "switch", "rein", "rein_output"],
+  "target_agent_ids": ["airveda", "modbus", "itm_fcu", "itm_oau", "rl_action", "tuya_air_quality", "tuya_temp_humid"],
+  "command_able_devices": {
+    "hvac": {
+      "itm_fcu": {
+        "0": ["ac"]
+      },
+      "itm_oau": {
+        "0": ["ac"]
+      }
+    }
+  },
+  "async_apis": {},
+  "async_command_apis": {}
+}

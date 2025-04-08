@@ -1,0 +1,2447 @@
+{
+    "agent_name": "rl_action",
+    "rl_cron": "*/10 * * * *",
+    "underground_interval": 240,
+    "ahu_interval": 180,
+    "firebase_config": [
+      "AIzaSyDjphOeX-zUJHvSAaoo3j1M5moba5ABSxE",
+      "altobuildings.firebaseapp.com",
+      "https://altobuildings-default-rtdb.asia-southeast1.firebasedatabase.app",
+      "altobuildings.appspot.com"
+    ],
+    "in_out_agent": {
+      "in": {
+        "netatmo": "netatmo_none",
+        "modbus_meter": "modbus",
+        "tuya_env": "tuya_temp_humid",
+        "tuya_aq": "tuya_air_quality",
+        "hvac": "bac0hvac"
+      },
+      "out": {
+        "ac_out_1": "bac0hvac",
+        "ahu_out_1": "tasmota"
+      }
+    },
+    "data_stores": {
+        "eb020ee6e414cafeda1pyy": [
+            "tuya_aq_data"
+        ],
+        "ebc3d87a1043acbea1a1qa": [
+            "tuya_env_data"
+        ],
+        "ebf17a9c7aa98c832emxvq": [
+            "tuya_env_data"
+        ],
+        "ebdb99df4e44ae3baaj2ik": [
+            "tuya_env_data"
+        ],
+        "eb6b5fc5934efb9cf5h8eq": [
+            "tuya_aq_data"
+        ],
+        "eb364bba6bf0044c2cyg3m": [
+            "tuya_env_data"
+        ],
+        "eb5fc3bd14503e8b97aij0": [
+            "tuya_env_data"
+        ],
+        "ebff7fc4b92fb3db9dw4jk": [
+            "tuya_env_data"
+        ],
+        "eb72cd564cce539f44lp7y": [
+            "tuya_env_data"
+        ],
+        "eb024aced3f58f823dvkcr": [
+            "tuya_env_data"
+        ],
+        "eb1fb6df249ff9b521m41x": [
+            "tuya_env_data"
+        ],
+        "eb7a76bd71b93ca768nzso": [
+            "tuya_env_data"
+        ],
+        "eb923025909f89cff0o1op": [
+            "tuya_env_data"
+        ],
+        "eb9e14d22dadd50ae7gozk": [
+            "tuya_env_data"
+        ],
+        "eb22eafd83327e754740rj": [
+            "tuya_aq_data"
+        ],
+        "eb3fddcc725830bcd641sp": [
+            "tuya_env_data"
+        ],
+        "eb8bf67b967e7df557lbdu": [
+            "tuya_env_data"
+        ],
+        "eb215a9bfe19b70d1cshj4": [
+            "tuya_env_data"
+        ],
+        "eb90e9e8e247ccab8duvpq": [
+            "tuya_env_data"
+        ],
+        "eb193b103d745e4a2eifmg": [
+            "tuya_env_data"
+        ],
+        "eb13cb242bfc720b89xnlz": [
+            "tuya_aq_data"
+        ],
+        "ebc8e0407218fbd58e8cpx": [
+            "tuya_aq_data"
+        ],
+        "ac_1": [
+            "hvac_data"
+        ],
+        "ac_2": [
+            "hvac_data"
+        ],
+        "ac_3": [
+            "hvac_data"
+        ],
+        "ac_4": [
+            "hvac_data"
+        ],
+        "ac_5": [
+            "hvac_data"
+        ],
+        "ac_6": [
+            "hvac_data"
+        ],
+        "ac_7": [
+            "hvac_data"
+        ],
+        "ac_8": [
+            "hvac_data"
+        ],
+        "ac_9": [
+            "hvac_data"
+        ],
+        "ac_10": [
+            "hvac_data"
+        ],
+        "ac_11": [
+            "hvac_data"
+        ],
+        "ac_12": [
+            "hvac_data"
+        ],
+        "ac_14": [
+            "hvac_data"
+        ],
+        "ac_15": [
+            "hvac_data"
+        ],
+        "ac_16": [
+            "hvac_data"
+        ],
+        "ac_17": [
+            "hvac_data"
+        ],
+        "ac_18": [
+            "hvac_data"
+        ],
+        "ac_20": [
+            "hvac_data"
+        ],
+        "ac_21": [
+            "hvac_data"
+        ],
+        "ac_22": [
+            "hvac_data"
+        ],
+        "ac_23": [
+            "hvac_data"
+        ],
+        "ac_24": [
+            "hvac_data"
+        ],
+        "eb6b3b52a3f4cc47717ugt": [
+            "tuya_env_data"
+        ],
+        "ac_13": [
+            "hvac_data"
+        ],
+        "ebc11ced298a2f6ca1smag": [
+            "tuya_env_data"
+        ],
+        "eb9de2024f02e35598uxjc": [
+            "tuya_aq_data"
+        ],
+        "ac_19": [
+            "hvac_data"
+        ],
+        "eb6b3b52a3f4cc47717ugt": [
+            "tuya_env_data"
+        ],
+        "ac_13": [
+            "hvac_data"
+        ],
+        "ebc11ced298a2f6ca1smag": [
+            "tuya_env_data"
+        ],
+        "eb9de2024f02e35598uxjc": [
+            "tuya_aq_data"
+        ],
+        "ac_19": [
+            "hvac_data"
+        ]        
+    },
+    "derived_datas": {
+        "pmv_ac_1": [
+            "pmv",
+            [
+            "eb020ee6e414cafeda1pyy"
+            ]
+        ],
+        "pmv_ac_2": [
+            "pmv",
+            [
+            "ebc3d87a1043acbea1a1qa"
+            ]
+        ],
+        "pmv_ac_3": [
+            "pmv",
+            [
+            "ebf17a9c7aa98c832emxvq"
+            ]
+        ],
+        "pmv_ac_4": [
+            "pmv",
+            [
+            "ebf17a9c7aa98c832emxvq"
+            ]
+        ],
+        "pmv_ac_5": [
+            "pmv",
+            [
+            "ebdb99df4e44ae3baaj2ik"
+            ]
+        ],
+        "pmv_ac_6": [
+            "pmv",
+            [
+            "eb6b5fc5934efb9cf5h8eq"
+            ]
+        ],
+        "pmv_ac_7": [
+            "pmv",
+            [
+            "eb364bba6bf0044c2cyg3m"
+            ]
+        ],
+        "pmv_ac_8": [
+            "pmv",
+            [
+            "eb5fc3bd14503e8b97aij0"
+            ]
+        ],
+        "pmv_ac_9": [
+            "pmv",
+            [
+            "eb5fc3bd14503e8b97aij0"
+            ]
+        ],
+        "pmv_ac_10": [
+            "pmv",
+            [
+            "ebff7fc4b92fb3db9dw4jk"
+            ]
+        ],
+        "pmv_ac_11": [
+            "pmv",
+            [
+            "eb72cd564cce539f44lp7y"
+            ]
+        ],
+        "pmv_ac_12": [
+            "pmv",
+            [
+            "eb024aced3f58f823dvkcr"
+            ]
+        ],
+        "pmv_ac_14": [
+            "pmv",
+            [
+            "eb1fb6df249ff9b521m41x"
+            ]
+        ],
+        "pmv_ac_15": [
+            "pmv",
+            [
+            "eb7a76bd71b93ca768nzso"
+            ]
+        ],
+        "pmv_ac_16": [
+            "pmv",
+            [
+            "eb923025909f89cff0o1op"
+            ]
+        ],
+        "pmv_ac_17": [
+            "pmv",
+            [
+            "eb9e14d22dadd50ae7gozk"
+            ]
+        ],
+        "pmv_ac_18": [
+            "pmv",
+            [
+            "eb22eafd83327e754740rj"
+            ]
+        ],
+        "pmv_ac_20": [
+            "pmv",
+            [
+            "eb3fddcc725830bcd641sp"
+            ]
+        ],
+        "pmv_ac_21": [
+            "pmv",
+            [
+            "eb8bf67b967e7df557lbdu"
+            ]
+        ],
+        "pmv_ac_22": [
+            "pmv",
+            [
+            "eb215a9bfe19b70d1cshj4"
+            ]
+        ],
+        "pmv_ac_23": [
+            "pmv",
+            [
+            "eb90e9e8e247ccab8duvpq"
+            ]
+        ],
+        "pmv_ac_24": [
+            "pmv",
+            [
+            "eb193b103d745e4a2eifmg"
+            ]
+        ],
+        "pmv_ac_13_1": [
+            "pmv",
+            [
+            "eb6b3b52a3f4cc47717ugt"
+            ]
+        ],
+        "pmv_ac_13_2": [
+            "pmv",
+            [
+            "ebc11ced298a2f6ca1smag"
+            ]
+        ],
+        "pmv_ac_19_1": [
+            "pmv",
+            [
+            "eb3fddcc725830bcd641sp"
+            ]
+        ],
+        "pmv_ac_19_2": [
+            "pmv",
+            [
+            "eb9de2024f02e35598uxjc"
+            ]
+        ],
+        "pmv_ac_13_1": [
+            "pmv",
+            [
+            "eb6b3b52a3f4cc47717ugt"
+            ]
+        ],
+        "pmv_ac_13_2": [
+            "pmv",
+            [
+            "ebc11ced298a2f6ca1smag"
+            ]
+        ],
+        "pmv_ac_19_1": [
+            "pmv",
+            [
+            "eb3fddcc725830bcd641sp"
+            ]
+        ],
+        "pmv_ac_19_2": [
+            "pmv",
+            [
+            "eb9de2024f02e35598uxjc"
+            ]
+        ]        
+    },
+    "manipulations": {
+        "man_ac_1_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_1",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_1_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_1",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_1_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb020ee6e414cafeda1pyy",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_1_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb020ee6e414cafeda1pyy",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_2_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_2",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_2_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_2",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_2_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebc3d87a1043acbea1a1qa",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_2_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebc3d87a1043acbea1a1qa",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_3_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_3",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_3_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_3",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_3_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebf17a9c7aa98c832emxvq",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_3_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebf17a9c7aa98c832emxvq",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_4_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_4",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_4_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_4",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_4_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebf17a9c7aa98c832emxvq",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_4_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebf17a9c7aa98c832emxvq",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_5_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_5",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_5_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_5",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_5_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebdb99df4e44ae3baaj2ik",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_5_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebdb99df4e44ae3baaj2ik",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_6_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_6",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_6_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_6",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_6_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb6b5fc5934efb9cf5h8eq",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_6_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb6b5fc5934efb9cf5h8eq",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_7_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_7",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_7_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_7",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_7_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb364bba6bf0044c2cyg3m",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_7_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb364bba6bf0044c2cyg3m",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_8_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_8",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_8_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_8",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_8_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb5fc3bd14503e8b97aij0",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_8_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb5fc3bd14503e8b97aij0",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_9_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_9",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_9_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_9",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_9_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb5fc3bd14503e8b97aij0",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_9_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb5fc3bd14503e8b97aij0",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_10_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_10",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_10_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_10",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_10_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebff7fc4b92fb3db9dw4jk",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_10_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebff7fc4b92fb3db9dw4jk",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_11_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_11",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_11_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_11",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_11_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb72cd564cce539f44lp7y",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_11_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb72cd564cce539f44lp7y",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_12_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_12",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_12_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_12",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_12_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb024aced3f58f823dvkcr",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_12_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb024aced3f58f823dvkcr",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_14_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_14",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_14_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_14",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_14_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb1fb6df249ff9b521m41x",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_14_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb1fb6df249ff9b521m41x",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_15_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_15",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_15_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_15",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_15_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb7a76bd71b93ca768nzso",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_15_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb7a76bd71b93ca768nzso",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_16_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_16",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_16_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_16",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_16_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb923025909f89cff0o1op",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_16_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb923025909f89cff0o1op",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_17_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_17",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_17_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_17",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_17_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb9e14d22dadd50ae7gozk",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_17_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb9e14d22dadd50ae7gozk",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_18_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_18",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_18_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_18",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_18_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb22eafd83327e754740rj",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_18_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb22eafd83327e754740rj",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_20_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_20",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_20_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_20",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_20_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb3fddcc725830bcd641sp",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_20_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb3fddcc725830bcd641sp",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_21_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_21",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_21_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_21",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_21_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb8bf67b967e7df557lbdu",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_21_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb8bf67b967e7df557lbdu",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_22_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_22",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_22_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_22",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_22_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb215a9bfe19b70d1cshj4",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_22_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb215a9bfe19b70d1cshj4",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_23_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_23",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_23_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_23",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_23_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb90e9e8e247ccab8duvpq",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_23_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb90e9e8e247ccab8duvpq",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_ac_24_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "pmv_ac_24",
+                "pmv"
+            ]
+            ]
+        ],
+        "man_ac_24_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_24",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_24_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb193b103d745e4a2eifmg",
+                "temperature"
+            ]
+            ]
+        ],
+        "man_ac_24_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb193b103d745e4a2eifmg",
+                "humidity"
+            ]
+            ]
+        ],
+        "man_tasmota_2E6B3E_0": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb6b5fc5934efb9cf5h8eq",
+                "co2"
+            ]
+            ]
+        ],
+        "man_tasmota_2E6B3E_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb13cb242bfc720b89xnlz",
+                "co2"
+            ]
+            ]
+        ],
+        "man_tasmota_2E6B3E_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "eb22eafd83327e754740rj",
+                "co2"
+            ]
+            ]
+        ],
+        "man_tasmota_2E6B3E_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ebc8e0407218fbd58e8cpx",
+                "co2"
+            ]
+            ]
+        ],
+        "man_ac_13_pmv_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "pmv_ac_13_1",
+                "pmv"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_temp_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb6b3b52a3f4cc47717ugt",
+                "temperature"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_humid_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb6b3b52a3f4cc47717ugt",
+                "humidity"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_pmv_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "pmv_ac_13_2",
+                "pmv"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_temp_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "ebc11ced298a2f6ca1smag",
+                "temperature"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_humid_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "ebc11ced298a2f6ca1smag",
+                "humidity"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_pmv_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "pmv_ac_19_1",
+                "pmv"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_temp_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb3fddcc725830bcd641sp",
+                "temperature"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_humid_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb3fddcc725830bcd641sp",
+                "humidity"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_pmv_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "pmv_ac_19_2",
+                "pmv"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_temp_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb9de2024f02e35598uxjc",
+                "temperature"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_humid_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb9de2024f02e35598uxjc",
+                "humidity"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_pmv_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_13_pmv_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_13_pmv_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_temp_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_13_temp_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_13_temp_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_humid_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_13_humid_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_13_humid_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_pmv_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_19_pmv_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_19_pmv_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_temp_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_19_temp_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_19_temp_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_humid_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_19_humid_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_19_humid_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_13_pmv_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_13",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_13_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_13_temp_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_13_humid_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_19_pmv_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_19",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_19_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_19_temp_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_19_humid_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_pmv_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "pmv_ac_13_1",
+                "pmv"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_temp_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb6b3b52a3f4cc47717ugt",
+                "temperature"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_humid_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb6b3b52a3f4cc47717ugt",
+                "humidity"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_pmv_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "pmv_ac_13_2",
+                "pmv"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_temp_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "ebc11ced298a2f6ca1smag",
+                "temperature"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_humid_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "ebc11ced298a2f6ca1smag",
+                "humidity"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_pmv_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "pmv_ac_19_1",
+                "pmv"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_temp_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb3fddcc725830bcd641sp",
+                "temperature"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_humid_mul_1": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb3fddcc725830bcd641sp",
+                "humidity"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_pmv_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "pmv_ac_19_2",
+                "pmv"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_temp_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb9de2024f02e35598uxjc",
+                "temperature"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_19_humid_mul_2": [
+            "arithmetic_ops",
+            "mul",
+            [
+            [
+                "eb9de2024f02e35598uxjc",
+                "humidity"
+            ],
+            0.5
+            ]
+        ],
+        "man_ac_13_pmv_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_13_pmv_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_13_pmv_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_temp_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_13_temp_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_13_temp_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_humid_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_13_humid_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_13_humid_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_pmv_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_19_pmv_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_19_pmv_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_temp_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_19_temp_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_19_temp_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_humid_add": [
+            "arithmetic_ops",
+            "add",
+            [
+            [
+                "man_ac_19_humid_mul_1",
+                "out1"
+            ],
+            [
+                "man_ac_19_humid_mul_2",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_13_pmv_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_13",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_13_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_13_temp_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_13_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_13_humid_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_1": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_19_pmv_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_2": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "ac_19",
+                "set_temperature"
+            ]
+            ]
+        ],
+        "man_ac_19_3": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_19_temp_add",
+                "out1"
+            ]
+            ]
+        ],
+        "man_ac_19_4": [
+            "arithmetic_ops",
+            "nop",
+            [
+            [
+                "man_ac_19_humid_add",
+                "out1"
+            ]
+            ]
+        ]
+    },
+    "rls": {
+        "rl_pmv_ac_1": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_1_1","man_ac_1_2","man_ac_1_3","man_ac_1_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_2": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_2_1","man_ac_2_2","man_ac_2_3","man_ac_2_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_3": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_3_1","man_ac_3_2","man_ac_3_3","man_ac_3_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_4": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_4_1","man_ac_4_2","man_ac_4_3","man_ac_4_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_5": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_5_1","man_ac_5_2","man_ac_5_3","man_ac_5_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_6": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_6_1","man_ac_6_2","man_ac_6_3","man_ac_6_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_7": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_7_1","man_ac_7_2","man_ac_7_3","man_ac_7_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_8": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_8_1","man_ac_8_2","man_ac_8_3","man_ac_8_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_9": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_9_1","man_ac_9_2","man_ac_9_3","man_ac_9_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_10": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_10_1","man_ac_10_2","man_ac_10_3","man_ac_10_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_11": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_11_1","man_ac_11_2","man_ac_11_3","man_ac_11_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_12": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_12_1","man_ac_12_2","man_ac_12_3","man_ac_12_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_14": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_14_1","man_ac_14_2","man_ac_14_3","man_ac_14_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_15": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_15_1","man_ac_15_2","man_ac_15_3","man_ac_15_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_16": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_16_1","man_ac_16_2","man_ac_16_3","man_ac_16_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_17": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_17_1","man_ac_17_2","man_ac_17_3","man_ac_17_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_18": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_18_1","man_ac_18_2","man_ac_18_3","man_ac_18_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_20": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_20_1","man_ac_20_2","man_ac_20_3","man_ac_20_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_21": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_21_1","man_ac_21_2","man_ac_21_3","man_ac_21_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_22": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_22_1","man_ac_22_2","man_ac_22_3","man_ac_22_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_23": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_23_1","man_ac_23_2","man_ac_23_3","man_ac_23_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_24": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_24_1","man_ac_24_2","man_ac_24_3","man_ac_24_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_ahu_tasmota_2E6B3E_0": [
+            "ahu_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            [
+            "man_tasmota_2E6B3E_0"
+            ],
+            800,
+            1000
+        ],
+        "rl_ahu_tasmota_2E6B3E_1": [
+            "ahu_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            [
+            "man_tasmota_2E6B3E_1"
+            ],
+            800,
+            1000
+        ],
+        "rl_ahu_tasmota_2E6B3E_2": [
+            "ahu_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            [
+            "man_tasmota_2E6B3E_2"
+            ],
+            800,
+            1000
+        ],
+        "rl_ahu_tasmota_2E6B3E_3": [
+            "ahu_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            [
+            "man_tasmota_2E6B3E_3"
+            ],
+            800,
+            1000
+        ],
+        "rl_pmv_ac_13": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_13_1","man_ac_13_2","man_ac_13_3","man_ac_13_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_19": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_19_1","man_ac_19_2","man_ac_19_3","man_ac_19_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_13": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_13_1","man_ac_13_2","man_ac_13_3","man_ac_13_4"],
+            11,
+            0.0,
+            0.5
+        ],
+        "rl_pmv_ac_19": [
+            "pmv_rl",
+            {
+            "en": true,
+            "en_up": true
+            },
+            ["man_ac_19_1","man_ac_19_2","man_ac_19_3","man_ac_19_4"],
+            11,
+            0.0,
+            0.5
+        ]        
+    },
+    "output_devices": {
+        "ac_1:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_1",
+            0
+            ]
+        ],
+        "ac_2:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_2",
+            0
+            ]
+        ],
+        "ac_3:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_3",
+            0
+            ]
+        ],
+        "ac_4:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_4",
+            0
+            ]
+        ],
+        "ac_5:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_5",
+            0
+            ]
+        ],
+        "ac_6:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_6",
+            0
+            ]
+        ],
+        "ac_7:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_7",
+            0
+            ]
+        ],
+        "ac_8:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_8",
+            0
+            ]
+        ],
+        "ac_9:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_9",
+            0
+            ]
+        ],
+        "ac_10:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_10",
+            0
+            ]
+        ],
+        "ac_11:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_11",
+            0
+            ]
+        ],
+        "ac_12:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_12",
+            0
+            ]
+        ],
+        "ac_14:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_14",
+            0
+            ]
+        ],
+        "ac_15:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_15",
+            0
+            ]
+        ],
+        "ac_16:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_16",
+            0
+            ]
+        ],
+        "ac_17:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_17",
+            0
+            ]
+        ],
+        "ac_18:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_18",
+            0
+            ]
+        ],
+        "ac_20:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_20",
+            0
+            ]
+        ],
+        "ac_21:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_21",
+            0
+            ]
+        ],
+        "ac_22:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_22",
+            0
+            ]
+        ],
+        "ac_23:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_23",
+            0
+            ]
+        ],
+        "ac_24:;0": [
+            "hvac_output",
+            false,
+            [
+            "rl_pmv_ac_24",
+            0
+            ]
+        ],
+        "tasmota_2E6B3E:;0": [
+            "ahu_output",
+            true,
+            [
+            "rl_ahu_tasmota_2E6B3E_0",
+            0
+            ]
+        ],
+        "tasmota_2E6B3E:;1": [
+            "ahu_output",
+            true,
+            [
+            "rl_ahu_tasmota_2E6B3E_1",
+            0
+            ]
+        ],
+        "tasmota_2E6B3E:;2": [
+            "ahu_output",
+            true,
+            [
+            "rl_ahu_tasmota_2E6B3E_2",
+            0
+            ]
+        ],
+        "tasmota_2E6B3E:;3": [
+            "ahu_output",
+            true,
+            [
+            "rl_ahu_tasmota_2E6B3E_3",
+            0
+            ]
+        ],
+        "ac_13:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_13",
+            0
+            ]
+        ],
+        "ac_19:;0": [
+            "hvac_output",
+            true,
+            [
+            "rl_pmv_ac_19",
+            0
+            ]
+        ]        
+    }
+  }

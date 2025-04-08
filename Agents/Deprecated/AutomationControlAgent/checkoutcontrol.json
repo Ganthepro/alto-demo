@@ -1,0 +1,6 @@
+[{ "device_id": "tasmota_B38C3E", "command":{"gang":1, "power":"off"}},
+    {"device_id": "tasmota_B38C3E","command": {"gang":2, "power":"off"}},
+    {"device_id": "tasmota_B38C3E","command": {"gang":3, "power":"off"}},
+    {"device_id": "tasmota_BDCD50","command": {"gang":1, "power":"off"}},
+    {"device_id": "tasmota_BDCD50","command": {"gang":2, "power":"off"}},
+    {"device_id": "tasmota_BDCD50","command": {"gang":3, "power":"off"}}]

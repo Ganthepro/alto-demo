@@ -1,0 +1,227 @@
+{
+  "cron_interval": "*/2 * * * *",
+  "databases": {
+    "altodemo": {
+      "host": "http://127.0.0.1",
+      "port": 4200,
+      "username": "",
+      "password": "",
+      "table": "altodemo"
+    }
+  },
+  "devices": {
+    "Refridge Office 1": {
+      "database": [
+        "altodemo"
+      ],
+      "condition_based": [
+        {
+          "condition_name": "Refridge Office 1: high temperature (10 C)",
+          "conditions": [
+            {
+              "datapoint": [
+                {
+                  "device_id": "ebc130be2d36e91da6nj92",
+                  "subdevice_idx": 0,
+                  "data_type": "environment",
+                  "datapoint": "temperature",
+                  "location": "alto_demo_room/iot_devices"
+                }
+              ],
+              "calculate_operation": "None",
+              "operation": ">=",
+              "value": 10,
+              "time_condition": {
+                "type": "period",
+                "value": {
+                  "period": 600,
+                  "between": [
+                    0,
+                    24
+                  ]
+                }
+              }
+            }
+          ],
+          "operation": ""
+        }
+      ],
+      "predictive": {},
+      "preventive": {},
+      "anomaly": {
+        "model": "path/to/xxx.onnx",
+        "devices": [
+          {
+            "device_id": "ebc130be2d36e91da6nj92",
+            "subdevice_idx": 0,
+            "data_type": "environment",
+            "datapoint": [
+              "temperature"
+            ],
+            "location": "alto_demo_room/iot_devices"
+          },
+          {
+            "device_id": "eb72106088502c79b6ilji",
+            "subdevice_idx": 0,
+            "data_type": "electric",
+            "datapoint": [
+              "current",
+              "energy",
+              "power",
+              "voltage"
+            ],
+            "location": "alto_demo_room/iot_devices"
+          }
+        ]
+      }
+    },
+    "Tuya CO2 1": {
+      "database": [
+        "altodemo"
+      ],
+      "condition_based": [
+        {
+          "condition_name": "Tuya CO2 1: high temperature (30 C)",
+          "conditions": [
+            {
+              "datapoint": [
+                {
+                  "device_id": "eb16093313e460c051cdxl",
+                  "subdevice_idx": 0,
+                  "data_type": "environment",
+                  "datapoint": "temperature",
+                  "location": "alto_demo_room/iot_devices"
+                }
+              ],
+              "calculate_operation": "None",
+              "operation": ">",
+              "value": 25,
+              "time_condition": {
+                "type": "period",
+                "value": {
+                  "period": 1800,
+                  "between": [
+                    5,
+                    23
+                  ]
+                }
+              }
+            }
+          ],
+          "operation": ""
+        },
+        {
+          "condition_name": "Tuya CO2 1: high humidity (70 %RH)",
+          "conditions": [
+            {
+              "datapoint": [
+                {
+                  "device_id": "eb16093313e460c051cdxl",
+                  "subdevice_idx": 0,
+                  "data_type": "environment",
+                  "datapoint": "humidity",
+                  "location": "alto_demo_room/iot_devices"
+                }
+              ],
+              "calculate_operation": "None",
+              "operation": ">",
+              "value": 40,
+              "time_condition": {
+                "type": "period",
+                "value": {
+                  "period": 1800,
+                  "between": [
+                    5,
+                    23
+                  ]
+                }
+              }
+            }
+          ],
+          "operation": ""
+        },
+        {
+          "condition_name": "Tuya CO2 1: high co2 (1000 ppm)",
+          "conditions": [
+            {
+              "datapoint": [
+                {
+                  "device_id": "eb16093313e460c051cdxl",
+                  "subdevice_idx": 0,
+                  "data_type": "environment",
+                  "datapoint": "co2",
+                  "location": "alto_demo_room/iot_devices"
+                }
+              ],
+              "calculate_operation": "None",
+              "operation": ">",
+              "value": 100,
+              "time_condition": {
+                "type": "period",
+                "value": {
+                  "period": 1800,
+                  "between": [
+                    5,
+                    23
+                  ]
+                }
+              }
+            }
+          ],
+          "operation": ""
+        }
+      ],
+      "predictive": {},
+      "preventive": {},
+      "anomaly": {}
+    },
+    "Test diff temperature": {
+      "database": [
+        "altodemo"
+      ],
+      "condition_based": [
+        {
+          "condition_name": "Diff temp: probe and env sensor",
+          "conditions": [
+            {
+              "datapoint": [
+                {
+                  "device_id": "eb16093313e460c051cdxl",
+                  "subdevice_idx": 0,
+                  "data_type": "environment",
+                  "datapoint": "temperature",
+                  "location": "alto_demo_room/iot_devices"
+                },
+                {
+                  "device_id": "eb16093313e460c051cdxl",
+                  "subdevice_idx": 0,
+                  "data_type": "environment",
+                  "datapoint": "humidity",
+                  "location": "alto_demo_room/iot_devices"
+                }
+              ],
+              "calculate_operation": "diff",
+              "operation": ">",
+              "value": 8,
+              "time_condition": {
+                "type": "period",
+                "value": {
+                  "period": 300,
+                  "between": [
+                    5,
+                    23
+                  ]
+                }
+              }
+            }
+          ],
+          "operation": ""
+        }
+      ],
+      "predictive": {},
+      "preventive": {},
+      "anomaly": {}
+    }
+  },
+  "backend_url": "https://buildingfunctions.azurewebsites.net/api/alert"
+}

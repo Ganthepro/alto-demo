@@ -1,0 +1,38 @@
+{
+    "agent_name": "netatmo",
+    "topic": "",
+    "sampling_rate": 120,
+    "netatmos": {
+        "gardenwing.bgrimm@gmail.com": {
+            "client_id": "61374e9e9970c37b576dbe15",
+            "client_secret": "JXaBU6ha2f4tD7tbeTuq6n4wswLVh7o9qD0yxjEz",
+            "password": "@Magicalmint636",
+            "devices": [
+                [
+                    "70:ee:50:7a:4b:2a",
+                    "NHC"
+                ],
+                [
+                    "70:ee:50:7a:4b:36",
+                    "NHC"
+                ],
+                [
+                    "70:ee:50:7a:49:04",
+                    "NHC"
+                ],
+                [
+                    "70:ee:50:7a:54:82",
+                    "NHC"
+                ],
+                [
+                    "70:ee:50:7a:52:d0",
+                    "NHC"
+                ],
+                [
+                    "70:ee:50:7a:52:da",
+                    "NHC"
+                ]
+            ]
+        }
+    }
+}

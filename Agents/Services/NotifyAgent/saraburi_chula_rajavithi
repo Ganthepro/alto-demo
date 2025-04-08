@@ -1,0 +1,31 @@
+{
+    "agent_name": "notifyapi",
+    "topic": "",
+    "sampling_rate": 60,
+    "devices": [
+        {
+            "notify_id": "linefire_001",
+            "type": "LineAndFirebaseNotify",
+            "rest_url_login": "https://altohospitaliotbackend.azurewebsites.net/api/v2.0/login",
+            "rest_url": "https://altohospitaliotbackend.azurewebsites.net/api/v2.0/notification",
+            "username": "sfhadmin",
+            "password": "sfhadmin"
+        },
+        {
+            "notify_id": "linefire_002",
+            "type": "LineAndFirebaseNotify",
+            "rest_url_login": "https://altohospitaliotbackend.azurewebsites.net/api/v2.0/login",
+            "rest_url": "https://altohospitaliotbackend.azurewebsites.net/api/v2.0/notification",
+            "username": "cufhadmin",
+            "password": "cufhadmin"
+        },
+        {
+            "notify_id": "linefire_003",
+            "type": "LineAndFirebaseNotify",
+            "rest_url_login": "https://altohospitaliotbackend.azurewebsites.net/api/v2.0/login",
+            "rest_url": "https://altohospitaliotbackend.azurewebsites.net/api/v2.0/notification",
+            "username": "rajavithiadmin",
+            "password": "rajavithiadmin"
+        }
+    ]
+}

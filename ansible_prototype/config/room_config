@@ -1,0 +1,197 @@
+{
+  "named_devices": {},
+  "location_name": "bgrimm/garden_wing",
+  "topic": "",
+  "heartbeat_rate": 90,
+  "track_events": {
+    "sample": [
+      "data",
+      []
+    ],
+    "status": [
+      "",
+      []
+    ],
+    "event": [
+      "",
+      []
+    ]
+  },
+  "parent_location": "",
+  "commands": {},
+  "device_prefix": "/iot_devices",
+  "children_locations": [],
+  "associated_devices": {
+    "sensor": {
+      "modbus": [
+        "9c:a5:25:bb:e2:00:1",
+        "9c:a5:25:bb:e2:00:2",
+        "9c:a5:25:bb:e2:00:3",
+        "9c:a5:25:bb:e2:00:4"
+      ],
+      "netatmo": [
+        "70:ee:50:7a:4b:2a",
+        "70:ee:50:7a:4b:36",
+        "70:ee:50:7a:49:04",
+        "70:ee:50:7a:54:82",
+        "70:ee:50:7a:52:d0",
+        "70:ee:50:7a:52:da"
+      ],
+      "tasmota": [
+        "0x4443",
+        "0x05ad",
+        "0x3cdb",
+        "0xc449",
+        "0xb2b6",
+        "0x83af",
+        "0xfb8f",
+        "0x6292",
+        "0x6a57",
+        "0xffb9",
+        "0x416d",
+        "0x71c1",
+        "0xbd4c",
+        "0xcefd",
+        "0x9800",
+        "0x7af5",
+        "0xac3b",
+        "0x32ff",
+        "0x9440",
+        "0xf4b6",
+        "0x5a71",
+        "0x61d8",
+        "0xba4c",
+        "0x8e4a",
+        "0x9b3f",
+        "0xeb26"
+      ],
+      "tuyacloudcurtain": [
+        "00660024a4e57c963157",
+        "00660024a4e57c967f28",
+        "00660024a4e57c13f643",
+        "00660024a4e57c13fe65",
+        "00660024a4e57c13f6f5",
+        "00660024a4e57c15917f",
+        "00660024a4e57c13f973",
+        "00660024a4e57c9684b8",
+        "00660024a4e57c968466",
+        "00660024a4e57c140157",
+        "00660024a4e57c13f6e2",
+        "00660024a4e57c13f6d0",
+        "00660024a4e57c8b5817"
+      ],
+      "bac0hvac": [
+        "ac_1",
+        "ac_2",
+        "ac_3",
+        "ac_4",
+        "ac_5",
+        "ac_6",
+        "ac_7",
+        "ac_8",
+        "ac_9",
+        "ac_10",
+        "ac_11",
+        "ac_12",
+        "ac_13",
+        "ac_14",
+        "ac_15",
+        "ac_16",
+        "ac_17",
+        "ac_18",
+        "ac_19",
+        "ac_20",
+        "ac_21",
+        "ac_22",
+        "ac_23",
+        "ac_24"
+      ]
+    },
+    "hvac": {
+      "bac0hvac": [
+        "ac_1",
+        "ac_2",
+        "ac_3",
+        "ac_4",
+        "ac_5",
+        "ac_6",
+        "ac_7",
+        "ac_8",
+        "ac_9",
+        "ac_10",
+        "ac_11",
+        "ac_12",
+        "ac_13",
+        "ac_14",
+        "ac_15",
+        "ac_16",
+        "ac_17",
+        "ac_18",
+        "ac_19",
+        "ac_20",
+        "ac_21",
+        "ac_22",
+        "ac_23",
+        "ac_24"
+      ]
+    },
+    "switch": {
+      "tasmota": [
+        "tasmota_2E6B3E"
+      ]
+    },
+    "rein": {
+      "rl_action": [
+        "rl_1",
+        "rl_ahu_act_1",
+        "rl_ahu_act_2",
+        "rl_ahu_act_3",
+        "rl_ahu_act_4"
+      ]
+    },
+    "rein_output": {
+      "rl_action": [
+        "ac_1:;0",
+        "ac_2:;0",
+        "ac_3:;0",
+        "ac_4:;0",
+        "ac_5:;0",
+        "ac_9:;0",
+        "ac_10:;0",
+        "ac_11:;0",
+        "ac_12:;0",
+        "ac_14:;0",
+        "ac_15:;0",
+        "ac_16:;0",
+        "ac_17:;0",
+        "ac_18:;0",
+        "ac_20:;0",
+        "ac_21:;0",
+        "ac_22:;0",
+        "ac_23:;0",
+        "tasmota_2E6B3E:;0",
+        "tasmota_2E6B3E:;1",
+        "tasmota_2E6B3E:;2",
+        "tasmota_2E6B3E:;3"
+      ]
+    },
+    "curtain": {
+      "tuyacloudcurtain": [
+        "00660024a4e57c963157",
+        "00660024a4e57c967f28",
+        "00660024a4e57c13f643",
+        "00660024a4e57c13fe65",
+        "00660024a4e57c13f6f5",
+        "00660024a4e57c15917f",
+        "00660024a4e57c13f973",
+        "00660024a4e57c9684b8",
+        "00660024a4e57c968466",
+        "00660024a4e57c140157",
+        "00660024a4e57c13f6e2",
+        "00660024a4e57c13f6d0",
+        "00660024a4e57c8b5817"
+      ]
+    }
+  },
+  "agent_name": "garden_wing"
+}

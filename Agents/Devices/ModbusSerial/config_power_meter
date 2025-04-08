@@ -1,0 +1,164 @@
+{
+  "agent_name": "modbus_meter",
+  "sampling_rate": 15,
+  "configured_devices": {
+    "/dev/ttyS2": [
+      {
+        "device_id": "1414072047",
+        "device_type": "schneider_pm3255",
+        "unit_id": 1,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414073092",
+        "device_type": "schneider_pm3255",
+        "unit_id": 2,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075083",
+        "device_type": "schneider_pm3255",
+        "unit_id": 3,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075034",
+        "device_type": "schneider_pm3255",
+        "unit_id": 4,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414044032",
+        "device_type": "schneider_pm3255",
+        "unit_id": 5,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414066076",
+        "device_type": "schneider_pm3255",
+        "unit_id": 6,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414073123",
+        "device_type": "schneider_pm3255",
+        "unit_id": 7,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075091",
+        "device_type": "schneider_pm3255",
+        "unit_id": 8,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075031",
+        "device_type": "schneider_pm3255",
+        "unit_id": 9,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414073118",
+        "device_type": "schneider_pm3255",
+        "unit_id": 10,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075094",
+        "device_type": "schneider_pm3255",
+        "unit_id": 11,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414066031",
+        "device_type": "schneider_pm3255",
+        "unit_id": 12,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414415087",
+        "device_type": "schneider_pm3255",
+        "unit_id": 13,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414401160",
+        "device_type": "schneider_pm3255",
+        "unit_id": 14,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075046",
+        "device_type": "schneider_pm3255",
+        "unit_id": 15,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075079",
+        "device_type": "schneider_pm3255",
+        "unit_id": 16,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075035",
+        "device_type": "schneider_pm3255",
+        "unit_id": 17,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075069",
+        "device_type": "schneider_pm3255",
+        "unit_id": 18,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075071",
+        "device_type": "schneider_pm3255",
+        "unit_id": 19,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075072",
+        "device_type": "schneider_pm3255",
+        "unit_id": 20,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075075",
+        "device_type": "schneider_pm3255",
+        "unit_id": 21,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414073096",
+        "device_type": "schneider_pm3255",
+        "unit_id": 22,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075078",
+        "device_type": "schneider_pm3255",
+        "unit_id": 23,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414073115",
+        "device_type": "schneider_pm3255",
+        "unit_id": 24,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414044052",
+        "device_type": "schneider_pm3255",
+        "unit_id": 25,
+        "number_subdevice": 7
+      },
+      {
+        "device_id": "1414075032",
+        "device_type": "schneider_pm3255",
+        "unit_id": 26,
+        "number_subdevice": 7
+      }
+    ]
+  }
+}

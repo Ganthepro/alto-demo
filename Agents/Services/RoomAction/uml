@@ -1,0 +1,199 @@
+@startuml
+|def roomaction|
+start
+:read config;
+:create Roomaction instance;
+|Roomaction|
+fork
+partition __init__ {
+    :create send_queue;
+    :declare room list;
+    :declare line api;
+    :start firebase thread;
+    :start send data thread;
+}
+partition configure {
+    if (line_api is not created) then (yes)
+        :create Line instance;
+    else (no)
+        :update line credential;
+    endif
+}
+partition _create_subscriptions {
+    :sub to **app/maidapp/10minsac/event**;
+    :sub to **datalogger**;
+    :sub to **pms**;
+}
+(A)
+fork
+    :event from **app/maidapp/10minsac/event**;
+    partition _handle_publish {
+        if (not in room list) then (yes)
+            :create Room instance;
+            |Room|
+            partition __init__ {
+                :declare room number;
+                :declare room status;
+                :declare clean status;
+            }
+        else (no)
+            |Roomaction|
+            :update room;
+            |Room|
+            partition update_from_maid {
+                if (start clean) then (yes)
+                    |AirConditionerDevice|
+                    partition update_and_reset_all {
+                        :reset everthing for air conditioner to be initial;
+                    }
+                else (no)
+                    |AirConditionerDevice|
+                    partition update_and_reset_all {
+                        :reset everthing for air conditioner to be initial;
+                    }
+                    partition update_count_to_noti {
+                        :update turn on|off count;
+                    }
+                    |Room|
+                    if (room is v) then (yes)
+                        :close everything;
+                    endif
+                endif
+            }
+        endif
+    }
+fork again
+    |Roomaction|
+    :event from **datalogger**;
+    if (in room list) then (yes)
+        |Room|
+        partition handle_datalogger {
+            if (is it ac device) then (yes)
+                if (not in ac list) then (yes)
+                    :create air device;
+                    |AirConditionerDevice|
+                    partition __init__ {
+                        :declare device id;
+                        :declare sattus;
+                    }
+                    partition update_time_to_normal_noti {
+                        :update time for noti;
+                    }
+                else (no)
+                    partition update_status {
+                        :update ac status;
+                    }
+                    partition update_time_to_normal_noti {
+                        :update time for noti;
+                    }
+                endif
+            elseif (is it tasmota device) then (yes)
+                if (not in tasmota list) then (yes)
+                    :create TasmotaDevice instance;
+                    |TasmotaDevice|
+                    partition __init__ {
+                        :declare id;
+                        :put line job for noti;
+                    }
+                    |Room|
+                    partition add_send_data_job {
+                        |Roomaction|
+                        partition add_send_data_job {
+                            :put job to send queue;
+                        }
+                    }
+                endif
+            endif
+        }
+    endif
+fork again
+    |Roomaction|
+    :event from **pms**;
+    partition _handle_pms {
+        if (in room list) then (yes)
+            |Room|
+            partition handle_pms {
+                if (check in) then (yes)
+                    :set room status to be oc;
+                endif
+            }
+        endif
+    }
+endfork
+forkagain
+    |Roomaction|
+    partition _send_data {
+        repeat
+            :get job from queue;
+            if (there are job) then (yes)
+                |Room|
+                partition send_data {
+                    if (line data) then (yes)
+                        |Roomaction|
+                        if (line is not none) then (yes)
+                            |Line|
+                            partition _send_to_line {
+                                :post line data to altobackend;
+                            }
+                        endif
+                    elseif (turn off ac) then (yes)
+                        |Roomaction|
+                        partition turnoff_ac {
+                            :pub to **hvac** for turn off;
+                        }
+                    elseif (turn off tasmota switch) then (yes)
+                        partition turnoff_relay {
+                            :pub to **switch** for turn off switch;
+                        }
+                    endif
+                }
+            endif
+        repeat while (not end) is (yes)
+        ->no;
+    }
+forkagain
+    |Roomaction|
+    :onstart;
+    partition _period_signal {
+        repeat
+            |Room|
+            partition period_signal {
+                |AirConditionerDevice|
+                partition period_signal {
+                    if (status is off and time reach and turn on count < 1) then (yes)
+                        |Room|
+                        partition noti_from_ac_time_anormal {
+                            if (room status is v and clean status is true) then (yes)
+                                :put msg to queue for off ac;
+                            endif
+                        }
+                    |AirConditionerDevice|
+                    elseif (status is off and time reach and turn on count >= 1) then (yes)
+                        :nop;
+                        |Room|
+                        partition noti_from_ac_time_normal {
+                            if (room status is v) then (yes)
+                                :put msg to queue for off ac;
+                            endif
+                        }
+                    endif
+                }
+                |TasmotaDevice|
+                partition countdown {
+                    if (time for off is reach) then (yes)
+                        :put cmd to queue for off tasmota switch;
+                        |Room|
+                        partition push_to_destroy {
+                            :append tasmota device that need to be destroy to list;
+                        }
+                        :destroy tasmota device;
+                    endif
+                }
+            }
+        repeat while (not end) is (yes)
+        ->no;
+    }
+endfork
+stop
+@enduml
+

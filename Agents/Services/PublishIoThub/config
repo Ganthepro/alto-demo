@@ -1,0 +1,26 @@
+{
+  "publish_type": {
+    "iot_hub": {
+      "altodemomonitor": "HostName=buildingiothub.azure-devices.net;DeviceId=altodemomonitor;SharedAccessKey=nVJ6HDStedgvBcpP5qDYOeQYhNim7TgaErYpGgQDZGM="
+    }
+  },
+  "gateway_id": "altodemomonitor",
+  "type_number": "2",
+  "all_data": false,
+  "aggregate_data": true,
+  "devices": {
+    "454000188cce4ed02a76": {
+      "0": [
+        "device"
+      ]
+    },
+    "70:ee:50:7a:42:ac": {
+      "0": [
+        "device"
+      ],
+      "2": [
+        "location"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "agent_name": "tuya_plug",
+    "sampling_rate": 10,
+    "tuya_credential":{
+                        "client_id":"pddxg9hrax4gvxdj5r8i",
+                        "client_secret":"2b62d5b167eb4ff18624bda2895a09c0"
+                    },
+    "devices": {
+        "ebc130be2d36e91da6nj92": [
+            "tuya_plug"
+        ]
+    }
+}

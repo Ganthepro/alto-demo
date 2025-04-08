@@ -1,0 +1,8 @@
+{
+    "memory_limit": {
+        "value": 7000,
+        "type": "int",
+        "unit": "MB"
+    },
+    "sudo_password": "altotech"
+}
