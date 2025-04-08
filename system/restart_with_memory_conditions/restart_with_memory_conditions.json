@@ -1,8 +1,0 @@
-{
-    "memory_limit": {
-        "value": 2500,
-        "type": "int",
-        "unit": "MB"
-    },
-    "sudo_password": ""
-}

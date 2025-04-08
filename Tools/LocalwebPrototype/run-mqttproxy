@@ -1,5 +1,0 @@
-#!/bin/bash
-DIR="/home/alto/volttron"
-cd $DIR
-source $DIR/env/bin/activate
-/home/alto/alto_run/Tools/mqtt-proxy.py -c /home/alto/alto_run/Tools/mqtt-proxy.json

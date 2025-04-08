@@ -1,9 +1,0 @@
-from crate import client
-
-
-query = """SELECT * FROM {{ cratedb_table_name }};"""
-
-connection = client.connect("127.0.0.1:{{ cratedb_listen_port }}")
-cursor = connection.cursor()
-cursor.execute(query)
-print(cursor.fetchall())

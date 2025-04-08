@@ -1,6 +1,0 @@
-#!/bin/bash
-DIR="/home/alto/volttron"
-cd $DIR
-source $DIR/env/bin/activate
-/home/alto/alto_os/Tools/firebase-proxy.py -c /home/alto/alto_os/Tools/firebase-proxy.json
-

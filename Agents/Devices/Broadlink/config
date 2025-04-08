@@ -1,6 +1,0 @@
-{
-  # VOLTTRON config files are JSON with support for python style comments.
-  "topic": "alto",
-  "dfreq": 1800,
-  "devices": {}
-}

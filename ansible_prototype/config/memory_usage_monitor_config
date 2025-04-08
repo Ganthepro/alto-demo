@@ -1,5 +1,0 @@
-{
-  "agent_name": "memory_usage_monitor",
-  "sampling_rate": 60,
-  "memory_usage_id": "memory_usage_1"
-}

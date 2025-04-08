@@ -1,9 +1,0 @@
-from crate import client
-
-
-query = """INSERT INTO {{ cratedb_table_name }} (location, device_id, subdevice_idx, data_type, datapoint, value)
-            VALUES (?, ?, ?, ?, ?, ?);"""
-
-connection = client.connect("127.0.0.1:{{ cratedb_listen_port }}")
-cursor = connection.cursor()
-cursor.execute(query, ("test/loc_test", "test_dev_id", 0, "test_d_type", "test_dp", "test_value"))

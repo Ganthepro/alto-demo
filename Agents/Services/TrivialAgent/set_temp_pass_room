@@ -1,9 +1,0 @@
-{
-  "command": {
-    "header": "command",
-    "topic": "location/Pegasus/lobby_61/T-6C1F-01",
-    "payload": {
-      "temperature": 20
-    }
-  }
-}

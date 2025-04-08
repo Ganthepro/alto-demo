@@ -1,6 +1,0 @@
-{
-  # VOLTTRON config files are JSON with support for python style comments.
-  "topic": "alto/oldconfig",    #OLD CONFIG is alto/oldconfig
-  "message": "Room 112", #strings
-  "hotel": "mintel"
-}

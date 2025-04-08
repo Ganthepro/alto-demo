@@ -109,5 +109,3 @@ ENV/
 
 # pycharm idea
 .idea/
-
-postgres_data/
