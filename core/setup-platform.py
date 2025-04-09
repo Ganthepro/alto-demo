@@ -5,7 +5,7 @@ import yaml
 
 from shutil import copy
 from time import sleep
-from volttron.platform import set_home, certs
+from volttron.platform import set_home
 from volttron.platform.agent.known_identities import PLATFORM_WEB
 from volttron.utils import get_hostname
 from slogger import get_logger
@@ -15,7 +15,7 @@ slogger = get_logger("setup-platform", "setup-platform")
 # The environment variables must be set or we have big issues
 VOLTTRON_ROOT = os.environ["VOLTTRON_ROOT"]
 VOLTTRON_HOME = os.environ["VOLTTRON_HOME"]
-RMQ_HOME = os.environ["RMQ_HOME"]
+# RMQ_HOME = os.environ["RMQ_HOME"]
 VOLTTRON_CMD = "volttron"
 VOLTTRON_CTL_CMD = "volttron-ctl"
 VOLTTRON_CFG_CMD = "vcfg"
@@ -57,44 +57,30 @@ def get_platform_configurations(platform_config_path):
 
 
 def _install_required_deps():
-    # install required volttron dependencies, wheel and pyzmq, because they are not required in setup.py
-    # opt_reqs is a list of tuples, in which the tuple consists pf a pinned dependency and a list of zero or more options
-    # example: [('wheel==0.30', []), ('pyzmq==22.2.1', ['--zmq=bundled'])]
     from requirements import option_requirements as opt_reqs
 
     for req in opt_reqs:
         package, options = req
         install_cmd = ["pip3", "install", "--no-deps"]
-        # TODO: see if options can be used as part of installation
-        # if options:
-        #     for opt in options:
-        #         install_cmd.extend([f"--install-option=\"{opt}\""])
-        # install_cmd.append(f'--install-option="{opt}"')
+        if options:
+            for opt in options:
+                install_cmd.extend([f'--config-settings="{opt}"'])
         install_cmd.append(package)
         subprocess.check_call(install_cmd)
 
 
-def _install_web_deps(bind_web_address):
-    print(f"Platform bind web address set to: {bind_web_address}")
+def _install_addl_deps():
     from requirements import extras_require as extras
 
-    web_plt_pack = extras.get("web", None)
-    install_cmd = ["pip3", "install"]
-    install_cmd.extend(web_plt_pack)
-    if install_cmd is not None:
-        print(f"Installing packages for web platform: {web_plt_pack}")
-        subprocess.check_call(install_cmd)
+    addl_deps = ["web", "testing", "weather", "drivers", "databases"]
+    for dep in addl_deps:
+        deps_to_install = extras.get(dep, None)
+        if deps_to_install is not None:
+            install_cmd = ["pip3", "install"]
+            install_cmd.extend(deps_to_install)
+            print(f"Installing {dep} group dependencies: {deps_to_install}")
+            subprocess.check_call(install_cmd)
 
-def _install_postgres():
-    print("Installing packages for postgres")
-    from requirements import extras_require as extras
-
-    postgres_pack = extras.get("postgres", None)
-    install_cmd = ["pip3", "install"]
-    install_cmd.extend(postgres_pack)
-    if install_cmd is not None:
-        print(f"Installing packages for postgres: {postgres_pack}")
-        subprocess.check_call(install_cmd)
 
 def _create_platform_config_file(platform_cfg, cfg_path):
     if not os.path.exists(cfg_path) and len(platform_cfg) > 0:
@@ -106,7 +92,12 @@ def _create_platform_config_file(platform_cfg, cfg_path):
 
 def _create_certs(cfg_path, platform_cfg):
     print("Creating CA Certificate...")
-    crts = certs.Certs()
+    # We need to import Certs here because we Certs depends on zmq, which only gets installed after _install_required_deps() is executed.
+    # If we put this import statement at the top of the module, we will run into an import error because zmq gets
+    # installed when _install_required_deps() is executed later in the module
+    from volttron.platform.auth.certs import Certs
+
+    crts = Certs()
     data = {
         "C": "US",
         "ST": "WA",
@@ -142,80 +133,75 @@ def _create_certs(cfg_path, platform_cfg):
         fout.write(f"web-ssl-key = {master_web_key}\n")
 
 
-def _create_rmq_config(platform_cfg, config):
-    # validation checks
-    if not config.get("rabbitmq-config"):
-        sys.stderr.write(
-            "Invalid rabbit-config entry in platform configuration file.\n"
-        )
-        sys.exit(1)
-
-    rabbitcfg_file = os.path.expandvars(
-        os.path.expanduser(config.get("rabbitmq-config"))
-    )
-    if not os.path.isfile(rabbitcfg_file):
-        sys.stderr.write("Invalid rabbit-config entry {} \n".format(rabbitcfg_file))
-        sys.exit(1)
-    with open("/etc/hostname") as hostfile:
-        hostname = hostfile.read().strip()
-    if not hostname:
-        sys.stderr.write(
-            "Invalid hostname set, please set it in the docker-compose or in the container."
-        )
-        sys.exit(1)
-
-    # Now we can configure the rabbit/rmq configuration
-    with open(rabbitcfg_file) as cin:
-        rabbit_config = yaml.safe_load(cin)
-
-    # set host
-    rabbit_config["host"] = hostname
-
-    # set use-existing-certs
-    certs_test_path = os.path.join(
-        VOLTTRON_HOME,
-        "certificates/certs/{}-trusted-cas.crt".format(
-            platform_cfg.get("instance-name")
-        ),
-    )
-    if os.path.isfile(certs_test_path):
-        rabbit_config["use-existing-certs"] = True
-
-    # Set rmq_home
-    print(f"Setting rmq-home to {RMQ_HOME}")
-    rabbit_config["rmq-home"] = RMQ_HOME
-
-    # Create rmq config YAML file
-    rabbitfilename = os.path.join(VOLTTRON_HOME, "rabbitmq_config.yml")
-    print("Creating rabbitmq conifg file at {}".format(rabbitfilename))
-    print("dumpfile is :{}".format(rabbit_config))
-    with open(rabbitfilename, "w") as outfile:
-        yaml.dump(rabbit_config, outfile, default_flow_style=False)
-    assert os.path.isfile(rabbitfilename)
-
-
-def _setup_rmq(platform_cfg):
-    now_dir = os.getcwd()
-    os.chdir(VOLTTRON_ROOT)
-    # we must import the function here because it requires pyzmq, which is not installed during the image build but in configure_platform, which is called before this function
-    from volttron.platform.instance_setup import setup_rabbitmq_volttron
-
-    setup_rabbitmq_volttron(
-        "single", True, instance_name=platform_cfg.get("instance-name")
-    )
-    os.chdir(now_dir)
+# def _create_rmq_config(platform_cfg, config):
+#     # validation checks
+#     if not config.get("rabbitmq-config"):
+#         sys.stderr.write(
+#             "Invalid rabbit-config entry in platform configuration file.\n"
+#         )
+#         sys.exit(1)
+#
+#     rabbitcfg_file = os.path.expandvars(
+#         os.path.expanduser(config.get("rabbitmq-config"))
+#     )
+#     if not os.path.isfile(rabbitcfg_file):
+#         sys.stderr.write("Invalid rabbit-config entry {} \n".format(rabbitcfg_file))
+#         sys.exit(1)
+#     with open("/etc/hostname") as hostfile:
+#         hostname = hostfile.read().strip()
+#     if not hostname:
+#         sys.stderr.write(
+#             "Invalid hostname set, please set it in the docker-compose or in the container."
+#         )
+#         sys.exit(1)
+#
+#     # Now we can configure the rabbit/rmq configuration
+#     with open(rabbitcfg_file) as cin:
+#         rabbit_config = yaml.safe_load(cin)
+#
+#     # set host
+#     rabbit_config["host"] = hostname
+#
+#     # set use-existing-certs
+#     certs_test_path = os.path.join(
+#         VOLTTRON_HOME,
+#         "certificates/certs/{}-trusted-cas.crt".format(
+#             platform_cfg.get("instance-name")
+#         ),
+#     )
+#     if os.path.isfile(certs_test_path):
+#         rabbit_config["use-existing-certs"] = True
+#
+#     # Set rmq_home
+#     print(f"Setting rmq-home to {RMQ_HOME}")
+#     rabbit_config["rmq-home"] = RMQ_HOME
+#
+#     # Create rmq config YAML file
+#     rabbitfilename = os.path.join(VOLTTRON_HOME, "rabbitmq_config.yml")
+#     print("Creating rabbitmq conifg file at {}".format(rabbitfilename))
+#     print("dumpfile is :{}".format(rabbit_config))
+#     with open(rabbitfilename, "w") as outfile:
+#         yaml.dump(rabbit_config, outfile, default_flow_style=False)
+#     assert os.path.isfile(rabbitfilename)
+#
+#
+# def _setup_rmq(platform_cfg):
+#     now_dir = os.getcwd()
+#     os.chdir(VOLTTRON_ROOT)
+#     # we must import the function here because it requires pyzmq, which is not installed during the image build but in configure_platform, which is called before this function
+#     from volttron.platform.instance_setup import setup_rabbitmq_volttron
+#
+#     setup_rabbitmq_volttron(
+#         "single", True, instance_name=platform_cfg.get("instance-name")
+#     )
+#     os.chdir(now_dir)
 
 
 def configure_platform(platform_cfg, config):
     # install required dependencies (this is temporary due to setup.py of volttron)
     _install_required_deps()
+    _install_addl_deps()
     _install_postgres()
-    # install web dependencies if web-enabled
-    bind_web_address = platform_cfg.get("bind-web-address", None)
-    if bind_web_address is not None:
-        print(f"Platform bind web address set to: {bind_web_address}")
-        _install_web_deps(bind_web_address)
-
     # Create the main volttron config file
     if not os.path.isdir(VOLTTRON_HOME):
         os.makedirs(VOLTTRON_HOME)
@@ -228,10 +214,10 @@ def configure_platform(platform_cfg, config):
     # create the certs
     _create_certs(cfg_path, platform_cfg)
 
-    # setup rmq if necessary
-    if platform_cfg.get("message-bus") == "rmq":
-        _create_rmq_config(platform_cfg, config)
-        _setup_rmq(platform_cfg)
+    # # setup rmq if necessary
+    # if platform_cfg.get("message-bus") == "rmq":
+    #     _create_rmq_config(platform_cfg, config)
+    #     _setup_rmq(platform_cfg)
 
 
 def install_agents(agents):
@@ -249,7 +235,7 @@ def install_agents(agents):
     # if we need to do installs then we haven't setup this at all.
     if need_to_install:
         # Start volttron first because we can't install anything without it
-        proc = subprocess.Popen([VOLTTRON_CMD, "-vv"])
+        proc = subprocess.Popen([VOLTTRON_CMD, "-v"])
         assert proc is not None
         sleep(20)
 
@@ -359,6 +345,16 @@ def install_agents(agents):
                     subprocess.check_call(entry_cmd)
         slogger.info(f"Agents that failed to install {failed_install}")
 
+def _install_postgres():
+    print("Installing packages for postgres")
+    from requirements import extras_require as extras
+
+    postgres_pack = extras.get("postgres", None)
+    install_cmd = ["pip3", "install"]
+    install_cmd.extend(postgres_pack)
+    if install_cmd is not None:
+        print(f"Installing packages for postgres: {postgres_pack}")
+        subprocess.check_call(install_cmd)
 
 def final_platform_configurations():
     # allows platform to automatically accept all incoming auth requests

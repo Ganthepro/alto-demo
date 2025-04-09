@@ -1,0 +1,15 @@
+{
+    "agent_name": "notifyapi",
+    "topic": "",
+    "sampling_rate": 60,
+    "devices": [
+        {
+            "notify_id": "notify_001",
+            "type": "AltoBackendNotify",
+            "rest_url_login": "https://authenticationservicebackend.azurewebsites.net/api/v2.0/login",
+            "rest_url": "https://utilservicebackend.azurewebsites.net/api/v3.0/notification",
+            "username": "bgrimmadmin",
+            "password": "bgrimmadmin"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "agent_name": "transformer",
+    "transformers": [
+      {
+        "trans_id": "trans_001",
+        "type": "EVBattery",
+        "input_topic": "sensor/charger/beta_ev_tower_001/sample",
+        #"output_topic": "sensor/charger/beta_ev_tower_001/sample",
+        "from_agent_id": "charger"
+      }
+    ]
+}

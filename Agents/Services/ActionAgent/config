@@ -1,0 +1,100 @@
+{
+  "topic": "",
+  "location": [
+    "13.7500 N",
+    "100.5167 E"
+  ],
+  "agent_name": "automation",
+  "heartbeat_rate": 90,
+  "devid": "automation",
+  "rules": {
+    "rule_1": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:19:bf:64",
+          "sample"
+        ]
+      },
+      "conditions": [
+          [ 
+            "event",
+            "data::co2",
+            [
+              ">",
+              1000
+            ]
+          ],
+          [
+            "variable",
+            "line_push",
+            [
+              "!=",
+              0
+            ]
+          ]
+      ],
+      "actions": [
+        [
+            [
+            "notify",
+            "line",
+            "line_001",
+            "push"
+            ],
+            {
+            "line_id": "line_id_1",
+            "function": 0,
+            "message": "ABC",
+            "last_line_push": "__var__line_push"
+            }
+        ],
+        [
+            "variable_set",
+            {
+            "line_push": 0,
+            }
+        ]
+      ]
+    },
+    "rule_2": {
+      "trigger": {
+        "topic": [
+          "sensor",
+          "netatmo",
+          "70:ee:50:19:bf:64",
+          "sample"
+        ]
+      },
+      "conditions": [
+          [ 
+            "event",
+            "data::co2",
+            [
+              ">",
+              1000
+            ]
+          ],
+          [
+            "variable",
+            "line_push",
+            [
+              "!=",
+              0
+            ]
+          ]
+      ],
+      "actions": [
+        [
+            "variable_set",
+            {
+            "line_push": 0,
+            }
+        ]
+      ]
+    }
+  },
+  "log_commands": false,
+  "state_variables": {}
+}

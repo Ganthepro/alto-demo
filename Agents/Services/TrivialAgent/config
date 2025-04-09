@@ -1,0 +1,10 @@
+{
+  "command": {
+    "header": "command",
+    "topic": "charger/charger/ev_tower_001/command",
+    "payload": {
+      "subdevice_idx": 5,
+      "command": "eject"
+    }
+  }
+}

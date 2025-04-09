@@ -1,0 +1,13 @@
+{
+    "command": {
+        "header": "command",
+        "topic": "hvac/bac0hvac/ac_FCU-KN4-LIFT/command",
+        "payload": {
+            "subdevice_idx": 0,
+            "temperature": 25,
+            "louver":"swing",
+            "mode":"off",
+            "fan": "auto"
+        }
+    }
+}

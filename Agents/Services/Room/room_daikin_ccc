@@ -1,0 +1,69 @@
+{
+  "location_name": "daikin/ccc",
+  "associated_devices": {
+    "sensor": {
+      "modbus": [
+        "9c:a5:25:ea:64:f1:1",
+        "9c:a5:25:ea:64:f1:2"
+      ],
+      "tuyaenv": [
+        "eb266cba7d62b9ac0a8pwm",
+        "eb7a71c9fc4f7837c6wxjg",
+        "ebd12b7177d5e31186exf3",
+        "eb91020bbf1dc377e5bxb4",
+        "eb469134c83d806bc2xk86",
+        "eb2f60193ac6f76171pywj",
+        "eba7cec590ad860668uqgv",
+        "ebaf51dd6ea7174066jeba",
+        "eb2cc75154a2c70a46ioig",
+        "ebd06f07a5e35f0d89cft7",
+        "eb356f6201665705e4cr36",
+        "eb50b488754a895930wug9",
+        "ebab65495c6233a3ecfex1",
+        "ebd4dc47052c0aee38xx7i",
+        "eb58b62396473a1287ojam",
+        "ebea85d39f4272b175clhh",
+        "eb1c9f10dd34b30c6avo4z",
+        "ebf8c6e6d4131e1bcc2cz0",
+        "eb2e93a68731a6065bidbr",
+        "ebb7a6858d98bc93f3jmo0",
+        "eb22c2f93f0393c380cf16",
+        "eb2e42fe69d3bcee98axc9",
+        "eb48d3c331db89bad2vx2j",
+        "eb8fe64b268e5ebccdvs64",
+        "eb5e4c3fbff6557cc8rsea",
+        "ebf283f908e050c46axtaw",
+        "eb9703dbc6bea37d77d57z",
+        "ebf8783eba7db698a9zc53",
+        "eb3b3f106dc87c7b01jvp4",
+        "eb918ff563509b9c10zdki"
+      ]
+    },
+    "camera": {
+      "rest": [
+        "44:ef:bf:a0:14:4c",
+        "44:ef:bf:9f:dd:71",
+        "44:ef:bf:a0:09:c2",
+        "44:ef:bf:a0:0b:af"
+      ]
+    }
+  },
+  "commands": {},
+  "device_prefix": "/iot_devices",
+  "topic": "",
+  "heartbeat_rate": 90,
+  "agent_name": "room_daikinccc_debug",
+  "parent_location": [],
+  "named_devices": {},
+  "track_events": {
+    "sample": [
+      "data",
+      []
+    ],
+    "event": [
+      "",
+      []
+    ]
+  },
+  "children_locations": []
+}

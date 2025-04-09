@@ -1,0 +1,10 @@
+{
+  "command": {
+    "header": "command",
+    "topic": "curtain/tuyacloudcurtain/00660024a4e57c95faf5/command",
+    "payload": {
+      "subdevice_idx": 0,
+      "control_state": "close"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "agent_name": "mqtt_logger",
+  "mqtt_server": "127.0.0.1",
+  "mqtt_port": 1883,
+  "mqtt_user": "",
+  "mqtt_password": "",
+  "mqtt_topics": {
+    "publish": [],
+    "subscribe": [
+      "sensor/niagara/#"
+    ]
+  }
+}

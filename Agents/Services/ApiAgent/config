@@ -1,0 +1,43 @@
+#{
+#    # "agent_name": "apiagent1", # no need to specify if dont have any msg to pub into m bus
+#    "topic_to_rest": [
+#        {
+#            "topic": "datalogger/station/station_2/slot_3/sample",
+#            "rest_url": "https://9c9b1cbc794e.ngrok.io/api/v2.0/payments",
+#            "authorization": "Basic cGtleV90ZXN0XzVuY2s2NjBkbDlhaDVhMWhjZnI6"
+#        },
+#        {
+#            "topic": "datalogger/station/station_2/slot_5/sample",
+#            "rest_url": "https://9c9b1cbc794e.ngrok.io/api/v2.0/payments",
+#            "authorization": "Basic cGtleV90ZXN0XzVuY2s2NjBkbDlhaDVhMWhjZnI6"
+#        }
+#    ]
+#}
+{
+    # "agent_name": "apiagent1", # no need to specify if dont have any msg to pub into m bus
+    "topic_to_rest": [
+        {
+            "api_id": "api_1",
+            "topic": "charger/charger/ev_tower_001/load",
+            "rest_url_login": "https://altoiotbackendprod.azurewebsites.net/api/v2.0/login",
+            "rest_url": "https://alto.ap.ngrok.io/api/v2.0/payments",
+            # "authorization": "Token 796f8c930d80748663d3261ee18d74f97a3878fd",
+            "username": "betaadmin",
+            "password": "betaadmin"
+        }
+    ]
+}
+
+# Topic: datalogger/station/station_<id>/slot_<id>/sample
+# Msg contain -> type: device
+# Filter type: device only, for battery id
+
+# type: electric
+
+
+
+# {'device_id': 'slot_3', 'subdevice_idx': 0, 'subdevice_name': 'cell_0', 'data': {'charging_current': 0.0, 'remaining_capacity': 34.04, 'voltage': 66.95, 'state_of_charge': 98, 'timestamp': '2021-04-04T17:29:30.900581+00:00', 'type': 'electric'}}
+
+# 011Topic: datalogger/station/station_1/slot_3/sample,
+# Apr  5 00:29:30 alto-M219FN-10C run-volttron[802]: #011Headers:{'requesterID': 'station_1', 'message_type': 'event', 'TimeStamp': '2021-04-04T17:29:30.909071+00:00', 'min_compatible_version': '3.0', 'max_compatible_version': ''}
+# Apr  5 00:29:30 alto-M219FN-10C run-volttron[802]: #011Message: {'timestamp': '2021-04-04T17:29:30.908778+00:00', 'device_id': 'slot_3', 'subdevice_idx': 0, 'subdevice_name': 'cell_0', 'location': 'station/station_1/iot_devices', 'charging_current': 0.0, 'remaining_capacity': 34.04, 'voltage': 66.95, 'state_of_charge': 98, 'type': 'electric'}

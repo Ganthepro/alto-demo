@@ -1,0 +1,14 @@
+{
+  "agent_name": "tuya_local_socket",
+  "topic": "",
+  "sampling_rate": 30,
+  "devices": {
+    "eb1d54dba77aac6bb7uok6": [
+      "tuya_wall_socket",
+      2,
+      "10.10.40.186",
+      "58ec2647dc727e81",
+      "Wall Socket 1"
+    ]
+  }
+}

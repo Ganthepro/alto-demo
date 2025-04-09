@@ -1,0 +1,759 @@
+{
+  "agent_name": "rl_action",
+  "rl_cron": "*/30 * * * *",
+  "underground_interval": 240,
+  "ahu_interval": 180,
+  "firebase_config": [
+    "AIzaSyDjphOeX-zUJHvSAaoo3j1M5moba5ABSxE",
+    "altobuildings.firebaseapp.com",
+    "https://altobuildings-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "altobuildings.appspot.com"
+  ],
+  "in_out_agent": {
+    "in": {
+      "netatmo": "netatmo_none",
+      "modbus_meter": "modbus",
+      "tuya_env": "tuyaenv_none",
+      "tuya_aq": "tuya_air_quality"
+    },
+    "out": {
+      "ac_out_1": "bac0hvac",
+      "ahu_out_1": "tasmota"
+    }
+  },
+  "data_stores": {
+    "eb020ee6e414cafeda1pyy": [
+      "tuya_aq_data"
+    ],
+    "eb13cb242bfc720b89xnlz": [
+      "tuya_aq_data"
+    ],
+    "eb22eafd83327e754740rj": [
+      "tuya_aq_data"
+    ],
+    "ebc8e0407218fbd58e8cpx": [
+      "tuya_aq_data"
+    ],
+    "eb6b5fc5934efb9cf5h8eq": [
+      "tuya_aq_data"
+    ],
+    "9c:a5:25:bb:e2:00:1": [
+      "modbus_meter_data"
+    ],
+    "9c:a5:25:bb:e2:00:2": [
+      "modbus_meter_data"
+    ],
+    "9c:a5:25:bb:e2:00:3": [
+      "modbus_meter_data"
+    ],
+    "9c:a5:25:bb:e2:00:4": [
+      "modbus_meter_data"
+    ],
+    "un_1": [
+      "underground_data",
+      "VTBS"
+    ],
+    "od_1": [
+      "outdoor_weather_data",
+      "buildings/bgrimm/garden_wing/iot_devices/d4:b1:10:3a:0e:93:6/environment/subdev_0"
+    ],
+    "op_1": [
+      "occupant_data",
+      "buildings/bgrimm/garden_wing/iot_devices/1st-floor-front"
+    ],
+    "op_2": [
+      "occupant_data",
+      "buildings/bgrimm/garden_wing/iot_devices/2nd-floor-left"
+    ],
+    "op_3": [
+      "occupant_data",
+      "buildings/bgrimm/garden_wing/iot_devices/2nd-floor-right"
+    ]
+  },
+  "derived_datas": {
+    "ow_obs_1": [
+      "outdoor_weather_obs",
+      [
+        "un_1",
+        "od_1"
+      ]
+    ],
+    "iw_obs_1": [
+      "indoor_weather_obs",
+      [
+        "eb020ee6e414cafeda1pyy"
+      ]
+    ],
+    "iw_obs_2": [
+      "indoor_weather_obs",
+      [
+        "eb13cb242bfc720b89xnlz"
+      ]
+    ],
+    "iw_obs_3": [
+      "indoor_weather_obs",
+      [
+        "eb22eafd83327e754740rj"
+      ]
+    ],
+    "iw_obs_4": [
+      "indoor_weather_obs",
+      [
+        "ebc8e0407218fbd58e8cpx"
+      ]
+    ],
+    "mrt_1": [
+      "mean_radiant_temperature",
+      [
+        "od_1"
+      ]
+    ],
+    "e_obs_1": [
+      "energy_obs",
+      [
+        "9c:a5:25:bb:e2:00:1",
+        "9c:a5:25:bb:e2:00:2",
+        "9c:a5:25:bb:e2:00:3",
+        "9c:a5:25:bb:e2:00:4"
+      ]
+    ]
+  },
+  "manipulations": {
+    "man_cctv_1": [
+      "arithmetic_ops",
+      "add",
+      [
+        [
+          "op_1",
+          "count_people_in"
+        ],
+        [
+          "op_2",
+          "count_people_in"
+        ],
+        [
+          "op_3",
+          "count_people_in"
+        ]
+      ]
+    ],
+    "man_cctv_2": [
+      "arithmetic_ops",
+      "add",
+      [
+        [
+          "op_1",
+          "count_people_out"
+        ],
+        [
+          "op_2",
+          "count_people_out"
+        ],
+        [
+          "op_3",
+          "count_people_out"
+        ]
+      ]
+    ],
+    "man_cctv_3": [
+      "arithmetic_ops",
+      "sub",
+      [
+        [
+          "man_cctv_1",
+          "out1"
+        ],
+        [
+          "man_cctv_2",
+          "out1"
+        ]
+      ]
+    ],
+    "man_cctv_4": [
+      "arithmetic_ops",
+      "mul",
+      [
+        [
+          "man_cctv_3",
+          "out1"
+        ],
+        0.19
+      ]
+    ],
+    "man_cctv_5": [
+      "arithmetic_ops",
+      "mul",
+      [
+        [
+          "man_cctv_3",
+          "out1"
+        ],
+        0.14
+      ]
+    ],
+    "man_cctv_6": [
+      "arithmetic_ops",
+      "mul",
+      [
+        [
+          "man_cctv_3",
+          "out1"
+        ],
+        0.18
+      ]
+    ],
+    "man_cctv_7": [
+      "arithmetic_ops",
+      "mul",
+      [
+        [
+          "man_cctv_3",
+          "out1"
+        ],
+        0.28
+      ]
+    ],
+    "man_cctv_8": [
+      "arithmetic_ops",
+      "mul",
+      [
+        [
+          "man_cctv_3",
+          "out1"
+        ],
+        0.21
+      ]
+    ],
+    "man_0": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "e_obs_1",
+          "energy"
+        ]
+      ]
+    ],
+    "man_1": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "ow_obs_1",
+          "outdoor_db_temp"
+        ]
+      ]
+    ],
+    "man_2": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "ow_obs_1",
+          "outdoor_wb_temp"
+        ]
+      ]
+    ],
+    "man_3": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_1",
+          "indoor_db_temp"
+        ]
+      ]
+    ],
+    "man_4": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_1",
+          "indoor_dewpoint_temp"
+        ]
+      ]
+    ],
+    "man_5": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "mrt_1",
+          "mean_radiant_temp"
+        ]
+      ]
+    ],
+    "man_6": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "man_cctv_4",
+          "out1"
+        ]
+      ]
+    ],
+    "man_7": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_1",
+          "indoor_db_temp"
+        ]
+      ]
+    ],
+    "man_8": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_1",
+          "indoor_dewpoint_temp"
+        ]
+      ]
+    ],
+    "man_9": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "mrt_1",
+          "mean_radiant_temp"
+        ]
+      ]
+    ],
+    "man_10": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "man_cctv_5",
+          "out1"
+        ]
+      ]
+    ],
+    "man_11": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_2",
+          "indoor_db_temp"
+        ]
+      ]
+    ],
+    "man_12": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_2",
+          "indoor_dewpoint_temp"
+        ]
+      ]
+    ],
+    "man_13": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "mrt_1",
+          "mean_radiant_temp"
+        ]
+      ]
+    ],
+    "man_14": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "man_cctv_6",
+          "out1"
+        ]
+      ]
+    ],
+    "man_15": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_3",
+          "indoor_db_temp"
+        ]
+      ]
+    ],
+    "man_16": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_3",
+          "indoor_dewpoint_temp"
+        ]
+      ]
+    ],
+    "man_17": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "mrt_1",
+          "mean_radiant_temp"
+        ]
+      ]
+    ],
+    "man_18": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "man_cctv_7",
+          "out1"
+        ]
+      ]
+    ],
+    "man_19": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_4",
+          "indoor_db_temp"
+        ]
+      ]
+    ],
+    "man_20": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "iw_obs_4",
+          "indoor_dewpoint_temp"
+        ]
+      ]
+    ],
+    "man_21": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "mrt_1",
+          "mean_radiant_temp"
+        ]
+      ]
+    ],
+    "man_22": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "man_cctv_8",
+          "out1"
+        ]
+      ]
+    ],
+    "man_24": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "eb13cb242bfc720b89xnlz",
+          "co2"
+        ]
+      ]
+    ],
+    "man_25": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "eb22eafd83327e754740rj",
+          "co2"
+        ]
+      ]
+    ],
+    "man_26": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "ebc8e0407218fbd58e8cpx",
+          "co2"
+        ]
+      ]
+    ],
+    "man_27": [
+      "arithmetic_ops",
+      "nop",
+      [
+        [
+          "eb6b5fc5934efb9cf5h8eq",
+          "co2"
+        ]
+      ]
+    ]
+  },
+  "rls": {
+    "rl_1": [
+      "hvac_rl",
+      {
+        "en": true,
+        "en_up": true
+      },
+      [
+        "man_0",
+        "man_1",
+        "man_2",
+        "man_3",
+        "man_4",
+        "man_5",
+        "man_6",
+        "man_7",
+        "man_8",
+        "man_9",
+        "man_10",
+        "man_11",
+        "man_12",
+        "man_13",
+        "man_14",
+        "man_15",
+        "man_16",
+        "man_17",
+        "man_18",
+        "man_19",
+        "man_20",
+        "man_21",
+        "man_22"
+      ],
+      "/home/alto/model_3wxu4sb7_v1.0.0.zip"
+    ],
+    "rl_ahu_act_1": [
+      "ahu_rl",
+      {
+        "en": true,
+        "en_up": true
+      },
+      [
+        "man_27"
+      ],
+      800,
+      1000
+    ],
+    "rl_ahu_act_2": [
+      "ahu_rl",
+      {
+        "en": true,
+        "en_up": true
+      },
+      [
+        "man_24"
+      ],
+      800,
+      1000
+    ],
+    "rl_ahu_act_3": [
+      "ahu_rl",
+      {
+        "en": true,
+        "en_up": true
+      },
+      [
+        "man_25"
+      ],
+      800,
+      1000
+    ],
+    "rl_ahu_act_4": [
+      "ahu_rl",
+      {
+        "en": true,
+        "en_up": true
+      },
+      [
+        "man_26"
+      ],
+      800,
+      1000
+    ]
+  },
+  "output_devices": {
+    "ac_1:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        0
+      ]
+    ],
+    "ac_2:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        0
+      ]
+    ],
+    "ac_3:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        0
+      ]
+    ],
+    "ac_4:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        0
+      ]
+    ],
+    "ac_5:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        1
+      ]
+    ],
+    "ac_9:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        2
+      ]
+    ],
+    "ac_10:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        2
+      ]
+    ],
+    "ac_11:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        2
+      ]
+    ],
+    "ac_12:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        2
+      ]
+    ],
+    "ac_14:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        3
+      ]
+    ],
+    "ac_15:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        3
+      ]
+    ],
+    "ac_16:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        3
+      ]
+    ],
+    "ac_17:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        3
+      ]
+    ],
+    "ac_18:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        3
+      ]
+    ],
+    "ac_20:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        4
+      ]
+    ],
+    "ac_21:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        4
+      ]
+    ],
+    "ac_22:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        4
+      ]
+    ],
+    "ac_23:;0": [
+      "hvac_output",
+      false,
+      [
+        "rl_1",
+        4
+      ]
+    ],
+    "tasmota_2E6B3E:;0": [
+      "ahu_output",
+      true,
+      [
+        "rl_ahu_act_1",
+        0
+      ]
+    ],
+    "tasmota_2E6B3E:;1": [
+      "ahu_output",
+      true,
+      [
+        "rl_ahu_act_2",
+        0
+      ]
+    ],
+    "tasmota_2E6B3E:;2": [
+      "ahu_output",
+      true,
+      [
+        "rl_ahu_act_3",
+        0
+      ]
+    ],
+    "tasmota_2E6B3E:;3": [
+      "ahu_output",
+      true,
+      [
+        "rl_ahu_act_4",
+        0
+      ]
+    ]
+  }
+}

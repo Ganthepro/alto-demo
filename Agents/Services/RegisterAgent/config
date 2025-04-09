@@ -1,0 +1,10 @@
+{
+  # VOLTTRON config files are JSON with support for python style comments.
+  "topic": "",
+  "agent_name": "registrar",
+  "url": "https://altoiotbackendprod.azurewebsites.net/api/v2.0/",
+  "user": "altodemo",
+  "password": "altodemo",
+  "devices_suburl": "devices/",
+  "login_suburl": "login/"
+}

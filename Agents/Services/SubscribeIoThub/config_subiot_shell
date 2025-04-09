@@ -1,0 +1,10 @@
+{
+  "all_config": {
+  	"IS_WATCHER_CHECK": false,
+  	"MARK": "BGRIMM",
+  	"CONNECTION_STRING": "HostName=buildingiothub.azure-devices.net;DeviceId=altonucshellrama2control;SharedAccessKey=2ieGXAJPGg6Vl9EanaY2jIlMM1nf5AlzvqfDhMjh+yE=",
+  	"LINE_NOTI_TOPIC": "line_notify/line_notify_subiot/line_mintel/command",
+  	"LINE_STARTED_MSG": "SHELL_RAMA2: subiot started",
+  	"LINE_RECONNECTED_MSG": "SHELL_RAMA2: subiot re-connected"
+  }
+}

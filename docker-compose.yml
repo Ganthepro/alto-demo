@@ -4,7 +4,7 @@ services:
   volttron1:
     container_name: volttron1
     hostname: volttron1
-    image: eclipsevolttron/volttron:v3.0
+    image: eclipsevolttron/volttron:develop
     ports:
       # host_port:container_port
       # http port for volttron central
@@ -14,7 +14,11 @@ services:
       - ./configs:/home/volttron/configs
       - volttron1-volume:/home/volttron/db
       - ./agents:/code/volttron/agents
+      - ./Agents:/code/volttron/Agents
       - ./core:/startup
+      - ./libraries:/home/volttron/.volttron/libraries
+      - ./requirements.txt:/requirements.txt
+      - ./site_configs:/code/volttron/site_configs
     environment:
       - CONFIG=/home/volttron/configs
       - LOCAL_USER_ID=1000

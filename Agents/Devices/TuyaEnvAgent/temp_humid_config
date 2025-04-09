@@ -1,0 +1,14 @@
+{
+    "agent_name": "tuyaenv",
+    "topic": "",
+    "sampling_rate": 60,
+    "tuya_credential":{
+                        "client_id":"pddxg9hrax4gvxdj5r8i",
+                        "client_secret":"2b62d5b167eb4ff18624bda2895a09c0"
+                    },
+    "devices": {
+        "ebeb66698c8232a75cp1bo": [
+            "tuya_env"
+        ]
+    }
+}

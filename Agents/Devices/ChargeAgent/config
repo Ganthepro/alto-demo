@@ -1,0 +1,39 @@
+{
+  "topic": "",
+  "agent_name": "charger",
+  "dev_id": "beta_ev_tower_001",
+  "sampling_rate": 15,
+  "slots": {
+    "slot_1": "/dev/ttyS1",
+    "slot_2": "/dev/ttyS2",
+    "slot_3": "/dev/ttyS3",
+    "slot_4": "/dev/ttyS4",
+    "slot_5": "/dev/ttyS5",
+    "slot_6": "/dev/ttyS6",
+    "slot_7": "/dev/ttyS7",
+    "slot_8": "/dev/ttyS8",
+    "slot_9": "/dev/ttyS9"
+  },
+  "eject_slot_map": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 8,
+    "8": 7
+  },
+  "read_slot_map": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8
+  }
+}

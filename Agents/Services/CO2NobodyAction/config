@@ -1,0 +1,9 @@
+{
+    "agent_name": "co2_nobody",
+    "altobackend": {
+        "rest_url_login": "https://altoiotbackendprod.azurewebsites.net/api/v2.0/login",
+        "rest_url_notify": "https://altoiotbackendprod.azurewebsites.net/api/v2.0/push_to_line",
+        "username": "minteladmin",
+        "password": "minteladmin"
+    }
+}

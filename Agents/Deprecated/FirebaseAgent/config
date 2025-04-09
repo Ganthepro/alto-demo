@@ -1,0 +1,6 @@
+{
+  # VOLTTRON config files are JSON with support for python style comments.
+  "url": "https://altotech-3a96e.firebaseio.com",
+  "topics": {"devices": [ "sensor_" ]},
+  "gatewayid": "Naplab"
+}

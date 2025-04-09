@@ -1,0 +1,115 @@
+{
+  // CrateDB configuration
+  "cratedb_config": {
+    "host": "localhost",
+    "port": "4200",
+    "username": "alto",
+    "password": "Magicalmint@636",
+    "table_name": "raw_data"
+  },
+  // automation logic configuration
+  "automation": {
+    "aPMV_min": 0,
+    "aPMV_target": 0.25,
+    "aPMV_max": 0.5,
+    "rH_max": 60,
+    "trigger_interval": 15,  // unit: minutes
+    "lookback_interval": 15,  // unit: minutes
+    "feedback_expired_minutes": 15,
+    "feedback_mqtt_topic": "rl_correct/subiot/example/command"
+  },
+  // apmv configuration
+  "apmv": {
+    "vr": 0.1,
+    "met": 1.1,
+    "clo": 0.7,
+    "a_coefficient": 0.2
+  },
+  // device and zone mapping configuration
+  "thermal_zone_mapping": {
+    "Floor 2: Office 2A": {
+      "fcu_device_ids": ["ac_FCU-2-05"],
+      "iaq_device_ids": []
+    },
+    "Floor 2: Office 2B and Office 2C": {
+      "fcu_device_ids": ["ac_FCU-2-01", "ac_FCU-2-02", "ac_FCU-2-03", "ac_FCU-2-04"],
+      "iaq_device_ids": ["IAQ_1"]
+    },
+    "Floor 2: Meeting Room": {
+      "fcu_device_ids": ["ac_FCU-2-06", "ac_FCU-2-07"],
+      "iaq_device_ids": []
+    },
+    "Floor 3: Phone Room": {
+      "fcu_device_ids": ["ac_FCU-3-09"],
+      "iaq_device_ids": []
+    },
+    "Floor 3: Office 3A and Office 3B": {
+      "fcu_device_ids": ["ac_FCU-3-01", "ac_FCU-3-02", "ac_FCU-3-03", "ac_FCU-3-04", "ac_FCU-3-05", "ac_FCU-3-06", "ac_FCU-3-07", "ac_FCU-3-08", "ac_FCU-3-14"],
+      "iaq_device_ids": ["IAQ_2"]
+    },
+    "Floor 3: Office 3C": {
+      "fcu_device_ids": ["ac_FCU-3-10"],
+      "iaq_device_ids": []
+    },
+    "Floor 3: Office 3D": {
+      "fcu_device_ids": ["ac_FCU-3-11"],
+      "iaq_device_ids": []
+    },
+    "Floor 3: Meeting Room": {
+      "fcu_device_ids": ["ac_FCU-3-12", "ac_FCU-3-13"],
+      "iaq_device_ids": []
+    },
+    "Floor 3: Entrance Area": {
+      "fcu_device_ids": ["ac_FCU-3-15"],
+      "iaq_device_ids": []
+    },
+    "Floor 4: Phone Room": {
+      "fcu_device_ids": ["ac_FCU-4-09"],
+      "iaq_device_ids": []
+    },
+    "Floor 4: Office 4A and Office 4C": {
+      "fcu_device_ids": ["ac_FCU-4-01", "ac_FCU-4-02", "ac_FCU-4-03", "ac_FCU-4-04", "ac_FCU-4-05", "ac_FCU-4-06", "ac_FCU-4-07", "ac_FCU-4-08", "ac_FCU-4-14"],
+      "iaq_device_ids": ["IAQ_3"]
+    },
+    "Floor 4: Office 4B": {
+      "fcu_device_ids": ["ac_FCU-4-12", "ac_FCU-4-13"],
+      "iaq_device_ids": []
+    },
+    "Floor 4: Office 4D": {
+      "fcu_device_ids": ["ac_FCU-4-10"],
+      "iaq_device_ids": []
+    },
+    "Floor 4: Office 4E": {
+      "fcu_device_ids": ["ac_FCU-4-11"],
+      "iaq_device_ids": []
+    },
+    "Floor 4: Entrance Area": {
+      "fcu_device_ids": ["ac_FCU-4-15"],
+      "iaq_device_ids": []
+    },
+    "Floor 5: Phone Room": {
+      "fcu_device_ids": ["ac_FCU-5-09"],
+      "iaq_device_ids": []
+    },
+    "Floor 5: Office 5A and Office 5C": {
+      "fcu_device_ids": ["ac_FCU-5-01", "ac_FCU-5-02", "ac_FCU-5-03", "ac_FCU-5-04", "ac_FCU-5-05", "ac_FCU-5-06", "ac_FCU-5-07", "ac_FCU-5-08", "ac_FCU-5-15"],
+      "iaq_device_ids": ["IAQ_4"]
+    },
+    "Floor 5: Office 5B": {
+      "fcu_device_ids": ["ac_FCU-5-12", "ac_FCU-5-13"],
+      "iaq_device_ids": []
+    },
+    "Floor 5: Office 5D": {
+      "fcu_device_ids": ["ac_FCU-5-10"],
+      "iaq_device_ids": []
+    },
+    "Floor 5: Office 5E": {
+      "fcu_device_ids": ["ac_FCU-5-11"],
+      "iaq_device_ids": []
+    },
+    "Floor 5: Entrance Area": {
+      "fcu_device_ids": ["ac_FCU-5-15"],
+      "iaq_device_ids": []
+    }
+  }
+}

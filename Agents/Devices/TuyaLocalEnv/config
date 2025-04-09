@@ -1,0 +1,25 @@
+{
+  "agent_name": "tuya_air_quality_debug",
+  "sampling_rate": 60,
+  "topic": "",
+  "devices": {
+    "eb7ca712c672610d99z8bw": [
+      "tuya_aq", "192.168.111.111", "3b42415cfcded00d"
+    ],
+    "eba1f8ea2aebc71603y9ro": [
+      "tuya_aq", "192.168.111.115", "7c0e72d44baf457e"
+    ],
+    "ebacee8a441fba9d05xx84": [
+      "tuya_aq", "192.168.111.113", "b43053e241a37e01"
+    ],
+    "ebd57f4fd41b31dd1fdd7o": [
+      "tuya_aq", "192.168.111.110", "f5df56057f97c507"
+    ],
+    "ebd82875334b345a7ayn6n": [
+      "tuya_aq", "192.168.111.112", "8c2fc8b5e842cb4c"
+    ],
+    "ebda07d30ee6be7c13zbbd": [
+      "tuya_aq", "192.168.111.114", "aafee26552b39cba"
+    ]
+  }
+}

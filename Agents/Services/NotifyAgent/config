@@ -1,0 +1,15 @@
+{
+    "agent_name": "notifyapi",
+    "topic": "",
+    "sampling_rate": 60,
+    "devices": [
+        {
+            "notify_id": "line_001",
+            "type": "LineNotify",
+            "rest_url_login": "https://altohospitaliotbackend.azurewebsites.net/api/v2.0/login",
+            "rest_url": "https://altohospitaliotbackend.azurewebsites.net/api/v2.0/line_notification",
+            "username": "sfhadmin",
+            "password": "sfhadmin"
+        }
+    ]
+}

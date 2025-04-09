@@ -1,0 +1,27 @@
+{
+  "agent_name": "tuyablinds",
+  "sampling_rate": 15,
+  "topic": "",
+  "devices": {
+    "00660024a4e57c13f74b": ["tuyablinds", "192.168.111.82", "f3288f2e4d65eb3d"],
+    "00660024a4e57c9651ed": ["tuyablinds", "192.168.111.58", "5123123f88a3860a"],
+    "00660024a4e57c9651f6": ["tuyablinds", "192.168.111.46", "ab42ae459f04f95b"],
+    "00660024a4e57c965350": ["tuyablinds", "192.168.111.59", "bf7370683a0f63c0"],
+    "00660024a4e57c967b25": ["tuyablinds", "192.168.111.57", "f35abb36b6d125e3"],
+    "00660024a4e57c968515": ["tuyablinds", "192.168.111.48", "34ec1d2875af1496"],
+    "11531080d8f15b12e1c8": ["tuyablinds", "192.168.111.50", "89028b02c31beecc"],
+    "11531080d8f15b12eac5": ["tuyablinds", "192.168.111.55", "483e5262321f2acb"],
+    "11531080d8f15b1386b8": ["tuyablinds", "192.168.111.52", "f3c5e560d1310f9b"],
+    "36100710bcff4d4e673b": ["tuyablinds", "192.168.111.53", "4fc3543be5269d5a"],
+    "36100710bcff4d4e689e": ["tuyablinds", "192.168.111.51", "765183c8eb167ad1"],
+    "36100710bcff4d4e6975": ["tuyablinds", "192.168.111.63", "f52a14eaf6f8cfca"],
+    "36100710bcff4d4e6b95": ["tuyablinds", "192.168.111.64", "b08fffb9a4c958bc"],
+    "36100710bcff4d4e8fcb": ["tuyablinds", "192.168.111.61", "1031dcb652da6edf"],
+    "36100710bcff4d4edb88": ["tuyablinds", "192.168.111.54", "72ac46c3ae09e04a"],
+    "36100710bcff4d4f8ddf": ["tuyablinds", "192.168.111.65", "3da765052e0a9037"],
+    "36100710bcff4d4fcae3": ["tuyablinds", "192.168.111.56", "cd1cac6ee4290965"],
+    "36100710bcff4d4fd36a": ["tuyablinds", "192.168.111.47", "742554273a1f2120"],
+    "36100710bcff4d4ff2fa": ["tuyablinds", "192.168.111.62", "8475590958a47545"],
+    "36100710bcff4d4ffb64": ["tuyablinds", "192.168.111.60", "6a610895e6495bbc"]
+  }
+}

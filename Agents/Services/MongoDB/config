@@ -1,0 +1,7 @@
+mongodb:
+    host: localhost
+    port: 27017
+    db_name: realtime_data
+    config:
+      today_data:
+        plant: [power, cooling_rate]

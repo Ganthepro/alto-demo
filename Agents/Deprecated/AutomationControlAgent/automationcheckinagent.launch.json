@@ -1,0 +1,8 @@
+{
+    "agent": {
+        "exec": "automationagent-0.1-py2.7.egg --config \"%c\" --sub \"%s\" --pub \"%p\""
+    },
+    "agentid": "automation_22",
+    "automation_id": "30",
+    "message": "hello from automation agent"
+}

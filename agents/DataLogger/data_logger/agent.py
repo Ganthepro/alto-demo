@@ -35,12 +35,14 @@ def data_logger(config_path, **kwargs):
 
     if not config:
         _log.info("Using Agent defaults for starting configuration.")
+    
+    _log.info(f"YAML Config: {config}")
 
-    username = config.get('username', "")
-    host = config.get('host', "")
-    database = config.get('database', "")
-    password = config.get('password', "")
-    topic = config.get('topic', [])
+    # username = config.get('username', "")
+    # host = config.get('host', "")
+    # database = config.get('database', "")
+    # password = config.get('password', "")
+    # topic = config.get('topic', [])
 
     conn = psycopg2.connect(
         host=host,

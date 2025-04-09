@@ -1,0 +1,10 @@
+{
+  "all_config": {
+  	"IS_WATCHER_CHECK": false,
+  	"MARK": "BETA_VM",
+  	"CONNECTION_STRING": "HostName=prodbetaiothub.azure-devices.net;DeviceId=pcbetatowercontrol;SharedAccessKey=thJqzFGrFeAYZ1q34serm2d+l+d9chNiQKINWI12rAs=",
+  	"LINE_NOTI_TOPIC": "line_notify/line_notify_subiot/line_mintel/command",
+  	"LINE_STARTED_MSG": "BETA_VM: subiot started",
+  	"LINE_RECONNECTED_MSG": "BETA_VM: subiot re-connected"
+  }
+}

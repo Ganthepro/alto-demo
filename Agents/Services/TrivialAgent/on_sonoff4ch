@@ -1,0 +1,11 @@
+# handle_{mtype}_{schema}
+{
+    "command": {
+        "header": "command", # mtype
+        "topic": "switch/tasmota/tasmota_2E6B3E/command", # schema/agent_iden/device_id/func
+        "payload": {
+            "subdevice_idx": 0, # can be 'all'
+            "state": "on"
+        }
+    }
+}

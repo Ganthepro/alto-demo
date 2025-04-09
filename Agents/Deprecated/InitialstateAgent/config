@@ -1,0 +1,8 @@
+{
+  # VOLTTRON config files are JSON with support for python style comments
+  "topics": {"devices": [ "sensor_" ]},
+  "gatewayid": "Naplab",
+  "BUCKET_NAME": "Naplab",   # InitialState config
+  "BUCKET_KEY": "V5K78AHFA5R8",
+  "ACCESS_KEY": "ist_Dlq32BHamHLg-7TZli1Elrgpc8ZFNAaV"
+}

@@ -1,0 +1,74 @@
+{
+  "agent_name": "modbus_vsd_pump",
+  "sampling_rate": 5,
+  "configured_devices": {
+    "/dev/ttyS6": [
+      {
+        "device_id": "3152804070",
+        "device_type": "vsd_ach550",
+        "unit_id": 11,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3152700045",
+        "device_type": "vsd_ach550",
+        "unit_id": 12,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3144104818",
+        "device_type": "vsd_ach550",
+        "unit_id": 25,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3070400150",
+        "device_type": "vsd_ach550",
+        "unit_id": 26,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3070400227",
+        "device_type": "vsd_ach550",
+        "unit_id": 27,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3071600193",
+        "device_type": "vsd_ach550",
+        "unit_id": 28,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3065000645",
+        "device_type": "vsd_ach550",
+        "unit_id": 29,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3113405566",
+        "device_type": "vsd_ach550",
+        "unit_id": 30,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3113405563",
+        "device_type": "vsd_ach550",
+        "unit_id": 31,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3113405565",
+        "device_type": "vsd_ach550",
+        "unit_id": 32,
+        "number_subdevice": 1
+      },
+      {
+        "device_id": "3112705537",
+        "device_type": "vsd_ach550",
+        "unit_id": 33,
+        "number_subdevice": 1
+      }
+    ]
+  }
+}

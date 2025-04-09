@@ -1,0 +1,35 @@
+{
+  "agent_name": "rl_action",
+  "rl_cron": "*/10 * * * *",
+  "underground_interval": 240,
+  "ahu_interval": 180,
+  "firebase_config": [
+    "AIzaSyDjphOeX-zUJHvSAaoo3j1M5moba5ABSxE",
+    "altobuildings.firebaseapp.com",
+    "https://altobuildings-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "altobuildings.appspot.com"
+  ],
+  "in_out_agent": {
+    "in": {
+      "netatmo": "netatmo_none",
+      "modbus_meter": "modbus",
+      "tuya_env": "tuya_temp_humid",
+      "tuya_aq": "tuya_air_quality",
+      "hvac": "bac0hvac"
+    },
+    "out": {
+      "ac_out_1": "bac0hvac",
+      "ahu_out_1": "tasmota"
+    }
+  },
+  "data_stores": {
+  },
+  "derived_datas": {
+  },
+  "manipulations": {
+  },
+  "rls": {
+  },
+  "output_devices": {
+  }
+}

@@ -1,0 +1,71 @@
+{
+    "agent_name": "tuya_plug",
+    "topic": "",
+    "sampling_rate": 60,
+    "tuya_credential":{
+                        "client_id":"pddxg9hrax4gvxdj5r8i",
+                        "client_secret":"2b62d5b167eb4ff18624bda2895a09c0"
+                    },
+    "devices": {
+        "eb5792a838fd0428c7snah": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 1"
+        ],
+        "eb4a698d60ab6777afeajg": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 2"
+        ],
+        "eb1f3d90ef0528cf55jxvs": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 3"
+        ],
+        "ebef20ed860804c91bzkrt": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 4"
+        ],
+        "eb6d44e526542c56afioa8": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 5"
+        ],
+        "eb70d489b5120a4e0fyq1f": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 6"
+        ],
+        "eb90f772b7d4419c3cnfhg": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 7"
+        ],
+        "eba388bb0df5f1dacfxcia": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 8"
+        ],
+        "eb84dea937f6fd023b6ggj": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 9"
+        ],
+        "eb470cfb318708bb6a9oqy": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 10"
+        ],
+        "ebc358f5233a35652dbg7t": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 11"
+        ],
+        "eb3ff9615af9e7a036zmwf": [
+            "tuya_elec_plug",
+            1,
+            "Smart Plug 12"
+        ]
+    }
+}

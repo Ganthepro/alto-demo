@@ -1,0 +1,20 @@
+{
+    "agent_name": "custom_action",
+    "custom_actions": [],
+    "reserve_notify_time": 2,
+    "reserve_expire_time": 3,
+    
+    "postgres_user": "altotech@altopostgres",
+    "postgres_password": "Magicalmint636",
+    "postgres_host": "altopostgres.postgres.database.azure.com",
+    "postgres_port": "5432",
+    "postgres_database": "postgres",
+
+    "altobackend": {
+        "rest_url_login": "https://altoiotbackend.azurewebsites.net/api/v2.0/login",
+        "rest_url_notify": "https://altoiotbackend.azurewebsites.net/api/v2.0/reservebattery",
+        "rest_url_expire": "https://altoiotbackend.azurewebsites.net/api/v2.0/reservebattery",
+        "username": "betaadmin",
+        "password": "betaadmin"
+    }
+}

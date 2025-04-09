@@ -1,0 +1,9 @@
+{
+  "topics": ["sensor/raw_niagara"],
+  "kafka": {
+    "bootstrap_servers": "127.0.0.1:9094",
+    "client_id": "kafka-agent",
+    "batch_size": 100,
+    "retries": 5
+  }
+}

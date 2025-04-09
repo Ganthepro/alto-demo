@@ -1,0 +1,28 @@
+#################################
+
+stable-baselines3==1.2.0
+
+เพิ่มโค้ดด้านลงเข้าไปใน lib เลยที่บรรทัด 337 ใน path ตามในรูปเลยครับ 
+........./load_model/venv/lib/python3.9/site-packages/stable_baselines3/common/policies.py
+
+actions = self.action_space.low + (actions + 1.) * 0.5 * (self.action_space.high - self.action_space.low)
+
+#################################
+
+
+##################################
+
+stable-baselines3==1.3.0
+
+เพิ่มบรรทัด 346
+
+........./load_model/venv/lib/python3.9/site-packages/stable_baselines3/common/policies.py
+
+actions = self.action_space.low + (actions + 1.) * 0.5 * (self.action_space.high - self.action_space.low)
+
+##################################
+
+
+#############################
+#for PMV
+pip install pythermalcomfort==2.1.1

@@ -19,6 +19,7 @@ then
     echo "Container already initialized, skipping setup-platform.py"
 else
     echo "Initializing container. Running setup-platform.py to setup the Volttron platform for the first and only time for this container..."
+    pip3 install -r /requirements.txt
     python3 /startup/setup-platform.py
     setup_return=$?
     if [[ $setup_return -ne 0 ]]; then
@@ -38,3 +39,6 @@ if [[ $volttron_retcode ]]; then
   echo "volttron error"
   exit $volttron_retcode
 fi
+
+# echo "Installing agents..."
+# python3 /startup/install_agents.py --site_id=cp9 --site_config_dir=/site_configs

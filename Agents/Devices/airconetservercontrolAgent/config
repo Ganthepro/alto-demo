@@ -1,0 +1,12 @@
+{
+    # VOLTTRON config files are JSON with support for python style comments.
+    "model": "ir",
+    "airtype": "AC",
+    "api": "classAPI_airconet",
+    "agent_id": "cc:50:e3:3b:11:ad",
+    "station_info":{"hotel": "syn",
+                    "building": "syn",   #add room from devices_state
+                    "type": "airconet"},
+    "devices_state": {}
+
+}

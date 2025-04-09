@@ -109,3 +109,6 @@ ENV/
 
 # pycharm idea
 .idea/
+
+configs/
+site_configs/

@@ -38,10 +38,32 @@ chown volttron.volttron -R ${VOLTTRON_USER_HOME}
 
 
 if [[ $# -lt 1 ]]; then
-  echo "Please provide a command to run (e.g. /bin/bash, volttron -vv)";
-  exit 1;
+    echo "Please provide a command to run (e.g. /bin/bash, volttron -vv)";
+    exit 1;
 else
-  echo "now Executing $@";
-  #chroot --userspec volttron ${VOLTTRON_ROOT} "$@";
-  exec gosu volttron "$@";
+    ALTO_OS_LIB_PATH="${VOLTTRON_HOME}/libraries"
+    echo "now Executing $@";
+    #chroot --userspec volttron ${VOLTTRON_ROOT} "$@";
+    cd $ALTO_OS_LIB_PATH/altolib
+    echo "Installing altolib..."
+    python3 setup.py install
+
+    # altoutils
+    cd $ALTO_OS_LIB_PATH/altoutils
+    echo "Installing altoutils..."
+    python3 setup.py install
+
+    # irgen
+    cd $ALTO_OS_LIB_PATH/irgen
+    echo "Installing irgen..."
+    python3 setup.py install
+
+    # python-broadlink
+    cd $ALTO_OS_LIB_PATH/python-broadlink
+    echo "Installing python-broadlink..."
+    python3 setup.py install
+
+    # chmod -R 777 /usr/local/lib
+
+    exec gosu volttron "$@";
 fi

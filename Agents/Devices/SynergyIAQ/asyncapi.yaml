@@ -1,0 +1,177 @@
+asyncapi: '2.5.0'
+info:
+  title: Synergy MQTT and Agents API
+  version: '1.0.0'
+  description: |
+    This is an AsyncAPI for subscribe data from Synergy's IAQ sensor from MQTT
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  mosquitto:
+    url: 172.16.7.242:1883
+    protocol: mqtt
+    description: MQTT broker on Virtual Machine
+
+defaultContentType: application/json
+
+channels:
+  syntech/iaq/{mac_address}/data:
+    description: The topic which measured indoor environmental parameter
+    parameters:
+      mac_address:
+        $ref: '#/components/parameters/mac_address'
+    subscribe:
+      summary: Inform about data of environment from MQTT
+      message:
+        $ref: '#/components/messages/SynergyEnvironmentMeasured'
+  sensor/mqtt_iaq/{device_id}/event:
+    description: The topic which publish to another agent to use data from environment parameters
+    parameters:
+      device_id:
+        $ref: '#/components/parameters/device_id'
+    publish:
+      summary: Inform about data of environment that run in messaage bus
+      message:
+        $ref: '#/components/messages/VolttronEnvironmentMessages'
+
+
+components:
+  messages:
+    SynergyEnvironmentMeasured:
+      name: EnvironmentMeasured
+      title: IAQ Environment Measured
+      summary: Inform about environmental condition indoor of Synergy IAQ sensor
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SynergyIAQPayload'
+    VolttronEnvironmentMessages:
+      name: EnvironmentMessage
+      title: Environment Message
+      summary: Inform about message of environment that run in message bus
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/VolttronEnvPayload'
+
+  schemas:
+    SynergyIAQPayload:
+      type: object
+      properties:
+        temperature:
+          type: number
+          minimum: 0.0
+          description: Temperature indoor in celcius.
+          example: 24.5
+        humidity:
+          type: integer
+          minimum: 0
+          description: Humidity indoor in percent of reletive humidity
+          example: 50
+        dewpoint:
+          type: number
+          minimum: 0.0
+          description: dewpoint in celcius.
+          example: 19.2
+        PM2.5:
+          type: integer
+          minimum: 0
+          description: PM 2.5 in ug/sq.m
+          example: 25
+        PM10:
+          type: integer
+          minimum: 0
+          description: PM 10 in ug/sq.m
+          example: 56
+        CO2:
+          type: integer
+          minimum: 0
+          description: CO2 in ppm
+          example: 500
+        VOCIndex:
+          type: integer
+          minimum: 0
+          description: VOC Index
+          example: 1
+    VolttronEnvPayload:
+      type: object
+      properties:
+        device_id:
+          type: string
+          description: Device ID of a device
+          example: 30:AE:A4:07:0D:64
+        subdevice_idx:
+          type: integer
+          description: Subdevice Index of a device
+          example: 0
+        subdevice_name:
+          type: string
+          description: Subdevice name of a device
+          example: "subdev_0"
+        type:
+          type: string
+          description: type of device's data
+          example: environment
+        temperature:
+          type: number
+          minimum: 0.0
+          description: Temperature indoor in celcius.
+          example: 24.5
+        humidity:
+          type: integer
+          minimum: 0
+          description: Humidity indoor in percent of reletive humidity
+          example: 50
+        dewpoint:
+          type: number
+          minimum: 0.0
+          description: dewpoint in celcius.
+          example: 19.2
+        pm25:
+          type: integer
+          minimum: 0
+          description: PM 2.5 in ug/sq.m
+          example: 25
+        pm10:
+          type: integer
+          minimum: 0
+          description: PM 10 in ug/sq.m
+          example: 56
+        co2:
+          type: integer
+          minimum: 0
+          description: CO2 in ppm
+          example: 500
+        voc_index:
+          type: integer
+          minimum: 0
+          description: VOC Index
+          example: 1
+        timestamp:
+          $ref: '#/components/schemas/timestamp'
+        unix_timestamp:
+          $ref: '#/components/schemas/unix_timestamp'
+    timestamp:
+      type: string
+      format: date-time
+      description: Date and time when messsage was sent.
+      example: "2023-01-31T11:55:54.375307+00:00"
+    unix_timestamp:
+      type: string
+      format: timestamp
+      description: unix timestamp
+      example: 1675140941
+
+  parameters:
+    mac_address:
+      description: MAC Adress of IAQ sensor, Example 30:AE:A4:07:0D:64
+      schema:
+        type: string
+    device_id:
+      description: Device ID of devices, Example 30:ae:a4:07:0d:64
+      schema:
+        type: string
+    agent_id:
+      description: Agent ID/Tag, Example
+      schema:
+        type: string

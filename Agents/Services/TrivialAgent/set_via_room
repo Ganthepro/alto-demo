@@ -1,0 +1,16 @@
+{
+  "command": {
+    "header": "command",
+    "topic": "location/daikin_building/solutionplaza/FCU-1-04",
+    "payload": {
+        "temperature": 25,
+        "mode": "off",
+        "fan": "low",
+        "louver": "swing",
+        "filter": "inactive",
+        "lock": {
+            "all": false
+        }
+    }
+  }
+}

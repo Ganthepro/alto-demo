@@ -1,0 +1,10 @@
+{
+    "command": {
+        "header": "command",
+        "topic": "switch/tuya_switch/eb22c9079c51d34423vj5w/command",
+        "payload": {
+            "subdevice_idx": 0,
+            "state": "off"
+        }
+    }
+}

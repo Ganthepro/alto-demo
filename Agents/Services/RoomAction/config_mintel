@@ -1,0 +1,15 @@
+{
+  "agent_name": "action_room",
+  "room_prop": {
+    "ac_on_time_allow": 240,
+    "room_prefix": "room_",
+    "ac_prefix": "ac_"
+  },
+  "altobackend": {
+    "rest_url_login": "https://altoiotbackendprod.azurewebsites.net/api/v2.0/login",
+    "rest_url_notify": "https://altoiotbackendprod.azurewebsites.net/api/v2.0/push_to_line",
+    "username": "minteladmin",
+    "password": "minteladmin"
+  },
+  "room_fan_maps": {"203": "tasmota_B31C99", "201": "tasmota_B2DF58", "204": "tasmota_711685", "202": "tasmota_B2DD76", "205": "tasmota_B370BE", "206": "tasmota_A963D4", "207": "tasmota_ABCC8B", "208": "tasmota_A61A7D", "209": "tasmota_B2DF9B", "210": "tasmota_ABC93D", "211": "tasmota_B2D891", "212": "tasmota_AC2470", "214": "tasmota_A9613D", "215": "tasmota_A61A79", "216": "tasmota_ABD27A", "301": "tasmota_B3AC25", "302": "tasmota_B37423", "303": "tasmota_711655", "304": "tasmota_A95B70", "305": "tasmota_B31D0B", "306": "tasmota_B31D49", "307": "tasmota_A96056", "308": "tasmota_B31CFC", "309": "tasmota_71168C", "310": "tasmota_73E293", "311": "tasmota_A96294", "312": "tasmota_711C12", "314": "tasmota_B31CD2", "315": "tasmota_711D39", "316": "tasmota_73E52A", "401": "tasmota_7116A6", "402": "tasmota_711693", "403": "tasmota_B2D340", "404": "tasmota_711698", "405": "tasmota_B31CF8", "406": "tasmota_B31D34", "407": "tasmota_B3774B", "408": "tasmota_7131E6", "409": "tasmota_7116AB", "410": "tasmota_B31D3E", "411": "tasmota_B3AB7F", "412": "tasmota_73DDE5", "414": "tasmota_711CDB", "415": "tasmota_ABD25E", "416": "tasmota_ABC910", "501": "tasmota_B2DC58", "502": "tasmota_711695", "503": "tasmota_711659", "504": "tasmota_ABC9E8", "505": "tasmota_A9A444", "506": "tasmota_AC2341", "507": "tasmota_AC20A6", "508": "tasmota_B370B1", "509": "tasmota_73DDD6", "510": "tasmota_ABCA99", "511": "tasmota_ABC84F", "512": "tasmota_ABCB6C", "514": "tasmota_711694", "515": "tasmota_AC209F", "516": "tasmota_B31CFB", "601": "tasmota_ABD315", "602": "tasmota_ABC7EA", "603": "tasmota_B372F1", "604": "tasmota_A95FDF", "605": "tasmota_ABD2A9", "606": "tasmota_AB7533", "607": "tasmota_B370C9", "608": "tasmota_B31CD0", "609": "tasmota_ABC851", "610": "tasmota_B31CE5", "611": "tasmota_B31CCC", "612": "tasmota_B31D05", "614": "tasmota_B3ABFC", "615": "tasmota_B31CF4", "616": "tasmota_B2D911"}
+}

@@ -1,0 +1,25 @@
+{
+  "agent_name": "lorawan_env",
+  "topic": "",
+  "status_interval": "*/10 * * * *",
+  "offline_period": 1200,
+  "mqtt_config": {
+    "host": "10.10.40.233",
+    "port": 1883,
+    "username": "",
+    "password": "",
+    "topics": [
+      "test/#"
+    ]
+  },
+  "devices": {
+    "24e124136c379208": {
+      "device_type": "em300",
+      "number_subdevice": 1
+    },
+    "24e124725c140102": {
+      "device_type": "am107",
+      "number_subdevice": 1
+    }
+  }
+}

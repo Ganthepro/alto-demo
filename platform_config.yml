@@ -1,41 +1,35 @@
-# Properties to be added to the root config file
-# the properties should be ingestible for volttron
-# the values will be presented in the config file
-# as key=value
-config:
-  vip-address: tcp://0.0.0.0:22916
-  # For rabbitmq this should match the hostname specified in
-  # in the docker compose file hostname field for the service.
-  bind-web-address: https://0.0.0.0:8443
-  volttron-central-address: https://0.0.0.0:8443
-  instance-name: volttron1
-  message-bus: zmq # allowed values: zmq, rmq
-  # volttron-central-serverkey: a different key
-
-# Agents dictionary to install. The key must be a valid
-# identity for the agent to be installed correctly.
 agents:
-  ac:
-    source: $VOLTTRON_ROOT/agents/AC
-    config: $CONFIG/ac.config
-    tag: ac
-
-  data_logger:
-    source: $VOLTTRON_ROOT/agents/DataLogger
-    config: $CONFIG/data_logger.config
-    tag: data_logger
-
-  rest:
-    source: $VOLTTRON_ROOT/agents/REST
-    config: $CONFIG/rest.config
-    tag: rest
-
-  lifebeing:
-    source: $VOLTTRON_ROOT/agents/Lifebeing
-    config: $CONFIG/lifebeing.config
-    tag: lifebeing
-
-  iaq:
-    source: $VOLTTRON_ROOT/agents/IAQ
-    config: $CONFIG/iaq.config
-    tag: iaq
+  bacnet:
+    config: $VOLTTRON_ROOT/site_configs/cp9.yaml
+    source: $VOLTTRON_ROOT/Agents/Devices/BACnet
+    tag: bacnet
+  dataintegrity:
+    config: $VOLTTRON_ROOT/site_configs/cp9.yaml
+    source: $VOLTTRON_ROOT/Agents/Services/DataIntegrity
+    tag: dataintegrity
+  gatewaystatus:
+    config: $VOLTTRON_ROOT/site_configs/cp9.yaml
+    source: $VOLTTRON_ROOT/Agents/Services/GatewayStatus
+    tag: gatewaystatus
+  mongodb:
+    config: $VOLTTRON_ROOT/site_configs/cp9.yaml
+    source: $VOLTTRON_ROOT/Agents/Services/MongoDB
+    tag: mongodb
+  platform_agent:
+    config: $VOLTTRON_ROOT/site_configs/cp9.yaml
+    source: $VOLTTRON_ROOT/Agents/Platforms/PlatformAgent
+    tag: platform_agent
+  timescaledb:
+    config: $VOLTTRON_ROOT/site_configs/cp9.yaml
+    source: $VOLTTRON_ROOT/Agents/Services/TimescaleDB
+    tag: timescaledb
+  weathertmd:
+    config: $VOLTTRON_ROOT/site_configs/cp9.yaml
+    source: $VOLTTRON_ROOT/Agents/Services/WeatherTMD
+    tag: weathertmd
+config:
+  bind-web-address: https://0.0.0.0:8443
+  instance-name: volttron1
+  message-bus: zmq
+  vip-address: tcp://0.0.0.0:22916
+  volttron-central-address: https://0.0.0.0:8443
