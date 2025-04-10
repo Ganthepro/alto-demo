@@ -4,7 +4,10 @@ services:
   volttron1:
     container_name: volttron1
     hostname: volttron1
-    image: eclipsevolttron/volttron:develop
+    # image: eclipsevolttron/volttron:develop
+    build: 
+      context: .
+      dockerfile: Dockerfile
     ports:
       # host_port:container_port
       # http port for volttron central

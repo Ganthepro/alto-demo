@@ -81,6 +81,8 @@ class Iaq(Agent):
         except ValueError as e:
             _log.error("ERROR PROCESSING CONFIGURATION: {}".format(e))
             return
+        
+        _log.info(f"Configuring Agent with time: {time}, topic: {topic}, data: {data}")
 
         self.time = time
         self.topic = topic
